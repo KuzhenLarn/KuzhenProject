@@ -1,2 +1,3 @@
 # KuzhenProject
-ош
+[ош
+](https://kuzhenlarn.github.io/KuzhenProject/index.html)
