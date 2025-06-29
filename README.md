@@ -1,3 +1,2 @@
 # KuzhenProject
-[ош
-](https://kuzhenlarn.github.io/KuzhenProject/index.html)
+[Сайт тут](https://kuzhenlarn.github.io/KuzhenProject/index.html)
