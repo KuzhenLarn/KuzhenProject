@@ -1,0 +1,110 @@
+body{
+    background-image: url(img/BGLoop.png);
+    background-size: 10%;
+}
+.osnova_div{
+    width: 70%;
+    height: 10000px;
+    border: 0px solid white;
+    background-color: rgba(255, 124, 0, 0.4);
+    border-radius: 20px;
+    margin: 100px auto 0px auto;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Standart';
+    
+}
+
+
+
+
+.title_div{
+    position: fixed;
+    top: 10px;
+    left: 0px;
+    width: 190px;
+    height: 110px;
+    background: linear-gradient(29deg, rgb(184, 18, 18) 0%, rgb(196, 178, 18) 100%);
+    transition-duration: 0.4s;
+    border-radius: 0 40px 40px 0;
+}
+.title_div:hover{
+    cursor: pointer;
+    filter: saturate(2);
+}
+
+.title_flash_button{
+    display: inline-block;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(29deg, rgb(255, 145, 0) 0%, rgb(255, 230, 0) 100%);
+    transition-duration: 0.4s;
+    border-radius: 10px;
+}
+
+.title_flash_button:hover{
+    cursor: pointer;
+    filter: saturate(10);
+}
+
+.title_content{
+    position: fixed;
+    left: 190px;
+    top: 40px;
+}
+
+#menu{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    display: none;
+}
+
+
+
+@font-face {
+    font-family: "Standart";
+    src: url(font/BsbTextClassic.ttf);
+}
+@font-face {
+    font-family: "Dmini";
+    src: url(font/DeinopFullUkraine.ttf);
+}
+@font-face {
+    font-family: "GondoClickers";
+    src: url(font/DoubleFeature.ttf);
+}
+
+#game_block{ /*Блок для візуалізації гри*/
+    width: 500px;
+    background-color: black;
+    background-size: 100%;
+    background-position: center;
+    margin: 10px;
+    display: inline-block;
+    transition-duration: 1s;
+}
+#game_block:hover{
+    font-family:"Standart";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
