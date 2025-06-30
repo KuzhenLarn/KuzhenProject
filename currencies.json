@@ -1,32 +1,32 @@
 {
   "uah": {
-    "name": "Гривня",
+    "name": "Гривня (Україна)",
     "rateToUAH": 1,
     "color": "#4CAF50"
   },
   "klolaar": {
-    "name": "Клолар",
+    "name": "Клолар (КЛЛізаційна єдина валюта)",
     "rateToUAH": 0.0005,
-    "color": "#FFC107"
+    "color": "#ff8700"
   },
   "klara": {
-    "name": "Клара",
+    "name": "Клара (Клізія)",
     "rateToUAH": 0.5,
-    "color": "#2196F3"
+    "color": "#fffb00"
   },
   "klina": {
-    "name": "Кліна",
+    "name": "Кліна (Кламб)",
     "rateToUAH": 2500,
-    "color": "#9C27B0"
+    "color": "#4ca0ff"
   },
   "klifa": {
-    "name": "Кліфа",
+    "name": "Кліфа (Ізмаїльска особлива валюта)",
     "rateToUAH": 0.0000005,
-    "color": "#F44336"
+    "color": "#00b9ff"
   },
   "fina": {
-    "name": "Фіна",
+    "name": "Фіна (Хінтра)",
     "rateToUAH": 12,
-    "color": "#FF9800"
+    "color": "#ff00d1"
   }
 }
