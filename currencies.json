@@ -4,8 +4,8 @@
     "rateToUAH": 1,
     "color": "#4CAF50"
   },
-  "klolaar": {
-    "name": "Клолар (КЛЛізаційна єдина валюта)",
+  "lor": {
+    "name": "Лор (КЛЛізаційна єдина валюта)",
     "rateToUAH": 0.0005,
     "color": "#ff8700"
   },
@@ -31,7 +31,57 @@
   },
   "rupi": {
     "name": "Рупі (Рутра)",
-    "rateToUAH": 63,
-    "color": "#DCFF44"
-    }
+    "rateToUAH": 3,
+    "color": "#00ffbb"
+  },
+  "gifton": {
+    "name": "Ґіфтон (Лапра)",
+    "rateToUAH": 0.23,
+    "color": "#49d950"
+  },
+  "shofia": {
+    "name": "Шофія (Шофта)",
+    "rateToUAH": 0.087,
+    "color": "#b643c6"
+  },
+  "vira": {
+    "name": "Віра (Венра)",
+    "rateToUAH": 74,
+    "color": "#5bbede"
+  },
+  "manki": {
+    "name": "Манкі (Республіка Островного Союза 'Манка')",
+    "rateToUAH": 0.52,
+    "color": "#8b862c"
+  },
+  "drini": {
+    "name": "Дріни (Друзька Єдна Валюта)",
+    "rateToUAH": 43.18,
+    "color": "#7d3b24"
+  },
+  "gila": {
+    "name": "Гіла (Павгор)",
+    "rateToUAH": 0.78,
+    "color": "#70af41"
+  },
+  "elfa": {
+    "name": "Елфа (Еверна)",
+    "rateToUAH": 0.29,
+    "color": "#ff007b"
+  },
+  "nilia": {
+    "name": "Нілія (Нинька)",
+    "rateToUAH": 23.09,
+    "color": "#e8440b"
+  },
+  "huria": {
+    "name": "Хурія (Пвячське Королівство)",
+    "rateToUAH": 0.01,
+    "color": "#e469a4"
+  },
+  "taria": {
+    "name": "Тарія (Таченська Федерація)",
+    "rateToUAH": 1.83,
+    "color": "#43c6a9"
+  }
 }
