@@ -28,5 +28,10 @@
     "name": "Фіна (Хінтра)",
     "rateToUAH": 12,
     "color": "#ff00d1"
-  }
+  },
+  "rupi": {
+    "name": "Рупі (Рутра)",
+    "rateToUAH": 63,
+    "color": "#DCFF44"
+    }
 }
