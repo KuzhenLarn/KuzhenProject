@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повна мапа Шофії</title>
+
+    <style>
+        body {
+            overflow: hidden;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #0008cc;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        h1 {
+            margin-top: 10px;
+            color: #ffffff;
+            font-size: 2em;
+            z-index: 100;
+        }
+
+        #map-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            cursor: grab;
+            touch-action: none;
+            z-index: 1;
+        }
+
+        #map-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5000px; /* Реальна ширина мапи */
+            height: 3000px; /* Реальна висота мапи */
+            transform-origin: 0 0;
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        .map-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #base-map {
+            background-image: url("mapShofii/1500ПВР.png");
+            z-index: 1;
+        }
+        #big-city {
+            background-image: url("mapShofii/НазваМіст.png");
+            z-index: 2;
+            display: none;
+        }
+        #region {
+            background-image: url("mapShofii/Областя.png");
+            z-index: 3;
+            display: none;
+        }
+
+        #panel {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        button {
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ffffff;
+            border: 2px solid black;
+        }
+        button:hover {
+            background-color: #343434;
+            color: #ffffff;
+            border: 2px solid rgb(255, 255, 255);
+        }
+    </style>
+
+    <script>
+        let scale = 1;
+        let posX = 0;
+        let posY = 0;
+        let isDragging = false;
+        let startX, startY;
+
+        const mapWidth = 5000;
+        const mapHeight = 3000;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapWrapper = document.getElementById('map-wrapper');
+            const mapContent = document.getElementById('map-content');
+            const h1Element = document.querySelector('h1');
+            const panelElement = document.getElementById('panel');
+
+            function applyTransform() {
+                mapContent.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
+            }
+
+            function centerMap() {
+                const wrapperWidth = mapWrapper.offsetWidth;
+                const wrapperHeight = mapWrapper.offsetHeight;
+
+                scale = Math.min(wrapperWidth / mapWidth, wrapperHeight / mapHeight);
+
+                posX = (wrapperWidth - mapWidth * scale) / 2;
+                posY = (wrapperHeight - mapHeight * scale) / 2;
+
+                applyTransform();
+            }
+
+            centerMap();
+            window.addEventListener('resize', centerMap);
+
+            mapWrapper.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const oldScale = scale;
+                const zoomFactor = 0.1;
+
+                if (e.deltaY < 0) {
+                    scale += zoomFactor;
+                } else {
+                    scale -= zoomFactor;
+                }
+
+                if (scale < 0.1) scale = 0.1;
+                if (scale > 5) scale = 5;
+
+                const rect = mapWrapper.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                posX = mouseX - (mouseX - posX) * (scale / oldScale);
+                posY = mouseY - (mouseY - posY) * (scale / oldScale);
+
+                applyTransform();
+            });
+
+            mapWrapper.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - posX;
+                startY = e.clientY - posY;
+                mapWrapper.style.cursor = 'grabbing';
+            });
+
+            mapWrapper.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                posX = e.clientX - startX;
+                posY = e.clientY - startY;
+                applyTransform();
+            });
+
+            mapWrapper.addEventListener('mouseup', () => {
+                isDragging = false;
+                mapWrapper.style.cursor = 'grab';
+            });
+
+            mapWrapper.addEventListener('mouseleave', () => {
+                isDragging = false;
+                mapWrapper.style.cursor = 'grab';
+            });
+
+            window.city = function() {
+                const bigCityLayer = document.getElementById("big-city");
+                bigCityLayer.style.display = bigCityLayer.style.display === "block" ? "none" : "block";
+            };
+
+            window.region = function() {
+                const regionLayer = document.getElementById("region");
+                regionLayer.style.display = regionLayer.style.display === "block" ? "none" : "block";
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1>Повна мапа Шофії</h1>
+
+    <div id="map-wrapper">
+        <div id="map-content">
+            <div id="base-map" class="map-layer"></div>
+            <div id="big-city" class="map-layer"></div>
+            <div id="region" class="map-layer"></div>
+        </div>
+    </div>
+
+    <div id="panel">
+        <button onclick="city()">Міста</button>
+        <button onclick="region()">Області</button>
+    </div>
+</body>
+</html>
