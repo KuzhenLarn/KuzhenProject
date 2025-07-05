@@ -16,15 +16,36 @@
             background-color: #0008cc;
             height: 100vh;
             width: 100vw;
+            font-family: "Standart";
         }
 
         h1 {
             margin-top: 10px;
             color: #ffffff;
+            transform: rotate(2deg);
             font-size: 2em;
             z-index: 100;
         }
-
+        h3 {
+            position: relative;
+            top: -42px;
+            right: -100px;
+            transform: rotate(-12deg);
+            color: #ffffff;
+            z-index: 100;
+        }
+        @font-face {
+            font-family: "Standart";
+            src: url(font/BsbTextClassic.ttf);
+        }
+        @font-face {
+            font-family: "Dmini";
+            src: url(font/DeinopFullUkraine.ttf);
+        }
+        @font-face {
+            font-family: "GondoClickers";
+            src: url(font/DoubleFeature.ttf);
+}
         #map-wrapper {
             position: fixed;
             top: 0;
@@ -60,6 +81,7 @@
         #base-map {
             background-image: url("mapShofii/1500ПВР.png");
             z-index: 1;
+            display: block;
         }
         #big-city {
             background-image: url("mapShofii/НазваМіст.png");
@@ -69,7 +91,7 @@
         #region {
             background-image: url("mapShofii/Областя.png");
             z-index: 3;
-            display: none;
+            display: block;
         }
 
         #panel {
@@ -95,7 +117,104 @@
             color: #ffffff;
             border: 2px solid rgb(255, 255, 255);
         }
+        #panel-reg{
+            display: block;
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            background-color: #00000057;
+            text-align: center;
+            padding-top: 0;
+        }
+        #list-panel-reg{
+            display: block;
+        }
+        #information-block{
+            display: none;
+            position: fixed;
+            margin: 5% 0 0 0;
+            width: 80%;
+            height: 70%;
+            border: 1px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            background-color: #000000c7;
+            z-index: 150;
+        }
+        .button-info{
+            padding: 3px 3px 3px 3px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+        .button-info:hover{
+
+            border: 1px solid black;
+        }
+        .button-x{
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            padding: 1px 1px 1px 1px;
+            margin: -1px 1px 1px 1px;
+            height: 20px;
+            width: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 10px;            
+        }
+        .button-x:hover{
+            border: 1px solid rgb(255, 255, 255);
+        }
     </style>
+    
+
+
+</head>
+<body>
+    <h1>Мапа Шофії</h1>
+    <h3>Збірка 0.1</h3>
+
+    <div id="map-wrapper">
+        <div id="map-content">
+            <div id="base-map" class="map-layer"></div>
+            <div id="big-city" class="map-layer"></div> 
+            <div id="region" class="map-layer">
+                <div id="list-panel-reg"> <!-- всі блоки для писанини -->
+                    <div calss="ds" id="panel-reg" style="top: 2370px; left: 3250px;"><p style="font-size: 10px;">Клардацька обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('klarder')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2530px; left: 2720px;"><p style="font-size: 10px;">Лардерська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('larder')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2230px; left: 2720px;"><p style="font-size: 10px;">Рітська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('rit')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2590px; left: 3090px;"><p style="font-size: 10px;">Масленська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('maslen')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2410px; left: 2870px;"><p style="font-size: 10px;">Бегонська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('begon')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2300px; left: 2940px;"><p style="font-size: 10px;">Соннська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('sona')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 1410px; left: 1070px;"><p style="font-size: 10px;">Ізмаїльська обл.</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('izmail')">інформація</button></div>
+                    <div calss="ds" id="panel-reg" style="top: 2700px; left: 3290px;"><p style="font-size: 10px;">КОО</p><hr color="white" width="70%" size="1px"><button class="button-info" onclick="info('koo')">інформація</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panel">
+        <button onclick="city()">Міста</button>
+        <button onclick="region()">Області</button>
+        <button onclick="controlepanel()">Панелі</button>
+    </div>
+
+    <div id="information-block">
+        <p id="text-reg" style="font-size: 50px;text-align: center; margin: 0 auto 0 auto;">DIMA</p>
+        <p id="text-reg-op" style="font-size: 20px;text-align: left; margin: 10px 30px 10px 30px;">DIMA</p>
+        <button class="button-x" onclick="this.parentNode.style.display = 'none';"></button>
+    </div>
+
+
+
+
+
+
+
 
     <script>
         let scale = 1;
@@ -103,9 +222,100 @@
         let posY = 0;
         let isDragging = false;
         let startX, startY;
-
         const mapWidth = 5000;
         const mapHeight = 3000;
+
+        const regionData = {
+            klarder: {
+                name: "Клардацька область",
+                description: "Клардацька область - перелічує 13 крупних міст з обласним центром Клардер який є столицею Клізії.\nЕтнічно в області проживають Клізці, Шовці, Лапринці, Таченці, Венрці, Манци, Рутрунци\n\nКлардер - це столиця Клізії зі своєю Клардацькою областю. Клардер славетний своїми історичними іфраструктурами такими як фортеця Клардац та спіральна Вія. Клардер столиця не тільки Республіки Клізії, а також є центром КЛЛізації.\n\n Клардер має більше 3 мільйонів громадян Клізії.\n\nВ перше поселення на території Клардера було в 2 столітті ДВР. Заснували його Кіліан та Дертоней два воїна з Шовтанський земель, в той період це місто входило до так називаємих пустих земель, назвали селище Кії що перекладається як Морква. Після того селище почало рости до розмірів міста та перших королів які почали правити землями, перший король був Келекс це 1 століття ДВР, він створив велику економічну ціль в торгівельному плані та він почав будувати велику фортецю Клардац. Збудувавши Клардац з інших королівств приїжджали для спільної торгівлі та з тих часів Кії перейменували на нову назву нової фортеці Клардац який правив Клардацьким королівством.\nВ часи Повної Руйнації, в Клардаці звергли останього короля Клізії та почали будувати нову владу яку почали називати Лізаційним рухом, та переназвали Клізію на Клізацію яка ні чим не відрізнялася від імперій, та під кінець 1 століття ДВР в Клардері(стара назва столиці) почалась громадянська війна де Клізація розкололась на Рітську республіку, Лардерський загін, Масленське повстання та всі ці організації билися в Клардаці. Масленське повстання перемогло та Клізацію було перейменовано на Масленську лізацію яка у свою чергу змогла об'єднати всі від'єднанні землі та відновити економіку.\nПісля ПВР Кларда була перейменована на Клардер, а Масленська лізація була перейменована на Клізівську лізацію, або просто Клізія. В цей час Клізія створила організацію для об'єднання народів і назвала її КЛЛізація"
+            },
+            larder: {
+                name: "Лардерська область",
+                description: "Лардерська область - перелічує 8 крупних міст та 2 міста на острові з обласним центром Ларн який є частиною Клізії.\nЕтнічно в області проживають Клізці, Ізмаїльці, Венрці, Манци, Рутрунци, Друзці\n\nЛардерська область єдина має свій приєднаний острів від основного континента.\n\nЛарн заснований 1 століття ДВР народом який називали себе Лардерським загіном, вони мандрували з сучасного міста Клоб(Друзія) після якого вони потерпіли поразки та не врятувавши своє королівство Лардерське. Таким чином Лардерський загін потрапивши до так називаємих пустих земель де були лиш малі села, вони захопивши владу почали будувати своє королівство яке почали тоді називати Лардерські землі, або просто Лардерський загін"
+            },
+            rit: {
+                name: "Рітська область",
+                description: "Рітська область - перелічує 15 крупних міст з обласним центром Ріт який є частиною Клізії.\nЕтнічно в області проживають Клізці, Ізмаїльці, Венрці, Манци, Рутрунци, Лапринци\n\nРіт - місто яке славиться героям які боролися за незалежність Рітської республіки. Теріторія Рітської області мають свою Рітську мову яку не корекно вважати діалектом Клізії.\n\nРіт - було так називаємим пустим містом так як жителів було мало, а селище на той час було дуже бідним. Після того як на теріторію Ріта зайшла Лардерська армія то Ріт швидко здалось так як Ріт навіть не мала своєї армії, з того часу місто Ріт було у складі Лардерського загону, але після підписом між Клардацом та Лардерським загоном то Ріт став у складі Клізівського королівства.\n В часи Клізації, Ріт змогла стати незалежною державою зохопивши місто Більта та Вайта, також військові приймали участь в розпаді Клізівської імперії.\n Після поразки та не встановивши контроль над Клардацом, Масленська еліта захотіла щоб Ріт приєдналася назад на той час до Масленської лізації, але умова в тому що Ріт повинна віддати нележність та віддати областя Більта та Вайта.\n Рітську область надали статусом автономної області, таким чином Ріт має свої закони та свою офіційно визнану мову"
+            },
+            maslen: {
+                name: "Масленська область",
+                description: "Масленська область - перелічує 13 крупних міст з обласним центром Маслен який є частиною Клізії.\nЕтнічно в області проживають Клізці, Ізмаїльці, Таченці, Венрці, Манци, Рутрунці, Шовтці\n\nМаслен - місто яке засновано було 2 століття ДВР, яке з самого початку почали називати Масленьким регіоном який простягався від селище Лаштоке(Беґонська область) до Менішарм(Масленська область). До Маслена привозили еліту з Клардаца для повного контролю цими регіонами, також Маслен був більшим містом ніж Клардац.\nВ часи Клізації Масленська еліта була обурена новою владою, тому те що в них лишалося з віськ, те й вони посилали на повстання. Після чого Масленська еліта розколола відносини між Клардацом та організувала Масленське повстання яке простягалося від Беґона до Сонна. Після того як громадянську війну Маслен переміг він встановив свою владу яка як переможці назвали всю теріторію сучасної Клізії Масленською лізацією. Якийсь період Маслен був столлицею, але це дужен короткий час тому незабаром Маслен став звичайним містом який має нагороду 'місто перемоги'."
+            },
+            begon: {
+                name: "Беґонська область",
+                description: "Беґонська область - перелічує 7 крупних міст з обласним центром Бегон який є частиною Клізії.\nЕтнічно в області проживають Клізці, Лапринці, Венрці\n\nБеґонська область знаменита тим що в нього самі гарні природні структури во всій Клізії\n\nБеґон-Бегон - місто яке було колись звичайним селищем, але після перемоги в громадянській війні з владою Клізації, Беґону створили Бґонську область та він став повноцінним обласним центром."
+            },
+            sona: {
+                name: "Сонська область",
+                description: "Сонська область - перелічує 9 крупних міст з обласним центром Сона який є частиною Клізії.\nЕтнічно в області проживають Клізці, Лапринці, Таченці, Шовтці, Рутрунци\n\nСона - історично це місто Лапринського королівства, ще посеред другого століття ДВР на Лаприське королівство напала Рутрунська імперія, та вона змогла захопити дуже велику теріторії Лапринського королівства, тому в той період Лапринське королівство хотіло приєднатися до Клізівського королівства для спільного супротиву Рутрунської імперії, але в цей час Лапру майже всю захопили і якраз в той момент Клізівська армія почала по договору заходити на лаприські землі та воювати з Рутрунською імперією, та таким чином сучасна область увійшла у склад Клізівського королівства. Тому на данний момент в Соні проживають більше Лапринсців ніж Клізців."
+            },
+            koo: {
+                name: "Клізівське Об'єднання Островів",
+                description: "Клізівське Об'єднання Островів - перелічує 7 крупних міст з острівним центром Честра який є частиною Клізії.\nЕтнічно в КОО проживають Клізці, Манци, Таченці, Шовтці, Венрці\n\nКОО - це організація яка займається обороною островів Клізії маючи свій острівний центр Честра, також КОО повністю є відокремленою обласною системою тому можно казати навіть що це Честрська область, але правильно вживати КОО тобто Клізівське Об'єднання Островів."
+            },
+            izmail: {
+                name: "Ізмаїльська область",
+                description: "Ізмаїльська область - область столиці Ізмаїл. \n\n Ізмаїл - це столиця країни Ізмаїл, славетна вона тим що в Ізмаїлі збудована сама найбіша статуя світу яка становить 658 метрів у висоту і присвячена вона Авукатині Алпалатіні.\n\nІзмаїльська облась була до ВР як відокремлене королівство Ізмаїльське, на цій теріторії була створена перша абетка КЛІБ яка почала розповсюджуватися по всій теріторії сучасної Ізмаїльської Республіки"
+            }
+        };
+
+
+
+
+        function info(regionKey) {
+            document.getElementById("information-block").style.display = "block";
+
+            if (regionData[regionKey]) {
+                document.getElementById("text-reg").textContent = regionData[regionKey].name;
+                document.getElementById("text-reg-op").innerHTML = regionData[regionKey].description.replace(/\n/g, '<br>');
+            } else {
+                console.warn(`Регіон з ключем '${regionKey}' не знайдено.`);
+                document.getElementById("text-reg").textContent = "Інформація недоступна";
+                document.getElementById("text-reg-op").textContent = "";
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+        function controlepanel(){
+            if (document.getElementById('list-panel-reg').style.display == 'none'){
+                document.getElementById('list-panel-reg').style.display = 'block'
+            }else if (document.getElementById('list-panel-reg').style.display == 'block'){
+                document.getElementById('list-panel-reg').style.display = 'none'
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const mapWrapper = document.getElementById('map-wrapper');
@@ -129,6 +339,13 @@
                 applyTransform();
             }
 
+                function updatePanelVisibility() {
+                    if (scale <= 2) {
+                        document.getElementById("list-panel-reg").style.display = "none";
+                    } else {
+                        document.getElementById("list-panel-reg").style.display = "block"; 
+                    }
+                }
             centerMap();
             window.addEventListener('resize', centerMap);
 
@@ -154,6 +371,8 @@
                 posY = mouseY - (mouseY - posY) * (scale / oldScale);
 
                 applyTransform();
+                
+                updatePanelVisibility();
             });
 
             mapWrapper.addEventListener('mousedown', (e) => {
@@ -191,21 +410,5 @@
             };
         });
     </script>
-</head>
-<body>
-    <h1>Повна мапа Шофії</h1>
-
-    <div id="map-wrapper">
-        <div id="map-content">
-            <div id="base-map" class="map-layer"></div>
-            <div id="big-city" class="map-layer"></div>
-            <div id="region" class="map-layer"></div>
-        </div>
-    </div>
-
-    <div id="panel">
-        <button onclick="city()">Міста</button>
-        <button onclick="region()">Області</button>
-    </div>
 </body>
 </html>
