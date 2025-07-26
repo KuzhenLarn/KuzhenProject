@@ -16,16 +16,28 @@ body{
     
 }
 
+#helper_box{
+    position: fixed;
+    left: -1000px;
+    top: 100px;
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/person/kl1.png);
+    background-size: 100% 100%;
+}
 
 
 
 .title_div{
+    background: url(img/LogoShadow.png), linear-gradient(29deg, rgb(184, 18, 18) 0%, rgb(196, 178, 18) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
     position: fixed;
     top: 10px;
     left: 0px;
-    width: 190px;
-    height: 110px;
-    background: linear-gradient(29deg, rgb(184, 18, 18) 0%, rgb(196, 178, 18) 100%);
+    width: 140px;
+    height: 70px;
     transition-duration: 0.4s;
     border-radius: 0 40px 40px 0;
 }
@@ -33,26 +45,37 @@ body{
     cursor: pointer;
     filter: saturate(2);
 }
-
+#title_flash_button_all_content{
+    display: none;
+}
 .title_flash_button{
-    display: inline-block;
     margin-left: 15px;
     width: 40px;
     height: 40px;
     background: linear-gradient(29deg, rgb(255, 145, 0) 0%, rgb(255, 230, 0) 100%);
     transition-duration: 0.4s;
     border-radius: 10px;
+    display: inline-block;
+}
+.title_flash_button_menu{
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(29deg, rgb(255, 145, 0) 0%, rgb(255, 230, 0) 100%);
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    display: inline-block;
 }
 
-.title_flash_button:hover{
+.title_flash_button:hover,.title_flash_button_menu:hover{
     cursor: pointer;
     filter: saturate(10);
 }
 
 .title_content{
     position: fixed;
-    left: 190px;
-    top: 40px;
+    left: 140px;
+    top: 25px;
 }
 
 #menu{
@@ -94,7 +117,38 @@ body{
     font-family:"Standart";
 }
 
-
+@media (max-width: 900px) {
+    body{
+        margin: 0px 0px 0px 0px;
+    }
+    .osnova_div{
+        width: 100%;
+        border-radius: 0px;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+    #game_block{
+        width: 100%;
+        margin: 10px 0px 10px 0px;
+    }
+    .title_div{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        height: 50px;
+        border-radius: 0 0px 20px 0;
+    }
+    .title_flash_button{
+        margin: 15px 0 15px 0;
+        display: block;
+    }
+    .title_content{
+        position: fixed;
+        top: 50px;
+        left: 15px;
+    }
+}
 
 
 

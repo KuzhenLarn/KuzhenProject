@@ -82,7 +82,25 @@
         #base-map {
             background-image: url("mapShofii/1500ПВР.png");
             z-index: 1;
+            image-rendering: pixelated;       /* <- основне */
             display: block;
+        }
+        #base-map-1 {
+            background-image: url("mapShofii/new.png");
+            z-index: 1;
+            display: block;
+            position: absolute;
+            image-rendering: pixelated;       /* <- основне */
+            left: 10000px;
+        }
+        #base-map-2 {
+            background-image: url("mapShofii/iss.png");
+            z-index: 1;
+            display: block;
+            position: absolute;
+            left: 11200px;
+            top: -100px;
+            image-rendering: pixelated;       /* <- основне */
         }
         #big-city {
             background-image: url("mapShofii/НазваМіст.png");
@@ -168,8 +186,12 @@
             width: 80%;
             height: 70%;
             border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
             color: rgb(255, 255, 255);
-            background-color: #000000c7;
+            background-image: url(img/Background.png);
+            background-color: rgba(0, 0, 0, 0.705);
+            background-blend-mode: darken;
+            background-size: 100% 100%;
             z-index: 150;
         }
         .button-info,.button-info-craina{
@@ -211,6 +233,14 @@
                 -2px 0 yellow,
                  2px 0 red;
         }
+        colore {
+            color: yellow;
+            transform: rotate(30 deg);
+        }
+        a{
+            color: #0059ff;
+            cursor: pointer;
+        }
     </style>
     
 
@@ -218,11 +248,13 @@
 </head>
 <body bgcolor="#0008cc">
     <h1>Мапа Шофії</h1>
-    <h3>Збірка 0.2</h3>
+    <h3>Збірка 0.3<colore> С-клас</colore></h3>
 
     <div id="map-wrapper">
         <div id="map-content">
             <div id="base-map" class="map-layer"></div>
+            <div id="base-map-1" class="map-layer"></div>
+            <div id="base-map-2" class="map-layer"></div>
             <div id="big-city" class="map-layer"></div> 
             <div id="region" class="map-layer">
                 <div id="list-panel-reg"> <!-- Регіони -->
@@ -236,6 +268,7 @@
                     <div class="ds" id="panel-reg" style="top: 2450px; left: 2900px;background-image: url('img/prapor/begon.png');"><p style="font-size: 10px;">Бегонська обл.</p><button class="button-info" onclick="info('begon')">інформація</button></div>
                     <div class="ds" id="panel-reg" style="top: 2290px; left: 2945px;background-image: url('img/prapor/sona.png');"><p style="font-size: 10px;">Соннська обл.</p><button class="button-info" onclick="info('sona')">інформація</button></div>
                     <div class="ds" id="panel-reg" style="top: 2748px; left: 3235px;background-image: url('img/prapor/koo.png');"><p style="font-size: 10px;">КОО</p><button class="button-info" onclick="info('koo')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 2690px; left: 2600px;background-image: url('img/prapor/klot.png');"><p style="font-size: 10px;">ост. Клот</p><button class="button-info" onclick="info('klot')">інформація</button></div>
                     <!-- Ізмаїл -->
                     <div class="ds" id="panel-reg" style="top: 1410px; left: 1070px;"><p style="font-size: 10px;">Ізмаїльська обл.</p><button class="button-info" onclick="info('izmail')">інформація</button></div>
                     <!---------------- 0.2 ---------------->
@@ -248,9 +281,9 @@
                     <div class="ds" id="panel-reg" style="top: 2090px; left: 2260px;"><p style="font-size: 10px;">Рунтанська обл.</p><button class="button-info" onclick="info('runtanska')">інформація</button></div>
                     <div class="ds" id="panel-reg" style="top: 1920px; left: 1950px;"><p style="font-size: 10px;">Ігнанська обл.</p><button class="button-info" onclick="info('ignanska')">інформація</button></div>
                     <!-- Манка -->
-                    <div class="ds" id="panel-reg" style="top: 2850px; left: 2270px;"><p style="font-size: 10px;">Манська обл.</p><button class="button-info" onclick="info('manka')">інформація</button></div>
-                    <div class="ds" id="panel-reg" style="top: 2900px; left: 2480px;"><p style="font-size: 10px;">Кломська обл.</p><button class="button-info" onclick="info('klom')">інформація</button></div>
-                    <div class="ds" id="panel-reg" style="top: 2870px; left: 2110px;"><p style="font-size: 10px;">Прінтська обл.</p><button class="button-info" onclick="info('printa')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 2850px; left: 2270px;background-image: url('img/prapor/manka.png');"><p style="font-size: 10px;">Манська обл.</p><button class="button-info" onclick="info('manka')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 2900px; left: 2480px;background-image: url('img/prapor/klom.png');"><p style="font-size: 10px;">Кломська обл.</p><button class="button-info" onclick="info('klom')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 2870px; left: 2110px;background-image: url('img/prapor/printa.png');"><p style="font-size: 10px;">Прінтська обл.</p><button class="button-info" onclick="info('printa')">інформація</button></div>
                     <!-- Лапра -->
                     <div class="ds" id="panel-reg" style="top: 1920px; left: 3110px;"><p style="font-size: 10px;">Лартська обл.</p><button class="button-info" onclick="info('larta')">інформація</button></div>
                     <div class="ds" id="panel-reg" style="top: 2160px; left: 3100px;"><p style="font-size: 10px;">Фішська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
@@ -258,24 +291,27 @@
                     <div class="ds" id="panel-reg" style="top: 1820px; left: 2730px;"><p style="font-size: 10px;">Дарська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
                     <!-- Пв'яч -->
                     <div class="ds" id="panel-reg" style="top: 420px; left: 2900px;background-image: url('img/prapor/p`vath.png');"><b><p style="font-size: 10px;">Пв'ячське Королівство</p></b><button class="button-info" onclick="info('')">інформація</button></div>
+                    <!---------------- 0.3 ---------------->
                     <!-- Хінтра -->
                 </div>
                 <div id="list-panel-reg-craini"> <!-- Країни -->
-                    <div class="ds" id="panel-reg-craini" style="top: 2350px; left: 2900px; background-image: url('img/prapor/klizia.png');"><p style="margin:0;font-size: 100px;">Клізія</p><p id="subtitle-KLL">У складі КЛЛізації, є центром КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('klizia')">інформація</button></div>
+                    <!---------------- 0.2 ---------------->
+                    <div class="ds" id="panel-reg-craini" style="top: 2350px; left: 2900px; background-image: url('img/prapor/klizia.png');"><p style="margin:0;font-size: 100px;">Клізія</p><p id="subtitle-KLL">У складі КЛЛізації, є центром КЛЛізації</p></p><button class="button-info-craina" onclick="info('klizia')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 2200px; left: 2100px; background-image: url('img/prapor/venra.png');"><p style="margin:0;font-size: 100px;">Венра</p><br><br><br></p><button class="button-info-craina" onclick="info('venra')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 1900px; left: 3000px; background-image: url('img/prapor/lapra.png');"><p style="margin:0;font-size: 100px;">Лапра</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('lapra')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 1900px; left: 3000px; background-image: url('img/prapor/lapra.png');"><p style="margin:0;font-size: 100px;">Лапра</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('lapra')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 2800px; left: 2250px; background-image: url('img/prapor/manka.png');"><p style="margin:0;font-size: 50px;">Манка</p><br><br><br></p><button class="button-info-craina" onclick="info('manka')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 1500px; left: 2200px; background-image: url('img/prapor/rutra.png');"><p style="margin:0;font-size: 150px;">Рутра</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('rutra')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 2000px; left: 3450px; background-image: url('img/prapor/shofta.png');"><p style="margin:0;font-size: 100px;">Шовта</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('shofta')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 2100px; left: 3940px; background-image: url('img/prapor/tacherna.png');"><p style="margin:0;font-size: 100px;">Тачента</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('tacherna')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 1250px; left: 2760px; background-image: url('img/prapor/pavgor.png');"><p style="margin:0;font-size: 100px;">Павгор</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('pavgor')">інформація</button></div>
-                    <div class="ds" id="panel-reg-craini" style="top: 1450px; left: 3700px; background-image: url('img/prapor/everna.png');"><p style="margin:0;font-size: 150px;">Еверна</p><p id="subtitle-KLL">У складі КЛЛізації</p><br><br><br></p><button class="button-info-craina" onclick="info('everna')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 1500px; left: 2200px; background-image: url('img/prapor/rutra.png');"><p style="margin:0;font-size: 150px;">Рутра</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('rutra')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 2000px; left: 3450px; background-image: url('img/prapor/shofta.png');"><p style="margin:0;font-size: 100px;">Шовта</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('shofta')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 2100px; left: 3940px; background-image: url('img/prapor/tacherna.png');"><p style="margin:0;font-size: 100px;">Тачента</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('tacherna')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 1250px; left: 2760px; background-image: url('img/prapor/pavgor.png');"><p style="margin:0;font-size: 100px;">Павгор</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('pavgor')">інформація</button></div>
+                    <div class="ds" id="panel-reg-craini" style="top: 1450px; left: 3700px; background-image: url('img/prapor/everna.png');"><p style="margin:0;font-size: 150px;">Еверна</p><p id="subtitle-KLL">У складі КЛЛізації</p></p><button class="button-info-craina" onclick="info('everna')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 650px; left: 3300px; background-image: url('img/prapor/xintra.png');"><p style="margin:0;font-size: 200px;">Хінтра</p><br><br><br></p><button class="button-info-craina" onclick="info('xintra')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 650px; left: 1460px; background-image: url('img/prapor/drusia.png');"><p style="margin:0;font-size: 200px;">Друзія</p><br><br><br></p><button class="button-info-craina" onclick="info('drusia')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 320px; left: 700px; background-image: url('img/prapor/visichena-drusia.png');"><p style="margin:0;font-size: 100px;">Друзька Вис .</p><br><br><br></p><button class="button-info-craina" onclick="info('visichena-drusia')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 230px; left: 2460px; background-image: url('img/prapor/ninka.png');"><p style="margin:0;font-size: 100px;">Нинька</p><br><br><br></p><button class="button-info-craina" onclick="info('ninka')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 1700px; left: 900px; background-image: url('img/prapor/klamb.png');"><p style="margin:0;font-size: 200px;">Ізмаїл</p><br><br><br></p><button class="button-info-craina" onclick="info('izmail')">інформація</button></div>
                     <div class="ds" id="panel-reg" style="top: 420px; left: 2900px;background-image: url('img/prapor/p`vath.png');"><b><p style="font-size: 10px;">Пв'ячське Королівство</p></b><button class="button-info" onclick="info('Pv`ath')">інформація</button></div>
+                    <!---------------- 0.3 ---------------->
                 </div>
             </div>
         </div>
@@ -363,36 +399,75 @@
             //------------Країни
             klizia: {
                 name: "Клізія",
-                description: "Клізія(Республіка Клізія)"
+                description: "Клізія(Республіка Клізія) - країна яка розташована на південній частині Шофії. Валюта Клізії - Клара\n\n - Клізія має свою далеку історію починаючи з Клардацького Королівства.\n - Громадяни балакають на Клізькій мові пишучи абетками 'Деда'. Офіційна абетка в Клізії це 'ДедаОріс'.\n - На сучасній теріторії Клізії проживає понад 9 мільйонів громадян"
+            },
+            drusia: {
+                name: "Друзька Федерація",
+                description: "Друзька Федерація(Друзія) - країна яка розташована на північно-західній частині Шофії. Вона має саму велику площу\n\n - Друзія має свою далеку історію починаючи з Друзького Королівства.\n - Друзія поділена на чотири сектора - Друшляцький сектор, Іфатський сектор, Варінський сектор, Долортський сектор. Також Друзія має право на Друзьку Височину зі столицею Дра.\n - Громадяни балакають на Друзькій мові пишучи абеткою Кліб.\n - На сучасній теріторії проживає понад 24 мільйонів громадян Друзії"
             },
             o: {
                 name: "",
-                description: ""
+                description: "(Республіка ) країна яка розташована на  частині Шофії.\n\n - має свою далеку історію починаючи з .\n - Громадяни балакають на  мові пишучи .\n - На сучасній теріторії проживає понад мільйонів громадян"
             },
             o: {
                 name: "",
-                description: ""
+                description: "(Республіка )"
+            },
+            o: {
+                name: "",
+                description: "(Республіка )"
+            },
+            o: {
+                name: "",
+                description: "(Республіка )"
+            },
+            //------------Інформація
+            o: {
+                name: "Нагорода 'місто перемоги'",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
+            },
+            o: {
+                name: "",
+                description: "()"
             }
             
         };
 
 
 
-
         function info(regionKey) {
             document.getElementById("information-block").style.display = "block";
+            document.getElementById("information-block").style.backgroundImage = `url(/img/prapor/${regionKey}.png)`;
+
             if (regionData[regionKey]) {
                 document.getElementById("text-reg").textContent = regionData[regionKey].name;
                 document.getElementById("text-reg-op").innerHTML = regionData[regionKey].description.replace(/\n/g, '<br>');
             } else {
                 console.warn(`Регіон з ключем '${regionKey}' не знайдено.`);
                 document.getElementById("text-reg").textContent = "Інформація недоступна";
-                document.getElementById("text-reg-op").textContent = "ІнформаціЯ про цей регіон відсутня";
+                document.getElementById("text-reg-op").textContent = "Інформація про цей регіон відсутня";
             }
         }
-
-
-
         function closePanelAll(){
                 document.getElementById('list-panel-reg-craini').style.display = 'none'
                 document.getElementById('list-panel-reg').style.display = 'none'
