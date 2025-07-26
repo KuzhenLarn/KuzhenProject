@@ -502,13 +502,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastDistance = null;
 
     mapWrapper.addEventListener('touchstart', (e) => {
-        if (e.touches.length === 2) {
+        if (e.touches.length === 1) {
+            isTouchDragging = true;
+            lastTouchX = e.touches[0].clientX;
+            lastTouchY = e.touches[0].clientY;
+        } else if (e.touches.length === 2) {
+            isTouchDragging = false;
             lastDistance = getDistance(e.touches[0], e.touches[1]);
         }
     });
 
+
     mapWrapper.addEventListener('touchmove', (e) => {
-        if (e.touches.length === 2 && lastDistance !== null) {
+        if (e.touches.length === 1 && isTouchDragging) {
+            const touch = e.touches[0];
+            const dx = touch.clientX - lastTouchX;
+            const dy = touch.clientY - lastTouchY;
+
+            posX += dx;
+            posY += dy;
+
+            lastTouchX = touch.clientX;
+            lastTouchY = touch.clientY;
+
+            applyTransform();
+        } else if (e.touches.length === 2 && lastDistance !== null) {
             const newDistance = getDistance(e.touches[0], e.touches[1]);
             const rect = mapWrapper.getBoundingClientRect();
             const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
