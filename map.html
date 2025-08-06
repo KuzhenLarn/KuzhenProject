@@ -19,6 +19,10 @@
             width: 100vw;
             font-family: "Standart";
             background-image: url();
+            -webkit-user-select: none; /* для Chrome, Safari, Edge */
+            -moz-user-select: none; /* для Firefox */
+            -ms-user-select: none; /* для Internet Explorer/Edge Legacy */
+            user-select: none; /* стандартна властивість */
         }
         h1 {
             margin-top: 10px;
@@ -82,16 +86,16 @@
         #base-map {
             background-image: url("mapShofii/1500ПВР.png");
             z-index: 1;
-            image-rendering: pixelated;       /* <- основне */
             display: block;
+            transition-duration: 0.4s;
         }
         #base-map-1 {
             background-image: url("mapShofii/new.png");
             z-index: 1;
             display: block;
             position: absolute;
-            image-rendering: pixelated;       /* <- основне */
             left: 10000px;
+            transition-duration: 0.4s;
         }
         #base-map-2 {
             background-image: url("mapShofii/iss.png");
@@ -100,18 +104,9 @@
             position: absolute;
             left: 11200px;
             top: -100px;
-            image-rendering: pixelated;       /* <- основне */
+            transition-duration: 0.4s;
         }
-        #big-city {
-            background-image: url("mapShofii/НазваМіст.png");
-            z-index: 2;
-            display: block;
-        }
-        #region {
-            background-image: url("mapShofii/Областя.png");
-            z-index: 3;
-            display: block;
-        }
+
 
         #panel {
             position: fixed;
@@ -153,7 +148,7 @@
             padding-top: 0;
             transition-duration: 0.4s;
         }
-        #panel-reg:hover,#panel-reg-craini:hover{
+        #panel-reg:hover,#panel-reg-craini:hover,#panel-reg-materik:hover{
             opacity: 0.5;
         }
         #panel-reg-misto{
@@ -173,11 +168,20 @@
             padding: 10px 10px 10px 10px;
             transition-duration: 0.4s;
         }
-        #list-panel-reg{
+        #panel-reg-materik{
             display: block;
-        }
-        #list-panel-reg-craini{
-            display: block;
+            position: absolute;
+            border-radius: 205px;
+            border: 1px solid rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            background-size: 100% 100%;
+            background-color: rgba(0, 0, 0, 0.288);
+            background-blend-mode: darken;
+            text-align: center;
+            padding: 10px 10px 10px 10px;
+            transition-duration: 0.4s;
+            width: 3500px;
+            height: 1500px;
         }
         #information-block{
             display: none;
@@ -241,6 +245,26 @@
             color: #0059ff;
             cursor: pointer;
         }
+        #big-city {
+            background-image: url("mapShofii/НазваМіст.png");
+            display: block;
+        }
+        #region {
+            background-image: url("mapShofii/Областя.png");
+            display: block;
+        }
+        #list-panel-reg{
+            display: block;
+            z-index: 2;
+        }
+        #list-panel-reg-craini{
+            display: none;
+            z-index: 2;
+        }
+        #list-panel-materik{
+            display: none;
+            z-index: 4;
+        }
     </style>
     
 
@@ -248,16 +272,17 @@
 </head>
 <body bgcolor="#0008cc">
     <h1>Мапа Шофії</h1>
-    <h3>Збірка 0.3<colore> С-клас</colore></h3>
+    <h3>Збірка 0.3<colore> K-клас</colore></h3>
 
     <div id="map-wrapper">
         <div id="map-content">
-            <div id="base-map" class="map-layer"></div>
             <div id="base-map-1" class="map-layer"></div>
             <div id="base-map-2" class="map-layer"></div>
-            <div id="big-city" class="map-layer"></div> 
-            <div id="region" class="map-layer">
-                <div id="list-panel-reg"> <!-- Регіони -->
+            <div id="base-map" class="map-layer">
+                <div id="big-city" class="map-layer"></div> 
+                <div id="region" class="map-layer"></div>
+            </div>
+                            <div id="list-panel-reg" class="map-layer"> <!-- Регіони -->
                     <!---------------- 0.1 ---------------->
                     <!-- Клафа -->
                     <div class="ds" id="panel-reg" style="top: 2390px; left: 3220px;background-image: url('img/prapor/klarder.png');"><p style="font-size: 10px;">Клардацька обл.</p><button class="button-info" onclick="info('klarder')">інформація</button></div>
@@ -271,6 +296,7 @@
                     <div class="ds" id="panel-reg" style="top: 2690px; left: 2600px;background-image: url('img/prapor/klot.png');"><p style="font-size: 10px;">ост. Клот</p><button class="button-info" onclick="info('klot')">інформація</button></div>
                     <!-- Ізмаїл -->
                     <div class="ds" id="panel-reg" style="top: 1410px; left: 1070px;"><p style="font-size: 10px;">Ізмаїльська обл.</p><button class="button-info" onclick="info('izmail')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 1900px; left: 1070px;"><p style="font-size: 10px;">Вампірська обл.</p><button class="button-info" onclick="info('vampir')">інформація</button></div>
                     <!---------------- 0.2 ---------------->
                     <!-- Венра -->
                     <div class="ds" id="panel-reg" style="top: 2450px; left: 2530px;"><p style="font-size: 10px;">Сустська обл.</p><button class="button-info" onclick="info('susta')">інформація</button></div>
@@ -293,8 +319,27 @@
                     <div class="ds" id="panel-reg" style="top: 420px; left: 2900px;background-image: url('img/prapor/p`vath.png');"><b><p style="font-size: 10px;">Пв'ячське Королівство</p></b><button class="button-info" onclick="info('')">інформація</button></div>
                     <!---------------- 0.3 ---------------->
                     <!-- Хінтра -->
+                    <div class="ds" id="panel-reg" style="top: 920px; left: 3445px;"><p style="font-size: 10px;">Хольтарська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 1100px; left: 3500px;"><p style="font-size: 10px;">Фарантаноська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 1070px; left: 3710px;"><p style="font-size: 10px;">Фанараська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 1270px; left: 3325px;"><p style="font-size: 10px;">Ракатська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 1110px; left: 3280px;"><p style="font-size: 10px;">Єуторноська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 850px; left: 3260px;"><p style="font-size: 10px;">Номораська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 690px; left: 3360px;"><p style="font-size: 10px;">Щостовська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 650px; left: 3550px;"><p style="font-size: 10px;">Кіратавська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 920px; left: 3700px;"><p style="font-size: 10px;">Ональтальвська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 700px; left: 3900px;"><p style="font-size: 10px;">Гінтінська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 200px; left: 3980px;"><p style="font-size: 10px;">Водторська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 260px; left: 3400px;"><p style="font-size: 10px;">Фультарська обл.</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 140px; left: 3400px;"><p style="font-size: 10px;">о. Мчаст</p><button class="button-info" onclick="info('')">інформація</button></div>
+                    <div class="ds" id="panel-reg" style="top: 320px; left: 4300px;"><p style="font-size: 10px;">о. Куратаст</p><button class="button-info" onclick="info('')">інформація</button></div>
+                
+                    <button class="button-info" style="top: 1830px; left: 1600px;position: absolute;font-size: 6px;" onclick="info('ozerofranka')">Озеро Івана Купала</button>
+                    <button class="button-info" style="top: 1430px; left: 650px;position: absolute;font-size: 6px;" onclick="info('cavefrina')">Печера Фріна-пад</button>
+                    <button class="button-info" style="top: 2030px; left: 460px;position: absolute;font-size: 6px;" onclick="info('grantifit')">Ґранті фіт</button>
+                
                 </div>
-                <div id="list-panel-reg-craini"> <!-- Країни -->
+                <div id="list-panel-reg-craini" class="map-layer"> <!-- Країни -->
                     <!---------------- 0.2 ---------------->
                     <div class="ds" id="panel-reg-craini" style="top: 2350px; left: 2900px; background-image: url('img/prapor/klizia.png');"><p style="margin:0;font-size: 100px;">Клізія</p><p id="subtitle-KLL">У складі КЛЛізації, є центром КЛЛізації</p></p><button class="button-info-craina" onclick="info('klizia')">інформація</button></div>
                     <div class="ds" id="panel-reg-craini" style="top: 2200px; left: 2100px; background-image: url('img/prapor/venra.png');"><p style="margin:0;font-size: 100px;">Венра</p><br><br><br></p><button class="button-info-craina" onclick="info('venra')">інформація</button></div>
@@ -313,7 +358,11 @@
                     <div class="ds" id="panel-reg" style="top: 420px; left: 2900px;background-image: url('img/prapor/p`vath.png');"><b><p style="font-size: 10px;">Пв'ячське Королівство</p></b><button class="button-info" onclick="info('Pv`ath')">інформація</button></div>
                     <!---------------- 0.3 ---------------->
                 </div>
-            </div>
+                <div id="list-panel-materik" class="map-layer"> <!-- Материки -->
+                    <!---------------- 0.3 ---------------->
+                    <div class="ds" id="panel-reg-materik" style="top: 600px; left: 600px; background-image: url('');"><p style="margin:0;font-size: 1200px;">Шофія</p></div>
+                </div>
+
         </div>
     </div>
 
@@ -388,6 +437,28 @@
                 name: "Ізмаїльська область",
                 description: "Ізмаїльська область - область столиці Ізмаїл. \n\n Ізмаїл - це столиця країни Ізмаїл, славетна вона тим що в Ізмаїлі збудована сама найбіша статуя світу яка становить 658 метрів у висоту і присвячена вона Авукатині Алпалатіні.\n\nІзмаїльська облась була до ВР як відокремлене королівство Ізмаїльське, на цій теріторії була створена перша абетка КЛІБ яка почала розповсюджуватися по всій теріторії сучасної Ізмаїльської Республіки"
             },
+            vampira: {
+                name: "Вампірська область",
+                description: "Вампірська облась - знаходиться у центральному Ізмаїлі. \n\n Вампірське місто в перше полетіла на Марс, в Вампіра в них най-потужніщі ракети."
+            },
+
+            onora: {
+                name: "Онорська область",
+                description: "В Онорі найбільший і найпотужніший порт материка Шофії."
+            },
+            brita: {
+                name: "острів Бріта",
+                description: "В Бріта - можно дуже і дуже розслабитися на пляжах Бріти. (Знижка на морозиво Ізмаїльське свіженьке морозиво -50%) Самий великий готель у світі з розміром в 50 поверхів і 100 метрів у довжину. І у длину 100 метрів."
+            },
+            drinza: {
+                name: "Дрінзька область",
+                description: "Дрінза славетне місто Ізмаїлу номер два."
+            },
+            grantifit: {
+                name: "Ґранті фіт м.",
+                description: "Ґранті фіт - це місто анамальної зони 43 на теріторії сучасної Ізмаїльської Республіки. 9 серпня в Ґранті фіт проходить анамальна подія в небі з'являється голова Ісуса Христа з червном хрестом посеред ніг, а також якщо при Ісусі з'явиться людина перед очіма, то в ту людину вдарить червона блискавка. \n\n Якщо ця Червона Блискавка вдарить просто в пусте місце то на тому місці буде велика дирка (ще не з'ясовано)"
+            },
+
             manka: {
                 name: "Манська область",
                 description: "Манська область - область столиці Незалежної Республіки Манка"
@@ -395,6 +466,14 @@
             venra: {
                 name: "Венрська область",
                 description: "Венрська область - область столиці Незалежної Республіки Венра"
+            },
+            ozerofranka: {
+                name: "Озеро Івана Купала",
+                description: "Це озеро найбільше в світі, Це озеро становить 2км, а  глибина в 1015 метрів"
+            },
+            cavefrina: {
+                name: "Печера Фріна-пад",
+                description: "Ця печера найглибша на материку Шофії. В цій печері видобували чарівні кристали води"
             },
             //------------Країни
             klizia: {
@@ -469,6 +548,7 @@
             }
         }
         function closePanelAll(){
+                document.getElementById('list-panel-materik').style.display = 'none'
                 document.getElementById('list-panel-reg-craini').style.display = 'none'
                 document.getElementById('list-panel-reg').style.display = 'none'
         }
@@ -513,12 +593,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updatePanelVisibility() {
-        if (scale <= 1) {
-            document.getElementById("list-panel-reg-craini").style.display = "block"; 
-            document.getElementById("list-panel-reg").style.display = "none";
+        if (scale >= 0.15) {
+            if (scale <= 1) {
+                document.getElementById('list-panel-materik').style.display = 'none'
+                document.getElementById("list-panel-reg-craini").style.display = "block"; 
+                document.getElementById("list-panel-reg").style.display = "none";
+                document.getElementById("base-map").style.filter = "brightness(100%)";
+            }
+            if (scale >= 1) {
+                document.getElementById('list-panel-materik').style.display = 'none'
+                document.getElementById("list-panel-reg-craini").style.display = "none";
+                document.getElementById("list-panel-reg").style.display = "block"; 
+                document.getElementById("base-map").style.filter = "brightness(100%)";
+            }
         } else {
-            document.getElementById("list-panel-reg-craini").style.display = "none";
-            document.getElementById("list-panel-reg").style.display = "block"; 
+            document.getElementById('list-panel-materik').style.display = 'block'
+            document.getElementById("list-panel-reg-craini").style.display = "none"; 
+            document.getElementById("list-panel-reg").style.display = "none";
+            document.getElementById("base-map").style.filter = "brightness(0%)";
         }
     }
 
