@@ -1,0 +1,40 @@
+body{
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    background-size: 100%, 100%;
+}
+html {
+    scrollbar-color: #00ff00 #000;
+}
+p, label, input, font, a{
+    color: rgb(0, 255, 0);
+}
+i{
+    color:#007c00
+}
+input{
+    background-color: black;
+    border: 1px solid rgb(0, 255, 0);
+}
+a{
+    align-items: right;
+}
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background: black;
+    height:500px;
+    width:90%;
+    border:1px solid rgb(0, 255, 0);
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+#menu { padding:12.5px 25px 12.5px 25px; }
+.welcome { float:left; }
+.logout { float:right; }
+#text_input {justify-content: center;display: flex;}
+
+
+
