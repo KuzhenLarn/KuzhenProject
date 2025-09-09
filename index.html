@@ -6,11 +6,12 @@
     <meta name="description" content="Kuzhen Larn">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuzhen Project</title>
 </head>
-<body bgcolor=black>
+<body>
 
 
 
@@ -18,53 +19,28 @@
 
 
 
-
-    <div class="osnova_div">
-        <p style="font-size: 50px"><b>Kuzhen Project</b></p>
-        <hr width="80%" color="white">
-        <p style="font-size: 20px"><b>Kuzhen Project</b> або просто <b>Проект Кужена</b> - це команда яка займається розробкою ігор.<br>Ця сторінка надає доступ до всих проектів. Тому вибирайте все що вас зацікавило.</p>
-        <hr width="80%" color="white">
-
-        <div id="game_block" style="font-family:'Dmini';background-image: url('img/bgd.png');">
-            <p style="font-size: 50px;margin: auto;">Deinop</p>
-            <hr color="white" width="40%">
-            <p>Гра у жанрі платформер-горор в якому ваша задача знайти вихід.</p>
+    <div id="ico_kuzhen_project"></div>
+    <div id="bg_block_1"> <!--Дейноп-->
+        <div id="block_1"> <!--Дейноп блок верх-->
+            <button id="deinop-play-button" onclick="location.href='/project/deinop/'"></button>
+            <div id="deinop-ico" onclick="location.href='/project/deinop/'"></div>
         </div>
+        <div id="block_2"><!--Дейноп блок основа-->
 
-        <div id="game_block" style="font-family:'GondoClickers';background-image: url('img/gcbg.png');">
-            <p style="font-size: 50px;margin: auto; color: #690000;">Gondo clickers</p>
-            <hr color="white" width="70%">
-            <p>Клікер з горором, ваша задача клікати та не попастися Ґондо.</p>
         </div>
+        <div id="block_3"><!--Дейноп блок низ-->
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+    </div>
+    <div id="bg_block_2"> <!--Gondo-->
 
     </div>
 
-
-
-
-
-
+    <div class="verhna_text_box">
+        <hr color="white">
+        <p id="start_p"></p>
+        <hr id="hr_bottom" color="white">
+    </div>
 
 
 

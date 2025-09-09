@@ -4,18 +4,19 @@ function menu(){
     if(menu_status == false)
         {
             menu_status = true;
-            document.getElementById("title_flash_button_all_content").style.display = "inline";
+            document.getElementById("title_flash_button_all_content").style.left = "0px";
+            document.getElementById("title_flash_button_all_content").style.opacity = "1";
         }
     else
         {
             menu_status = false;
-            document.getElementById("title_flash_button_all_content").style.display = "none";
+            document.getElementById("title_flash_button_all_content").style.left = "-500px";
+            document.getElementById("title_flash_button_all_content").style.opacity = "0";
         }
 }
-        // Функція для завантаження вмісту файлу
         async function loadPanel() {
             try {
-                const response = await fetch('global/panel.html'); // Шлях до твого файлу
+                const response = await fetch('/global/panel.html'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -27,5 +28,4 @@ function menu(){
             }
         }
 
-        // Викликаємо функцію після завантаження DOM
         document.addEventListener('DOMContentLoaded', loadPanel);
