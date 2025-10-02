@@ -80,18 +80,18 @@ function Open3() {
 
 function downloadAndroind() {
     var x = new XMLHttpRequest();
-    x.open("GET", "/deinop/settings/version.txt", true);
+    x.open("GET", "../../deinop/settings/version.txt", true);
     x.onload = function () {
-        location.href = "/deinop/version/" + "Deinop_" + x.responseText + ".apk";
+        location.href = "../../deinop/version/" + "Deinop_" + x.responseText + ".apk";
     }
     x.send(null);
 }
 
 function downloadPC() {
     var x = new XMLHttpRequest();
-    x.open("GET", "/deinop/settings/version.txt", true);
+    x.open("GET", "../../deinop/settings/version.txt", true);
     x.onload = function () {
-        location.href = "/deinop/version/" + "Deinop_" + x.responseText + ".exe";
+        location.href = "../../deinop/version/" + "Deinop_" + x.responseText + ".exe";
     }
     x.send(null);
 }
