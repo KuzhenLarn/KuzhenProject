@@ -1,5 +1,5 @@
 body {
-    background-image: url(/img/BGLoop.png);
+    background-image: url(img/BGLoop.png);
     background-size: 6%;
     background-attachment: fixed;
     color: #ffffff;
@@ -83,7 +83,7 @@ hr {
 }
 
 #ico_kuzhen_project {
-    background: url(/img/KuzhenProject.png);
+    background: url(img/KuzhenProject.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -116,7 +116,7 @@ hr {
     top: 100px;
     width: 200px;
     height: 200px;
-    background-image: url(/img/person/kl1.png);
+    background-image: url(img/person/kl1.png);
     background-size: 100% 100%;
 }
 
