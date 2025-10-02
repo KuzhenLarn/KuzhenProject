@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PNG Текст із Шрифтом</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <style>
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('/font/DeinopFullUkraine.ttf') format('truetype'); /* Замініть на ваш шлях */
+  }
+  </style>
+  <style>
+    body {
+      background-image: url(img/BGLoop.png);
+      background-size: 10%;
+      font-family: sans-serif;
+      color: #e0e0e0;
+      font-family: 'CustomFont', sans-serif; /* ← Встановлення за замовчуванням */
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-image: url(img/BGLoop.png);
+      background-size: 10%;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    textarea, input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #2a2a2a;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      background: #2979ff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1c54b2;
+    }
+    #output-text {
+      margin-top: 20px;
+      font-size: 48px;
+      line-height: 1.5;
+      color: white;
+      -webkit-text-stroke: 2px black;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: transparent;
+      border: 1px dashed #555;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: 'CustomFont', sans-serif;
+    }
+    canvas {
+      display: none;
+    }
+  </style>
+  
+</head>
+<body>
+  
+  <div class="container">
+    <h2>Створення PNG з кастомним шрифтом</h2>
+    <input type="file" id="font-upload" accept=".ttf,.otf">
+    <textarea id="text-input" placeholder="Введи свій текст..."></textarea>
+    <label for="font-size">Розмір шрифту (px):</label>
+    <input type="number" id="font-size" min="8" max="200" value="48">
+    <button id="display-button">Показати</button>
+    <button id="copy-button">Копіювати як PNG</button>
+    <div id="output-text">Попередній перегляд з текстом</div>
+    <canvas id="text-canvas"></canvas>
+  </div>
+
+  <script>
+    const fontUpload = document.getElementById('font-upload');
+    const textInput = document.getElementById('text-input');
+    const displayButton = document.getElementById('display-button');
+    const copyButton = document.getElementById('copy-button');
+    const outputText = document.getElementById('output-text');
+    const canvas = document.getElementById('text-canvas');
+    const ctx = canvas.getContext('2d');
+    const fontSizeInput = document.getElementById('font-size');
+
+    let customFontName = 'CustomFont';
+    let loadedFont = null;
+
+    fontUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file && /\.(ttf|otf)$/i.test(file.name)) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const fontData = event.target.result;
+          const style = document.createElement('style');
+          style.id = 'custom-font-style';
+          style.innerHTML = `
+            @font-face {
+              font-family: '${customFontName}';
+              src: url('${fontData}');
+            }
+          `;
+          document.head.appendChild(style);
+          outputText.style.fontFamily = `'${customFontName}', sans-serif`;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    displayButton.addEventListener('click', () => {
+      const text = textInput.value;
+      outputText.textContent = text;
+      outputText.style.fontSize = fontSizeInput.value + 'px';
+      outputText.style.fontFamily = `'${customFontName}', sans-serif`;
+    });
+
+    copyButton.addEventListener('click', async () => {
+      const text = textInput.value;
+      const fontSize = parseInt(fontSizeInput.value) || 48;
+      const padding = 20;
+      const lineHeight = 1.5;
+      const scale = 4;
+
+      const lines = text.split('\n');
+
+      // Тимчасовий canvas для вимірювання ширини
+      const tmpCtx = document.createElement('canvas').getContext('2d');
+      tmpCtx.font = `${fontSize}px '${customFontName}', sans-serif`;
+      let maxWidth = 0;
+      for (const line of lines) {
+        const width = tmpCtx.measureText(line).width;
+        if (width > maxWidth) maxWidth = width;
+      }
+
+      const canvasWidth = (maxWidth + padding * 2) * scale;
+      const canvasHeight = (lines.length * fontSize * lineHeight + padding * 2) * scale;
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = `${fontSize}px '${customFontName}', sans-serif`;
+      ctx.textBaseline = 'top';
+      ctx.textAlign = 'left';
+
+      let y = padding;
+      for (const line of lines) {
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'black';
+        ctx.strokeText(line, padding, y);
+        ctx.fillStyle = 'white';
+        ctx.fillText(line, padding, y);
+        y += fontSize * lineHeight;
+      }
+
+      // Зберігаємо PNG у clipboard
+      canvas.toBlob(async (blob) => {
+        try {
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': blob })
+          ]);
+        } catch (err) {
+          console.error("Копіювання не вдалося:", err);
+        }
+      }, 'image/png');
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+    });
+  </script>
+    <div id="panel-container"><!--Панель для сайтів--></div>
+</body>
+</html>

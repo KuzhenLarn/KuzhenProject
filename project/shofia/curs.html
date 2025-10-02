@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер Валют</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+    <style>
+        body {
+            background-image: url(img/BGLoop.png);
+            background-size: 10%;
+            font-family: sans-serif;
+            color: #e0e0e0; /* Світло-сірий текст для контрасту на темному тлі */
+            font-family: 'CustomFont', sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий чорний фон контейнера */
+            background-size: 10%; /* Зберігаємо фонову картинку, але вона буде за контейнером */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Більш виразна тінь */
+            border: 1px solid #333; /* Легка межа для контейнера */
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700; /* Золотий колір для заголовка */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Додаємо тінь для заголовка */
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #c0c0c0; /* Світло-сірий колір для лейблів */
+        }
+        input[type="number"], select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #555; /* Темніша межа */
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #333; /* Темний фон для полів вводу/вибору */
+            color: #ffffff; /* Білий текст у полях */
+        }
+        select option {
+            background-color: #333; /* Темний фон опцій */
+            color: #ffffff; /* Білий текст опцій */
+        }
+        select option:hover {
+            background-color: #555;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #222; /* Дуже темний фон для результату */
+            border-radius: 4px;
+            font-size: 1.1em;
+            text-align: center;
+            color: #00ff00; /* Яскраво-зелений колір для результату */
+            border: 1px solid #444; /* Межа для результату */
+        }
+        .highlight {
+            border: 2px solid #ff4500; /* Змінено на більш помітний помаранчевий */
+            padding: 5px;
+            display: inline-block;
+            color: #ff4500; /* Колір тексту для highlight */
+        }
+        .direction-toggle {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .direction-toggle button {
+            padding: 8px 15px;
+            background-color: #0056b3; /* Темніший синій для кнопки */
+            color: #e0e0e0; /* Світліший текст кнопки */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease; /* Плавний перехід */
+        }
+        .direction-toggle button:hover {
+            background-color: #003d80; /* Ще темніший синій при наведенні */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер Валют</h1>
+
+        <div class="input-group">
+            <label for="amount">Сума:</label>
+            <input type="number" id="amount" value="1" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="fromCurrency">З валюти:</label>
+            <select id="fromCurrency">
+            </select>
+        </div>
+
+        <div class="direction-toggle">
+            <button onclick="swapCurrencies()">⇅ Змінити напрямок</button>
+        </div>
+
+        <div class="input-group">
+            <label for="toCurrency">В валюту:</label>
+            <select id="toCurrency">
+            </select>
+        </div>
+
+        <div class="result">
+            <p id="conversionResult">Введіть суму для конвертації</p>
+        </div>
+    </div>
+
+    <script>
+        const amountInput = document.getElementById('amount');
+        const fromCurrencySelect = document.getElementById('fromCurrency');
+        const toCurrencySelect = document.getElementById('toCurrency');
+        const conversionResultDiv = document.getElementById('conversionResult');
+
+        let exchangeRatesData = {};
+
+        async function loadCurrencies() {
+            try {
+                const response = await fetch('currencies.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                exchangeRatesData = await response.json();
+                populateCurrencySelects();
+                convertCurrency();
+            } catch (error) {
+                conversionResultDiv.textContent = `Помилка завантаження даних валют: ${error}. Переконайтеся, що файл currencies.json існує і доступний.`;
+                console.error("Error loading currencies:", error);
+            }
+        }
+
+        function populateCurrencySelects() {
+            fromCurrencySelect.innerHTML = '';
+            toCurrencySelect.innerHTML = '';
+
+            for (const currencyCode in exchangeRatesData) {
+                const currency = exchangeRatesData[currencyCode];
+
+                // Створення опції для "З валюти"
+                const optionFrom = document.createElement('option');
+                optionFrom.value = currencyCode;
+                optionFrom.textContent = currency.name;
+                // Застосування кольору, якщо він вказаний
+                if (currency.color) {
+                    optionFrom.style.color = currency.color;
+                }
+                fromCurrencySelect.appendChild(optionFrom);
+
+                // Створення опції для "В валюту"
+                const optionTo = document.createElement('option');
+                optionTo.value = currencyCode;
+                optionTo.textContent = currency.name;
+                // Застосування кольору, якщо він вказаний
+                if (currency.color) {
+                    optionTo.style.color = currency.color;
+                }
+                toCurrencySelect.appendChild(optionTo);
+            }
+            // Встановлюємо початкові значення, якщо 'uah' та 'klara' існують
+            if (exchangeRatesData['uah']) {
+                fromCurrencySelect.value = 'uah';
+            } else if (Object.keys(exchangeRatesData).length > 0) {
+                // Якщо 'uah' немає, встановлюємо першу доступну валюту
+                fromCurrencySelect.value = Object.keys(exchangeRatesData)[0];
+            }
+
+            if (exchangeRatesData['klara']) {
+                toCurrencySelect.value = 'klara';
+            } else if (Object.keys(exchangeRatesData).length > 1) {
+                // Якщо 'klara' немає, встановлюємо другу доступну валюту
+                toCurrencySelect.value = Object.keys(exchangeRatesData)[1];
+            } else if (Object.keys(exchangeRatesData).length > 0) {
+                 // Якщо є лише одна валюта, встановлюємо її ж
+                toCurrencySelect.value = Object.keys(exchangeRatesData)[0];
+            }
+        }
+
+        function convertCurrency() {
+            const amount = parseFloat(amountInput.value);
+            const fromCurrencyCode = fromCurrencySelect.value;
+            const toCurrencyCode = toCurrencySelect.value;
+
+            if (isNaN(amount) || amount < 0) {
+                conversionResultDiv.textContent = "Будь ласка, введіть коректну суму.";
+                return;
+            }
+
+            // Додано перевірку на випадок, якщо валюти ще не завантажились або вибрані некоректні
+            if (!exchangeRatesData[fromCurrencyCode] || !exchangeRatesData[toCurrencyCode]) {
+                conversionResultDiv.textContent = "Будь ласка, виберіть валюти.";
+                return;
+            }
+
+            if (fromCurrencyCode === toCurrencyCode) {
+                conversionResultDiv.textContent = `${amount.toFixed(2)} ${exchangeRatesData[fromCurrencyCode].name} = ${amount.toFixed(2)} ${exchangeRatesData[toCurrencyCode].name}`;
+                return;
+            }
+
+            const fromRate = exchangeRatesData[fromCurrencyCode]?.rateToUAH;
+            const toRate = exchangeRatesData[toCurrencyCode]?.rateToUAH;
+
+            if (fromRate === undefined || toRate === undefined) {
+                conversionResultDiv.textContent = "Курс для вибраної валюти не знайдено. Перевірте файл даних.";
+                return;
+            }
+
+            const amountInUAH = amount / fromRate;
+            const convertedAmount = amountInUAH * toRate;
+
+            const fromName = exchangeRatesData[fromCurrencyCode].name;
+            const toName = exchangeRatesData[toCurrencyCode].name;
+
+            conversionResultDiv.textContent = `${amount.toFixed(2)} ${fromName} = ${convertedAmount.toFixed(2)} ${toName}`;
+        }
+
+        function swapCurrencies() {
+            const from = fromCurrencySelect.value;
+            const to = toCurrencySelect.value;
+            fromCurrencySelect.value = to;
+            toCurrencySelect.value = from;
+            convertCurrency();
+        }
+
+        amountInput.addEventListener('input', convertCurrency);
+        fromCurrencySelect.addEventListener('change', convertCurrency);
+        toCurrencySelect.addEventListener('change', convertCurrency);
+
+        loadCurrencies();
+    </script>
+    <div id="panel-container"><!--Панель для сайтів--></div>
+</body>
+</html>

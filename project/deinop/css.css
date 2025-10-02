@@ -1,0 +1,677 @@
+body {
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(91,91,91,1) 100%);
+    background-attachment: fixed;
+    
+}
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border: 0px solid white;
+        }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+                border-left: 1px solid white;
+
+            }
+button{
+    border-radius: 0px;
+}
+#background1 {
+    position: absolute;
+    left: 0px;
+    bottom: 40%;
+    width: 100%;
+    height: 30%;
+    background: url(img/bg1.png) repeat-x;
+    background-size: 100% 100%;
+    border: 0px solid black;
+    transition-duration: 2s;
+    z-index: 0;
+    animation: 200s bgscroll infinite linear;
+    filter: blur(0px);
+}
+#background2 {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    width: 100%;
+    height: 100%;
+    background: url(img/bg2.png) repeat-x;
+    background-size: 100% 100%;
+    border: 0px solid black;
+    transition-duration: 2s;
+    z-index: -1;
+    animation: 700s bgscroll infinite linear;
+    filter: blur(5px);
+}
+#background3 {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    width: 100%;
+    height: 100%;
+    background: url(img/bg3.png) repeat-x;
+    background-size: 100% 100%;
+    border: 0px solid black;
+    transition-duration: 2s;
+    z-index: -2;
+    animation: 2000s bgscroll infinite linear;
+    filter: blur(10px);
+}
+@keyframes bgscroll {
+    100% {
+        background-position: 19000px 0px;
+    }
+}
+#panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(91,91,91,1) 0%, rgba(147,147,147,1) 100%);
+    border: 0px solid black;
+    border-bottom: 1px solid white;
+    transition-duration: 2s;
+    z-index: 100;
+    animation: 2000s bgscroll infinite linear;
+}
+#paneldown {
+    position: absolute;
+    left: 0px;
+    top: 5000px;
+    width: 100%;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, #5b5b5b 0%, #939393 100%);
+    border: 0px solid black;
+    border-top: 1px solid white;
+    transition-duration: 2s;
+    z-index: 10;
+    animation: 2000s bgscroll infinite linear;
+    text-align: center;
+}
+#place {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 40%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 11%, rgba(147,147,147,1) 100%);
+    border: 0px solid black;
+    border-bottom: 1px solid black;
+    transition-duration: 2s;
+    z-index: 0;
+}
+#dino {
+    position: absolute;
+    left: 10px;
+    bottom: 400px;
+    width: 100px;
+    height: 100px;
+    background-image: url(img/dino.gif);
+    background-size: 100% 100%;
+    border: 0px solid black;
+    transition-duration: 2s;
+    z-index: 1;
+}
+#ico {
+    position: absolute;
+    width: 300px;
+    min-height: 300px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position the div in center */
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(img/icoD.png);
+    background-size: 100% 100%;
+    border: 0px solid black;
+    transition-duration: 2s;
+    z-index: 1;
+    animation: 5s icoA infinite linear;
+}
+@keyframes icoA{
+    
+    0%{
+        opacity: 100%;
+    }50%{
+        opacity: 50%;
+    }100%{
+        opacity: 100%;
+    }
+}
+
+#buttonX {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    background-image: url("img/Dino Poop X.png");
+    background-size: 100% 100%;
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+}
+#buttonUp {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 100px;
+    background-image: url("img/Dino Poop Arrow.png");
+    background-size: 100% 100%;
+    background-color: rgb(0, 0, 0, 0);
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+    transform: rotate(-90deg);
+    opacity: 0;
+}
+#button1 {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position the div in center */
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-image: url("img/Dino Poop Play.png");
+    background-size: 100% 100%;
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+}
+#button2 {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position the div in center */
+    position: absolute;
+    bottom: 200px;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-image: url("img/KLCurrency.png");
+    background-size: 100% 100%;
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+}
+#button3 {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position the div in center */
+    position: absolute;
+    bottom: 200px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-image: url("img/shopButton.png");
+    background-size: 100% 100%;
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+}
+
+#button4 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    background-image: url("img/KLButton.png");
+    background-size: 100% 100%;
+    border: 0px solid white;
+    transition-duration: 0.2s;
+    z-index: 10;
+    cursor: pointer;
+    filter: brightness(1);
+}
+
+#button1:hover, #button2:hover, #button3:hover, #buttonX:hover, #buttonUp:hover, #button4:hover {
+    filter: brightness(0.8);
+}
+
+#div1 {
+    position: absolute;
+    top: 200px;
+    width: 0;
+    height: 60%;
+    background-color: #282828;
+    border: 0px solid white;
+    transition-duration: 1s;
+    z-index: 10;
+    overflow: auto;
+    filter: blur(5px);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "ok";
+}
+    #div1:hover, #div2:hover, #div3:hover {
+        filter: blur(0px);
+    }
+
+#div2 {
+    position: absolute;
+    top: 200px;
+    width: 0;
+    height: 60%;
+    background-color: #282828;
+    border: 0px solid ;
+    transition-duration: 1s;
+    z-index: 10;
+    overflow: auto;
+    filter: blur(5px);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "ok";
+}
+#div3 {
+    position: absolute;
+    top: 200px;
+    width: 0;
+    height: 60%;
+    background: rgb(0,139,156);
+    background: linear-gradient(31deg, rgba(0,139,156,1) 0%, rgba(0,241,255,1) 100%);
+    border: 0px solid black;
+    transition-duration: 1s;
+    z-index: 10;
+    overflow: auto;
+    filter: blur(5px);
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "ok";
+}
+
+#div4 {
+    position: absolute;
+    top: 400%;
+    width: 98%;
+    height: 100%;
+    background: #282828;
+    border: 5px solid white;
+    transition-duration: 1s;
+    z-index: 3;
+    overflow: auto;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "ok";
+}
+
+#div5 {
+    position: absolute;
+    top: 101%;
+    width: 98%;
+
+    background: #282828;
+    border: 5px solid white;
+    transition-duration: 1s;
+    z-index: 3;
+    overflow: auto;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: "ok";
+}
+
+
+#obmen {
+    border-bottom: 1px solid white;
+    transition-duration: 1s;
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(91,91,91,0.1);
+    position: absolute;
+    top: 230px;
+
+    transform: translate(-50%, -50%);
+}
+    #obmen:hover {
+        border-bottom: 1px solid rgba(91,91,91,0);
+        background: rgba(91,91,91,1);
+    }
+
+
+
+#download, #downloadN, #downloadKL {
+    border-bottom: 1px solid white;
+    transition-duration: 1s;
+    width: 30%;
+    height: 150px;
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(91,91,91,0.1);
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 15px;
+    font-family: "ok";
+}
+    #download:hover {
+        border-bottom: 1px solid rgba(91,91,91,0);
+        background: #688a63;
+    }
+    #downloadN:hover {
+        border-bottom: 1px solid rgba(91,91,91,0);
+        background: #8a6363;
+    }
+    #downloadKL:hover {
+        border-bottom: 1px solid rgba(91,91,91,0);
+        background: #888a63;
+    }
+    #downloadButton, #downloadButtonN {
+        border: 0px solid white;
+        border-top: 1px solid white;
+        transition-duration: 1s;
+        width: 30%;
+        height: 70px;
+        background: rgba(91,91,91,0.1);
+        position: absolute;
+        right: 5px;
+        cursor: pointer;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        font-family: "ok";
+    }
+        #downloadButton:hover, #downloadButtonN:hover {
+            border: 0px solid white;
+            border-top: 1px solid black;
+            background: white;
+            color: black;
+        }
+#downloadButtonN{
+    pointer-events: none;
+}
+
+
+        #downloadPack {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: rgba(91,91,91,0);
+            top: 0px;
+            left: 0%;
+            overflow: auto;
+            z-index: 1;
+        }
+
+#newsPack {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    background: rgba(91,91,91,0);
+    bottom: 0px;
+    left: 0%;
+    overflow: auto;
+    z-index: 1;
+}
+
+#newsBlock {
+    width: 90%;
+    padding-bottom: 10px;
+    position: relative;
+    background: rgba(91,91,91,0.1);
+    bottom: 0px;
+    left: 0%;
+    overflow: auto;
+    z-index: 1;
+    margin: 20px;
+    transition-duration: 1s;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-size: 100% 100%;
+}
+    #newsBlock:hover {
+        background: rgba(91,91,91,1);
+        background-size: 110% 110%;
+    }
+
+
+
+    #RatesKL {
+        width: 100px;
+        height: 100px;
+        background-size: 100% 100%;
+        background-image: url("img/KL.png");
+        position: relative;
+        top: 0px;
+        margin: 5px;
+    }
+#RatesCactusik {
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    background-image: url("img/Cactusik.png");
+    position: sticky;
+    top: 0px;
+    margin: 5px;
+}
+#RatesVoletka {
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    background-image: url("img/Voletka.png");
+    position: sticky;
+    top: 0px;
+    margin: 5px;
+}
+#RatesRudikat {
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    background-image: url("img/Rudikat.png");
+    position: sticky;
+    top: 0px;
+    margin: 5px;
+}
+.Cactusik {
+    left: 20%;
+}
+
+.Voletka {
+    left: 50%;
+}
+
+.Rudikat {
+    left: 80%;
+}
+
+#paragraf {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position the div in center */
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media(max-width: 1300px) {
+    #button1, #button2, #button3 {
+        width: 120px;
+        height: 120px;
+    }
+    #download, #downloadKL, #downloadN {
+        background-position: 5px -200px;
+        text-align: left;
+        justify-content: left;
+    }
+
+        #download:hover, #downloadKL:hover, #downloadN:hover {
+            background-position: top left;
+        }
+    #div1, #div2, #div3 {
+        top: 10px;
+        height: 95%;
+        z-index: 101;
+        filter: blur(0px);
+    }
+    #div5 {
+        display: none;
+    }
+    body {
+        overflow: hidden;
+    }
+    #paneldown{
+        display: none;
+    }
+}
+
+@media(max-width: 800px) {
+    #button1, #button2, #button3 {
+        width: 80px;
+        height: 80px;
+    }
+
+    #div5{
+        display: none;
+    }
+
+    #buttonX {
+        width: 50px;
+        height: 50px;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    #div1, #div2, #div3 {
+        top: 10px;
+        height: 95%;
+        z-index: 101;
+        filter: blur(0px);
+    }
+
+    #download, #downloadKL, #downloadN {
+        height: 270px;
+        background-position: top center;
+    }
+        #download:hover, #downloadKL:hover, #downloadN:hover {
+            height: 270px;
+            background-position: top center;
+        }
+
+    .PC {
+        display: none;
+    }
+
+    .Android {
+        left: 5px;
+    }
+
+    #downloadButton, #downloadButtonN {
+        bottom: 5px;
+        width: 93%;
+    }
+    .Cactusik {
+        left: 20%;
+    }
+
+    .Voletka {
+        left: 80%;
+    }
+            
+    .Rudikat {
+        left: 50%;
+        margin-top: 180px;
+    }
+}
+
+.PC{
+    top: 5px;
+}
+.Android{
+    bottom: 5px;
+}
+
+
+.textBoll {
+    background-color: azure;
+    border-radius: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    transition-duration: 0.5s;
+    color: black;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.textBoll:hover{
+    background-color: black; 
+    color: azure;
+}
+.AD {
+    background-position: center center;
+    background-size: 100% 100%;
+    transition-duration:1s;
+    filter: blur(2px);
+}
+    .AD:hover {
+        background-size: 110% 110%;
+        filter: blur(0px);
+    }
+
+
+
+
+@font-face {
+    font-family: "ok";
+    src: url("ttf/BsbTextClassic.ttf");
+}
+@font-face {
+    font-family: "deinop";
+    src: url("ttf/quickend.ttf");
+}
