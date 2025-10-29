@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="icon" href="/img/20191217_090702.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+    <style>
+        body {
+            /*Тло*/
+            background-image: url();
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: blue orange;
+        }
+
+        #logo {
+            /*Верхній логотип*/
+            background: url();
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+            margin: 0px auto;
+            width: 80%;
+            padding-top: 20%;
+        }
+
+        #poster {
+            /*Постер гри*/
+            background: url();
+            position: absolute;
+            right: 10px;
+            width: 30%;
+            border: 20px solid black;
+            border-radius: 10px;
+            background-size: 100% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 40%;
+        }
+
+        #osnova {
+            /*Основний блок з описом гри*/
+            width: 60%;
+            background-color: rgb(0, 0, 0, 0.5);
+            border: solid 0px red;
+            border-radius: 10px;
+            text-align: justify;
+            padding: 0 1% 0 1%;
+            font-size: 30px;
+            line-height: 1.8;
+            margin: 0 10px;
+        }
+
+
+
+
+
+        @media (min-width: 480px) and (max-width: 1024px) {
+            #poster {
+                display: none;
+            }
+            #osnova {
+                margin: 0 auto 0 auto;
+                width: 90%;
+            }
+        }
+    </style>
+		<script>
+			const posters = [
+				'/img/none.png',
+				'/img/none.png'
+			];
+			let currentPoster = 0;
+			
+			function changePoster() {
+				const poster = document.getElementById('poster');
+				poster.style.background = `url(${posters[currentPoster]})`;
+				poster.style.backgroundSize = '100% 100%';
+				currentPoster = (currentPoster + 1) % posters.length;
+			}
+
+			window.onload = function() {
+				setInterval(changePoster, 10000);
+			}
+		</script>
+</head>
+
+<body bgcolor="black">
+    <div id="logo"></div>
+    <div id="poster"></div>
+    <div id="osnova">
+        ОПИС
+        <div style="text-align: center;padding-bottom: 20px;border-top: solid red 1px;border-bottom: solid red 1px;margin-top: 30px;padding-top: 10px;">
+            
+            <div style="display: inline-block">
+                Легке завантаження<br>
+                <button style="font-size: 30px;border-color: rgb(201, 20, 20);color: rgb(207, 33, 33);background-color: rgb(54, 16, 16);"onclick="location.href = '/'">Завантажити гру</button>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+    <div id="panel-container"><!--Панель для сайтів--></div>
+</body>
+
+</html>
