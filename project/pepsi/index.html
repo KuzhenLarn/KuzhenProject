@@ -1,241 +1,126 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-	<title>TrashPepsi</title>
-	<script type="text/javascript" src="../../script.js"></script>
-    <link rel="stylesheet" href="../../style.css">
-	<link rel="icon" href="../../img/Pepsi.png" type="image/png">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Trash Pepsi</title>
+    <link rel="icon" href="/img/20191217_090702.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+    <style>
+        body {
+            /*Тло*/
+            background-image: url(/img/BGpepsi2.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: blue orange;
+        }
 
-	<style>
-		body {
-			background-image: url("../../img/BGpepsi2.png");
-			background-size: 100% 100%;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			overflow-x: hidden;
-			scrollbar-width: thin;
-			scrollbar-color: blue orange;
-		}
+        #logo {
+            /*Верхній логотип*/
+            background: url(/img/TrashPepsi1.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+            margin: 0px auto;
+            width: 80%;
+            padding-top: 20%;
+        }
+
+        #poster {
+            /*Постер гри*/
+            background: url(/img/posterTrashPepsi.png);
+            position: absolute;
+            right: 10px;
+            width: 30%;
+            border: 20px solid black;
+            border-radius: 10px;
+            background-size: 100% 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-top: 40%;
+        }
+
+        #osnova {
+            /*Основний блок з описом гри*/
+            width: 60%;
+            background-color: rgb(0, 0, 0, 0.5);
+            border: solid 0px red;
+            border-radius: 10px;
+            text-align: justify;
+            padding: 0 1% 0 1%;
+            font-size: 30px;
+            line-height: 1.8;
+            margin: 0 10px;
+        }
 
 
 
-		#osnova {
-			width: 300px;
-			height: 200px;
-			background-color: rgb(50, 50, 50, 0.5);
-			border: solid 0px red;
-			position: absolute;
-			left: 5%;
-			top: 100px;
-		}
 
 
-
-
-		@media(max-width: 1024px) {
-			#panel {
-				background-size: 400px 80%;
-			}
-
+        @media (min-width: 480px) and (max-width: 1024px) {
+            #poster {
+                display: none;
+            }
 			#osnova {
-				width: 100%;
-				border: solid 0px rgb(139, 43, 43, 0.5);
-				background-color: rgb(139, 43, 43, 0.5);
+				margin: 0 auto 0 auto;
+				width: 90%;
 			}
-		}
-
-
-
-		#play1 {
-			width: 300px;
-			height: 400px;
-			background-image: url("../../img/posterTrashPepsi.png");
-			background-size: 100% 100%;
-			border: solid 3px #BB6E2C;
-			position: absolute;
-			left: 50px;
-			top: 100px;
-			transition-duration: 0.4s;
-		}
-
-		#play1:hover {
-			transform: scale(1.1, 1.1);
-		}
-
-		#playy1 {
-			width: 98%;
-			height: 20%;
-			background-color: #5D3818;
-			border: solid 3px #BB6E2C;
-			color: #BB6E2C;
-			transition-duration: 0.4s;
-			cursor: pointer;
-			position: absolute;
-			right: 1%;
-			bottom: 1%;
-		}
-
-		#playy1:hover {
-			background-color: #BB6E2C;
-			border: solid 3px #5D3818;
-			color: #5D3818;
-			transform: scale(1.1, 1.1);
-		}
-
-		#play2 {
-			width: 300px;
-			height: 400px;
-			background-image: url("../../img/posterTrashPepsi2.png");
-			background-size: 100% 100%;
-			border: solid 3px #BB6E2C;
-			position: absolute;
-			left: 400px;
-			top: 100px;
-			transition-duration: 0.4s;
-		}
-
-		#play2:hover {
-			transform: scale(1.1, 1.1);
-		}
-
-		#playy2 {
-			width: 98%;
-			height: 20%;
-			background-color: #5D3818;
-			border: solid 3px #BB6E2C;
-			color: #BB6E2C;
-			transition-duration: 0.4s;
-			cursor: pointer;
-			position: absolute;
-			right: 1%;
-			bottom: 1%;
-		}
-
-		#playy2:hover {
-			background-color: #BB6E2C;
-			border: solid 3px #5D3818;
-			color: #5D3818;
-			transform: scale(1.1, 1.1);
-		}
-
-		#play3 {
-			width: 300px;
-			height: 400px;
-			background-image: url("../../img/posterTrashPepsiPlus.png");
-			background-size: 100% 100%;
-			border: solid 3px #BB6E2C;
-			position: absolute;
-			left: 750px;
-			top: 100px;
-			transition-duration: 0.4s;
-		}
-
-		#play3:hover {
-			transform: scale(1.1, 1.1);
-		}
-
-		#playy3 {
-			width: 98%;
-			height: 20%;
-			background-color: #5D3818;
-			border: solid 3px #BB6E2C;
-			color: #BB6E2C;
-			transition-duration: 0.4s;
-			cursor: pointer;
-			position: absolute;
-			right: 1%;
-			bottom: 1%;
-		}
-
-		#playy3:hover {
-			background-color: #BB6E2C;
-			border: solid 3px #5D3818;
-			color: #5D3818;
-			transform: scale(1.1, 1.1);
-		}
-	</style>
-	<script>
-
-
-		$(document).ready(function () {
-			if (localStorage.getItem('End1') == 1) {
-				document.getElementById("play2").style.borderColor = "#3EFF00";
-				document.getElementById("playy2").style.borderColor = "#3EFF00";
+        }
+    </style>
+		<script>
+			const posters = [
+				'/img/posterTrashPepsi.png',
+				'/img/posterTrashPepsi2.png',
+				'/img/posterTrashPepsiPlus.png',
+				'/img/posterTrashPepsiFull.png'
+			];
+			let currentPoster = 0;
+			
+			function changePoster() {
+				const poster = document.getElementById('poster');
+				poster.style.background = `url(${posters[currentPoster]})`;
+				poster.style.backgroundSize = '100% 100%';
+				currentPoster = (currentPoster + 1) % posters.length;
 			}
 
-		});
-	</script>
+			window.onload = function() {
+				setInterval(changePoster, 10000);
+			}
+		</script>
 </head>
 
-<body bgcolor=black>
-	<div id="osnova">
+<body bgcolor="black">
+    <div id="logo"></div>
+    <div id="poster"></div>
+    <div id="osnova">
+        <i>Trash Pepsi</i> - це жартівна гра 2д, де ваша легкий ковток напою Пепсі перетворюється в цілу проблему. Серія ігор Trash Pepsi створена на двигуні "Construct 2" який має можливість виводити гру у браузер. Дві частини цієї гри є нижче.
+        <div style="text-align: center;padding-bottom: 20px;border-top: solid rgb(38, 0, 255) 1px;border-bottom: solid rgb(47, 0, 255) 1px;margin-top: 30px;padding-top: 10px;">
+            <div style="display: inline-block;margin-right: 20px;">
+                Перша частина<br>
+                <button style="font-size: 30px;border-color: rgb(20, 68, 201);color: rgb(50, 33, 207);background-color: rgb(17, 16, 54);"onclick="location.href = 'pepsi/'">Грати в браузері</button>
+            </div>
+            <div style="display: inline-block">
+                Друга частина<br>
+                <button style="font-size: 30px;border-color: rgb(20, 68, 201);color: rgb(50, 33, 207);background-color: rgb(17, 16, 54);"onclick="location.href = 'pepsi2/'">Грати в браузері</button>
+            </div>
+        </div><br>
+		<i>Trash Pepsi Full</i> - це вже повноцінна гра яка повністю буде закінченою частиною цієї серії ігор, яку можно завантажити та грати на телефонах та комп'ютерах. Наразі повна версія ще у розробці, тому очікуйте на вихід.
 
-		<font size="5" color="white">перша частина - <a href="pepsi/index.html">
-				<font size="5" color="white">грати</font>
-			</a></font><br><br>
-		<font size="5" color="white">друга частина - <a href="pepsi2/index.html">
-				<font size="5" color="white">грати</font>
-			</a></font>
-
-		<div id="play1">
-			<center><button OnClick='location.href="pepsi/index.html"' id="playy1">
-					<p>
-						<font size="6" id="pn" face="Deinop">PLAY</font>
-					</p>
-				</button></center>
-		</div>
-		<div id="play2">
-			<center><button OnClick='location.href="pepsi2/index.html"' id="playy2">
-					<p>
-						<font size="6" id="pn" face="Deinop">PLAY</font>
-					</p>
-				</button></center>
-		</div>
-		<div id="play3">
-			<center><button OnClick='location.href="pepsi3/index.html"' id="playy3">
-					<p>
-						<font size="6" id="pn" face="Deinop">SOON</font>
-					</p>
-				</button></center>
-		</div>
-
-
+		<div style="text-align: center;padding-bottom: 20px;border-top: solid rgb(38, 0, 255) 1px;border-bottom: solid rgb(47, 0, 255) 1px;margin-top: 30px;padding-top: 10px;">
+            <div style="display: inline-block;margin-right: 20px;">
+                Повна версія<br>
+                <button style="font-size: 30px;border-color: rgb(20, 68, 201);color: rgb(50, 33, 207);background-color: rgb(17, 16, 54);"onclick="location.href = ''">Ще у розробці</button>
+            </div>
+        </div>
+    </div>
     <div id="panel-container"><!--Панель для сайтів--></div>
-    <script>
-        var menu_status = false;
-
-        function menu() {
-            if (menu_status == false) {
-                menu_status = true;
-                document.getElementById("title_flash_button_all_content").style.left = "0px";
-                document.getElementById("title_flash_button_all_content").style.opacity = "1";
-            }
-            else {
-                menu_status = false;
-                document.getElementById("title_flash_button_all_content").style.left = "-500px";
-                document.getElementById("title_flash_button_all_content").style.opacity = "0";
-            }
-        }
-        async function loadPanel() {
-            try {
-                const response = await fetch('../../global/panel.html');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const panelContent = await response.text();
-                document.getElementById('panel-container').innerHTML = panelContent;
-            } catch (error) {
-                console.error('Помилка завантаження панелі:', error);
-                document.getElementById('panel-container').innerHTML = '<p>Не вдалося завантажити панель.</p>';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadPanel);
-    </script>
-
 </body>
-
 
 </html>
