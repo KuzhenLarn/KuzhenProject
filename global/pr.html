@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивна Верстка (Приклад)</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .column {
+            float: left;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .column {
+            width: 33.33%;
+        }
+        @media screen and (max-width: 992px) {
+            .column {
+                width: 50%;
+            }
+            .column:nth-child(3) { 
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Приклад Адаптивної Верстки</h1>
+        <p>Змініть ширину вікна браузера, щоб побачити, як змінюється розташування колонок.</p>
+        
+        <div class="column">
+            <h2>Колонка 1</h2>
+            <p>На десктопі: 33.33%</p>
+            <p>На планшеті: 50%</p>
+            <p>На телефоні: 100%</p>
+        </div>
+        
+        <div class="column">
+            <h2>Колонка 2</h2>
+            <p>На десктопі: 33.33%</p>
+            <p>На планшеті: 50%</p>
+            <p>На телефоні: 100%</p>
+        </div>
+        
+        <div class="column">
+            <h2>Колонка 3</h2>
+            <p>На десктопі: 33.33%</p>
+            <p>На планшеті: 100%</p>
+            <p>На телефоні: 100%</p>
+        </div>
+    </div>
+
+</body>
+</html>
