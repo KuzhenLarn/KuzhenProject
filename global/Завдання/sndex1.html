@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Анімаційні Ефекти CSS</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .animated-box {
+            width: 150px;
+            height: 150px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            font-size: 18px;
+            margin-bottom: 50px; 
+            
+            animation: rotateScale 3s infinite alternate ease-in-out; 
+        }
+
+        @keyframes rotateScale {
+            0% {
+                transform: rotate(0deg) scale(1); 
+                background-color: #007bff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1.2);
+                background-color: #ff5733; 
+                box-shadow: 0 10px 20px rgba(255, 87, 51, 0.5);
+            }
+        }
+
+        
+        .fade-box {
+            width: 200px;
+            padding: 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            opacity: 1; 
+            font-size: 16px;
+            
+            transition: opacity 1s ease-in-out, background-color 0.5s; 
+        }
+
+        .fade-box:hover {
+            opacity: 0.1;
+            background-color: #FFC300;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="animated-box">Обертання (@keyframes)</div>
+
+    <div class="fade-box">
+        Наведи курсор, щоб зникнути (transition)
+    </div>
+</body>
+</html>
