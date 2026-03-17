@@ -5,12 +5,11 @@ const infoTitle = document.getElementById('info-title');
 const infoDesc = document.getElementById('info-desc');
 const backBtn = document.getElementById('back-btn');
 
-let currentLevel = 'continent'; // continent, country, region, city
+let currentLevel = 'continent';
 
 function updateInfo(title, desc) {
-    infoTitle.innerText = title || "Материк Шофія";
-    // Замінюємо innerText на innerHTML, щоб теги <br> працювали
-    infoDesc.innerHTML = desc || "Оберіть країну, щоб розпочати.";
+    infoTitle.innerHTML = title || "Материк Шофія";
+    infoDesc.innerHTML = desc || "Оберіть країну, щоб розпочати дослідження.";
 }
 
 function zoomToElement(element, zoomLevel) {
@@ -35,9 +34,11 @@ function zoomToElement(element, zoomLevel) {
 
 function resetToContinent() {
     mapLayer.style.transform = `translate(0px, 0px) scale(1)`;
-    svgMap.classList.remove('country-active', 'region-active');
+    svgMap.classList.remove('country-active', 'region-active', 'city-active');
+    
     document.querySelectorAll('.active').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.visible').forEach(el => el.classList.remove('visible'));
+    document.querySelectorAll('.dimmed').forEach(el => el.classList.remove('dimmed'));
     
     currentLevel = 'continent';
     updateInfo();
@@ -64,40 +65,58 @@ document.querySelectorAll('.country').forEach(country => {
 document.querySelectorAll('.region').forEach(region => {
     region.addEventListener('click', (e) => {
         if (currentLevel !== 'country' && currentLevel !== 'region') return;
-        
-        // БЛОКУВАННЯ: Якщо область належить до НЕАКТИВНОЇ країни - ігноруємо клік
-        if (!region.closest('.country').classList.contains('active')) return;
-
+        if (!region.closest('.country').classList.contains('active')) return; 
         e.stopPropagation();
 
         document.querySelectorAll('.region.active').forEach(el => el.classList.remove('active'));
         region.classList.add('active');
         svgMap.classList.add('region-active');
 
-        // Показуємо села цієї області
-        document.querySelectorAll('.city.village').forEach(v => v.classList.remove('visible'));
+        document.querySelectorAll('.city.town, .city.village').forEach(c => c.classList.remove('visible'));
         const regionId = region.getAttribute('id');
-        document.querySelectorAll(`.city.village[data-region="${regionId}"]`).forEach(v => v.classList.add('visible'));
+        document.querySelectorAll(`.city[data-region="${regionId}"]`).forEach(c => {
+            if (c.classList.contains('town') || c.classList.contains('village')) {
+                c.classList.add('visible'); 
+            }
+        });
+
+        document.querySelectorAll('.city.capital, .city.center').forEach(c => {
+            if (c.getAttribute('data-region') && c.getAttribute('data-region') !== regionId) {
+                c.classList.add('dimmed');
+            } else {
+                c.classList.remove('dimmed');
+            }
+        });
 
         currentLevel = 'region';
         updateInfo(region.dataset.title, region.dataset.desc);
-        zoomToElement(region, 2.8);
+        zoomToElement(region, 2.5); 
     });
 });
 
 // 3. КЛІК ПО МІСТАХ
 document.querySelectorAll('.city').forEach(city => {
     city.addEventListener('click', (e) => {
-        // БЛОКУВАННЯ: Якщо місто належить до НЕАКТИВНОЇ країни - ігноруємо клік
-        if (!city.closest('.country').classList.contains('active')) return;
+        if (!city.closest('.country').classList.contains('active')) return; 
+        if (city.classList.contains('dimmed')) return; 
 
         e.stopPropagation();
+        
+        // Знімаємо виділення з інших міст
+        document.querySelectorAll('.city.active').forEach(c => c.classList.remove('active'));
+        city.classList.add('active');
+        
+        // Вмикаємо режим "Фокус на місті" для затемнення області
+        svgMap.classList.add('city-active');
+
         const prevLevel = currentLevel;
         currentLevel = 'city';
         city.dataset.prevLevel = prevLevel;
 
         updateInfo(city.dataset.title, city.dataset.desc);
-        zoomToElement(city, 4.5);
+        
+        // ЗУМ 7.5 для детального огляду міста
+        zoomToElement(city, 7.5); 
     });
 });
 
@@ -106,14 +125,20 @@ backBtn.addEventListener('click', (e) => {
     e.stopPropagation();
 
     if (currentLevel === 'city') {
-        const activeCity = document.querySelector('.city.active') || {dataset: {prevLevel: 'region'}};
-        const targetLevel = activeCity.dataset.prevLevel || 'region';
+        svgMap.classList.remove('city-active'); // Вимикаємо затемнення області
+        const activeCity = document.querySelector('.city.active');
+        const targetLevel = activeCity ? activeCity.dataset.prevLevel : 'region';
+        
+        if (activeCity) {
+            activeCity.classList.remove('active');
+            delete activeCity.dataset.prevLevel;
+        }
         
         if (targetLevel === 'region') {
             const reg = document.querySelector('.region.active');
             currentLevel = 'region';
             updateInfo(reg.dataset.title, reg.dataset.desc);
-            zoomToElement(reg, 2.8);
+            zoomToElement(reg, 2.5);
         } else {
             const cnt = document.querySelector('.country.active');
             currentLevel = 'country';
@@ -124,7 +149,9 @@ backBtn.addEventListener('click', (e) => {
     else if (currentLevel === 'region') {
         svgMap.classList.remove('region-active');
         document.querySelectorAll('.region.active').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.city.village.visible').forEach(el => el.classList.remove('visible'));
+        
+        document.querySelectorAll('.city.town, .city.village').forEach(el => el.classList.remove('visible'));
+        document.querySelectorAll('.dimmed').forEach(el => el.classList.remove('dimmed'));
         
         const cnt = document.querySelector('.country.active');
         currentLevel = 'country';
