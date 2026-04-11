@@ -2,8 +2,8 @@
 	"Activation": {
 		"on_off": "1"
 	},
-	"Нарешті, 0.5.4.04 вже тут [s]-взагалі по новому розроблена гра[s]-повний перехід з unity на godot[s]-мобільна версія вже є[s]-з цього часу Дейноп локалізується на Англійську, Українську, Японську": {
-		"en_US": "Finally, 0.5.4.04 is here! [s]-The game has been completely redesigned [s]-Full transition from Unity to Godot [s]-Mobile version is now available [s]-Deinop is now localized in English, Ukrainian, and Japanese",
-		"ja_JP": "ついに、0.5.4.04 がリリースされました！ [s]-ゲームを全面的に再設計しました [s]-UnityからGodotへの完全移行 [s]-モバイル版が利用可能になりました [s]-デイノップが英語、ウクライナ語、日本語に対応しました"
+	"[center][h]ВЕЛИКЕ ОНОВЛЕННЯ 0.5.4.04[/h][/center][s][new] [b]Що нового:[/b][s][s]- [b]Повний редизайн:[/b] гра перероблена з нуля[s]- [b]Зміна рушія:[/b] перехід з [color=#3498db]Unity[/color] на [color=#478cbf]Godot[/color][s]- [b]Мобільність:[/b] тепер гра доступна на смартфонах[s]- [b]Локалізація:[/b] додано [b]Українську[/b], [b]Англійську[/b] та [b]Японську[/b] мови": {
+		"en_US": "[center][h]MAJOR UPDATE 0.5.4.04[/h][/center][s][new] [b]What's new:[/b][s][s]- [b]Complete Redesign:[/b] game rebuilt from scratch[s]- [b]Engine Swap:[/b] moved from [color=#3498db]Unity[/color] to [color=#478cbf]Godot[/color][s]- [b]Mobility:[/b] mobile version is now live[s]- [b]Localization:[/b] added [b]English[/b], [b]Ukrainian[/b], and [b]Japanese[/b]",
+		"ja_JP": "[center][h]大型アップデート 0.5.4.04[/h][/center][s][new] [b]新機能：[/b][s][s]- [b]全面的な再設計：[/b]ゼロから作り直しました[s]- [b]エンジン移行：[/b][color=#3498db]Unity[/color]から[color=#478cbf]Godot[/color]へ完全移行[s]- [b]モバイル版：[/b]スマホでも遊べるようになりました[s]- [b]言語対応：[/b][b]英語[/b]、[b]ウクライナ語[/b]、[b]日本語[/b]に対応しました"
 	}
 }
