@@ -2,8 +2,8 @@
 	"Activation": {
 		"on_off": "1"
 	},
-	"Фуууу": {
-		"en_US": "I added Dino to the game",
-		"ja_JP": "ゲームにデイノを追加しました"
+	"Нарешті, 0.5.4.04 вже тут [s]-взагалі по новому розроблена гра[s]-повний перехід з unity на godot[s]-мобільна версія вже є[s]-з цього часу Дейноп локалізується на Англійську, Українську, Японську": {
+		"en_US": "Finally, 0.5.4.04 is here! [s]-The game has been completely redesigned [s]-Full transition from Unity to Godot [s]-Mobile version is now available [s]-Deinop is now localized in English, Ukrainian, and Japanese",
+		"ja_JP": "ついに、0.5.4.04 がリリースされました！ [s]-ゲームを全面的に再設計しました [s]-UnityからGodotへの完全移行 [s]-モバイル版が利用可能になりました [s]-デイノップが英語、ウクライナ語、日本語に対応しました"
 	}
 }
