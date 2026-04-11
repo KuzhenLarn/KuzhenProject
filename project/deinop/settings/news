@@ -1,1 +1,9 @@
-
+{
+	"Activation": {
+		"on_off": "1"
+	},
+	"Я додав Діно в гру": {
+		"en_US": "I added Dino to the game",
+		"ja_JP": "ゲームにデイノを追加しました"
+	}
+}
