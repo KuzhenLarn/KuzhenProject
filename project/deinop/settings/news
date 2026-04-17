@@ -1,0 +1,9 @@
+{
+	"Activation": {
+		"on_off": "1"
+	},
+	"[center][h]Потужне оновлення вже незабаром[/h][/center][s]- Вже було розроблено багато речей, таких як лаунчер для Віндовс. Також тестується лінукс версія для arm64 і вище. Мобільна версія гри в планах розробки.[s]- Приблизний вихід нової версії з короткою історією буде через місяць.": {
+		"en_US": "[center][h]Major update incoming![/h][/center][s]- Many things have already been developed, including the Windows launcher. We are also testing a Linux version for arm64 and above. A mobile version is in the works.[s]- The estimated release of the new version, featuring a short story, is expected in about a month.",
+		"ja_JP": "[center][h]大型アップデート、まもなく登場！[/h][/center][s]- Windowsランチャーをはじめ、多くの要素がすでに開発されました。また、arm64以上のLinux版も現在テスト中です。モバイル版も開発計画に含まれています。[s]- 短いストーリーを含む新バージョンのリリースは、約1ヶ月後を予定しています。"
+	}
+}

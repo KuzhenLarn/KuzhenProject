@@ -1,3 +1,4 @@
 # KuzhenProject
-[Сайт тут](https://kuzhenlarn.github.io/KuzhenProject/index.html)<br>
-[Або тут](https://kuzhenproject.netlify.app/)
+[Перейти на сайт](https://kuzhenproject.netlify.app/)<br>
+[Якщо якась роблема то друге посилання на сайт](https://kuzhenlarn.github.io/KuzhenProject/index.html)
+
