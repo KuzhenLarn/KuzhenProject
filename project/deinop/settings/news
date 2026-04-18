@@ -1,6 +1,6 @@
 {
 	"Activation": {
-		"on_off": "1"
+		"on_off": "0"
 	},
 	"[center][h]Потужне оновлення вже незабаром[/h][/center][s]- Вже було розроблено багато речей, таких як лаунчер для Віндовс. Також тестується лінукс версія для arm64 і вище. Мобільна версія гри в планах розробки.[s]- Приблизний вихід нової версії з короткою історією буде через місяць.": {
 		"en_US": "[center][h]Major update incoming![/h][/center][s]- Many things have already been developed, including the Windows launcher. We are also testing a Linux version for arm64 and above. A mobile version is in the works.[s]- The estimated release of the new version, featuring a short story, is expected in about a month.",
