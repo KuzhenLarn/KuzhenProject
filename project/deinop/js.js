@@ -88,12 +88,7 @@ function downloadAndroind() {
 }
 
 function downloadPC() {
-    var x = new XMLHttpRequest();
-    x.open("GET", "../../deinop/settings/version.txt", true);
-    x.onload = function () {
-        location.href = "../../deinop/version/" + "Deinop_" + x.responseText + ".exe";
-    }
-    x.send(null);
+    location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop.exe";
 }
 
 
