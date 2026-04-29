@@ -124,7 +124,7 @@ function downloadAndroind() {
     var x = new XMLHttpRequest();
     x.open("GET", "../../deinop/settings/version.txt", true);
     x.onload = function () {
-        location.href = "../../deinop/version/" + "Deinop_" + x.responseText + ".apk";
+        location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop.apk";
     }
     x.send(null);
 }
