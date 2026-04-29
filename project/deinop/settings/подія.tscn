@@ -2114,7 +2114,7 @@ offset_left = 1878.9131
 offset_top = -604.0
 offset_right = 2154.0
 offset_bottom = -547.0
-text = "Тестова подія ЛОЛ"
+text = "ЙОБАНИЙ БАБАЙ, ЯКЩО ЦЕЙ ТЕКСТ В ТЕБЕ ЗНАЧИТЬ ЦЕ БЛЯТЬ ПРАЦЮЄ!!!!!"
 label_settings = SubResource("LabelSettings_fneik")
 
 [node name="СірийПісок" type="NinePatchRect" parent="."]
