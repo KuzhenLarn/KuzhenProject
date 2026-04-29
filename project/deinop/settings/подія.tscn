@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=73 format=3 uid="uid://wuffugntr3np"]
 
 [ext_resource type="Texture2D" uid="uid://chemmmf3ryr6p" path="res://Світлина/Текстури/Сірий-пісок.png" id="1_1c1ty"]
@@ -38,21 +37,15 @@
 script/source = "extends Node2D
 
 func _ready():
-	# 1. ЗАВАНТАЖЕННЯ ПОДІЇ З СЕРВЕРА
 	if FileAccess.file_exists(\"user://dynamicEvent.gd\"):
 		var dynamic_script = load(\"user://dynamicEvent.gd\")
 		
-		# Перевіряємо, чи скрипт нормально завантажився
 		if dynamic_script:
-			# Замінюємо цей скрипт на новий
 			self.set_script(dynamic_script)
-			
-			# Динамічний виклик функції (це не викликає помилок компілятора)
 			if self.has_method(\"start_event\"):
 				self.call(\"start_event\") 
-			return # Зупиняємо старий _ready(), бо скрипт вже замінено!
+			return
 
-	# 2. СИСТЕМНІ НАЛАШТУВАННЯ (Якщо події немає)
 	setup_system()
 
 # ==========================================
@@ -87,11 +80,6 @@ func load_settings():
 func _process(_delta):
 	pass
 
-# ==========================================
-# --- ЗАГЛУШКА ДЛЯ КОМПІЛЯТОРА ---
-# ==========================================
-# Godot більше не буде сваритися, бо тепер він бачить цю функцію.
-# Коли скрипт підміниться, ця пуста функція заміниться на справжню з сервера.
 func start_event():
 	pass
 "
@@ -2114,15 +2102,17 @@ offset_left = 1878.9131
 offset_top = -604.0
 offset_right = 2154.0
 offset_bottom = -547.0
-text = "ЙОБАНИЙ БАБАЙ, ЯКЩО ЦЕЙ ТЕКСТ В ТЕБЕ ЗНАЧИТЬ ЦЕ БЛЯТЬ ПРАЦЮЄ!!!!!"
+text = ":> KEK"
 label_settings = SubResource("LabelSettings_fneik")
 
 [node name="СірийПісок" type="NinePatchRect" parent="."]
 z_index = 2
+texture_filter = 1
 offset_left = 45.0
 offset_top = -437.0
 offset_right = 4311.4956
 offset_bottom = -37.256744
+scale = Vector2(4, 4)
 texture = ExtResource("1_1c1ty")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
