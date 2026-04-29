@@ -1,1 +1,2289 @@
 
+[gd_scene load_steps=73 format=3 uid="uid://wuffugntr3np"]
+
+[ext_resource type="Texture2D" uid="uid://chemmmf3ryr6p" path="res://Світлина/Текстури/Сірий-пісок.png" id="1_1c1ty"]
+[ext_resource type="Theme" uid="uid://vbrnawvf3cuq" path="res://Теми/ДейнопЮІ.tres" id="1_fneik"]
+[ext_resource type="Texture2D" uid="uid://chulinn4vgbms" path="res://Світлина/GUI/Анімаційне/Емоції.png" id="2_4cnbo"]
+[ext_resource type="Texture2D" uid="uid://eunrsvo1n7c2" path="res://Світлина/GUI/Кнопки/безфону/play.png" id="2_t2up6"]
+[ext_resource type="Texture2D" uid="uid://c07qcq7dst8gn" path="res://Світлина/ІншеАнімоване/панель.png" id="3_elqox"]
+[ext_resource type="Texture2D" uid="uid://c54lvgukygqqb" path="res://Світлина/GUI/Кнопки/безфону/x.png" id="3_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://y28qc2soni50" path="res://Світлина/GUI/Анімаційне/Dark.png" id="4_nvylj"]
+[ext_resource type="FontFile" uid="uid://fa1u1ywcfjt1" path="res://Шрифт/BsbTextClassic.ttf" id="4_r0jag"]
+[ext_resource type="Script" uid="uid://qioy28g20qhc" path="res://Плагіни/label.gd" id="5_ovkwm"]
+[ext_resource type="Script" uid="uid://cutsv64d27soj" path="res://Плагіни/AnamationSprite.gd" id="5_yxamb"]
+[ext_resource type="Texture2D" uid="uid://c82wyxg4cmvyq" path="res://Світлина/Персонажі/Dino/DownS1.png" id="6_3cqvd"]
+[ext_resource type="Texture2D" uid="uid://cwelefyy0ic4b" path="res://Світлина/GUI/Dark.png" id="6_pxdqj"]
+[ext_resource type="Texture2D" uid="uid://bop4oguooe0pw" path="res://Світлина/Персонажі/Dino/Down1.png" id="7_mfntw"]
+[ext_resource type="Texture2D" uid="uid://vqpx03y5ph43" path="res://Світлина/GUI/Анімаційне/CameraWinyetkaAnimKubic.png" id="7_omvil"]
+[ext_resource type="Texture2D" uid="uid://q7q6uoyogcd4" path="res://Світлина/GUI/DarkВін'єтка.png" id="8_5aioy"]
+[ext_resource type="Texture2D" uid="uid://b1upfcb8vxwhi" path="res://Світлина/Персонажі/Dino/Down2.png" id="8_ds35o"]
+[ext_resource type="Texture2D" uid="uid://j7pmsyh834xi" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow.png" id="9_j6nr3"]
+[ext_resource type="Texture2D" uid="uid://8ytt3daioq71" path="res://Світлина/Персонажі/Dino/5.png" id="9_w2rb4"]
+[ext_resource type="Texture2D" uid="uid://c0vkqecs88bl6" path="res://Світлина/Персонажі/Dino/1.png" id="10_4ev5g"]
+[ext_resource type="Texture2D" uid="uid://by8o70xyvfg1y" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow Run.png" id="10_o6e8n"]
+[ext_resource type="Texture2D" uid="uid://dovxhb8osegg2" path="res://Світлина/GUI/Кнопки/InteractionE.png" id="11_1iiqb"]
+[ext_resource type="Texture2D" uid="uid://b3dpiafbfsqqj" path="res://Світлина/Персонажі/Dino/1_bez_oka.png" id="11_vb8kx"]
+[ext_resource type="Texture2D" uid="uid://c1c0u01pjmj47" path="res://Світлина/Персонажі/Dino/2.png" id="12_bvluo"]
+[ext_resource type="Texture2D" uid="uid://ij76y4pviiri" path="res://Світлина/GUI/Кнопки/Dino Poop Pause.png" id="12_pqsfo"]
+[ext_resource type="Texture2D" uid="uid://3xgmakeehtpf" path="res://Світлина/Персонажі/Dino/3.png" id="13_7el77"]
+[ext_resource type="Texture2D" uid="uid://hffae3e80aop" path="res://Світлина/GUI/Кнопки/Dino Poop Panel.png" id="13_p122h"]
+[ext_resource type="Texture2D" uid="uid://d4fkl274tycyi" path="res://Світлина/GUI/icoNoneText.png" id="14_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://oi1m5xx0oo2e" path="res://Світлина/Персонажі/Dino/4.png" id="14_fneik"]
+[ext_resource type="Script" uid="uid://15km82k7e5ox" path="res://Плагіни/button.gd" id="15_r0jag"]
+[ext_resource type="Texture2D" uid="uid://b258nssxurgco" path="res://Світлина/Об'єкти/ТуманБілий.png" id="15_t2up6"]
+[ext_resource type="AudioStream" uid="uid://c7emwihvue5qm" path="res://Аудіо/Звуки/walk trip dino.mp3" id="16_f2gy6"]
+[ext_resource type="AudioStream" uid="uid://dj1dv5pipube4" path="res://Аудіо/Звуки/jump Dino.mp3" id="17_r0jag"]
+
+[sub_resource type="GDScript" id="GDScript_ovkwm"]
+script/source = "extends Node2D
+
+func _ready():
+	# 1. ЗАВАНТАЖЕННЯ ПОДІЇ З СЕРВЕРА
+	if FileAccess.file_exists(\"user://dynamicEvent.gd\"):
+		var dynamic_script = load(\"user://dynamicEvent.gd\")
+		
+		# Перевіряємо, чи скрипт нормально завантажився
+		if dynamic_script:
+			# Замінюємо цей скрипт на новий
+			self.set_script(dynamic_script)
+			
+			# Динамічний виклик функції (це не викликає помилок компілятора)
+			if self.has_method(\"start_event\"):
+				self.call(\"start_event\") 
+			return # Зупиняємо старий _ready(), бо скрипт вже замінено!
+
+	# 2. СИСТЕМНІ НАЛАШТУВАННЯ (Якщо події немає)
+	setup_system()
+
+# ==========================================
+# --- СИСТЕМНИЙ КОД ---
+# ==========================================
+func setup_system():
+	if not OS.has_feature(\"android\") and not OS.has_feature(\"mobile\"):
+		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+		get_tree().root.content_scale_size = Vector2i(1280, 720)
+
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Master\"), save.load(\"setting_master\"))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Music\"), save.load(\"setting_music\"))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Sound\"), save.load(\"setting_sound\"))
+	load_settings()
+
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_F11:
+		toggle_fullscreen()
+
+func toggle_fullscreen():
+	var current_f11 = save.load(\"setting_F11\")
+	save.save(\"setting_F11\", 1 if current_f11 == 0 else 0)
+	load_settings()
+
+func load_settings():
+	if save.load(\"setting_F11\") == 0:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_size(Vector2i(1100, 600))
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _process(_delta):
+	pass
+
+# ==========================================
+# --- ЗАГЛУШКА ДЛЯ КОМПІЛЯТОРА ---
+# ==========================================
+# Godot більше не буде сваритися, бо тепер він бачить цю функцію.
+# Коли скрипт підміниться, ця пуста функція заміниться на справжню з сервера.
+func start_event():
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_t1wq5"]
+script/source = "extends Panel
+
+func _ready() -> void:
+	# При старті панель має бути схована
+	self.visible = false
+	$MasterSlider.value = save.load(\"setting_master\")
+	$MusicSlider.value = save.load(\"setting_music\")
+	$SoundSlider.value = save.load(\"setting_sound\")
+
+func _input(event):
+	# Кнопка \"pause\" тепер і відкриває, і закриває меню
+	if event.is_action_pressed(\"pause\"):
+		if not self.visible:
+			open_pause_menu()
+		else:
+			_on_play_pressed()
+
+func open_pause_menu():
+	# 1. Заморожуємо світ Клізії
+	get_tree().paused = true
+	
+	# 2. Показуємо панель
+	self.visible = true
+	
+
+# --- КНОПКА \"ПЛЕЙ\" (Saikai) ---
+# Переконайся, що сигнал pressed() від кнопки Play підключений сюди!
+func _on_play_pressed() -> void:
+	# 1. Розморожуємо дерево сцени
+	get_tree().paused = false
+	
+	# 2. Ховаємо меню
+	self.visible = false
+
+# --- КНОПКА \"ВИХІД\" (Shūryō) ---
+func _on_exit_pressed() -> void:
+	# ОБОВ'ЯЗКОВО вимикаємо паузу перед зміною сцени
+	get_tree().paused = false
+	# Заміни шлях на свій
+	get_tree().change_scene_to_file(\"res://Сцени/меню.tscn\")
+
+
+
+func _on_master_slider_value_changed(value: float):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Master\"), value)
+	save.save(\"setting_master\", $MasterSlider.value)
+
+func _on_music_slider_value_changed(value: float):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Music\"), value)
+	save.save(\"setting_music\", $MusicSlider.value)
+
+func _on_sound_slider_value_changed(value: float):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Sound\"), value)
+	save.save(\"setting_sound\", $SoundSlider.value)
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_kaaeb"]
+font = ExtResource("4_r0jag")
+font_size = 21
+
+[sub_resource type="GDScript" id="GDScript_61gwe"]
+script/source = "extends TextureRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	global_position.x = 0
+	global_position.y = 0
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_638ml"]
+atlas = ExtResource("7_omvil")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="GDScript" id="GDScript_omxjm"]
+script/source = "@tool
+extends TextureRect
+
+@export_group(\"Frames Logic\")
+@export var hframes: int = 1:
+	set(val):
+		hframes = max(1, val)
+		_update_frame()
+
+@export var vframes: int = 1:
+	set(val):
+		vframes = max(1, val)
+		_update_frame()
+
+@export var frame: int = 0:
+	set(val):
+		frame = val
+		_update_frame()
+
+@export_group(\"Animation Settings\")
+@export var is_playing: bool = false # Увімкнути/вимкнути анімацію
+@export var fps: float = 10.0        # Швидкість кадрів на секунду
+@export var loop: bool = true        # Чи зациклювати анімацію
+
+var _accumulator: float = 0.0
+
+func _process(delta: float) -> void:
+	if not is_playing or fps <= 0:
+		return
+		
+	_accumulator += delta
+	
+	# Рахуємо, чи пора перемикати кадр
+	var frame_time = 1.0 / fps
+	if _accumulator >= frame_time:
+		_accumulator = 0.0
+		_next_frame()
+
+func _next_frame():
+	var max_frames = hframes * vframes
+	var next_f = frame + 1
+	
+	if next_f >= max_frames:
+		if loop:
+			frame = 0
+		else:
+			is_playing = false
+			frame = max_frames - 1
+	else:
+		frame = next_f
+
+func _update_frame():
+	if texture is AtlasTexture:
+		var atlas_tex = texture as AtlasTexture
+		if atlas_tex.atlas:
+			var atlas_size = atlas_tex.atlas.get_size()
+			var frame_w = atlas_size.x / hframes
+			var frame_h = atlas_size.y / vframes
+			
+			var row = frame / hframes
+			var col = frame % hframes
+			
+			atlas_tex.region = Rect2(col * frame_w, row * frame_h, frame_w, frame_h)
+"
+
+[sub_resource type="GDScript" id="GDScript_6m6ds"]
+script/source = "extends CanvasLayer
+
+
+func _ready():
+	if OS.has_feature(\"android\"):
+		visible = true
+"
+
+[sub_resource type="FontVariation" id="FontVariation_f8xot"]
+base_font = ExtResource("4_r0jag")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obgh7"]
+bg_color = Color(0, 0.33811274, 0.33811274, 0.30980393)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(9.62615e-08, 0.52631295, 0.52631277, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4m8t"]
+bg_color = Color(0, 1, 1, 0.30980393)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8xot"]
+bg_color = Color(0, 0.39686137, 0.3968613, 0.30980393)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_pxdqj"]
+Button/fonts/font = SubResource("FontVariation_f8xot")
+Button/styles/disabled = SubResource("StyleBoxFlat_obgh7")
+Button/styles/normal = SubResource("StyleBoxFlat_a4m8t")
+Panel/styles/panel = SubResource("StyleBoxFlat_f8xot")
+
+[sub_resource type="GDScript" id="GDScript_omvil"]
+script/source = "extends ColorRect
+
+# --- 1. ПОСИЛАННЯ НА ВУЗЛИ (Node References) ---
+@onready var panel = $Panel
+@onready var panel_log = $PanelLog
+@onready var label_header = $PanelLog/top
+@onready var label_status = $Panel/top
+@onready var label_level = $Panel/Level/top
+@onready var label_log_hint = $Panel/Log
+
+@onready var btn_label1 = $Panel/Button1/top
+@onready var btn_label2 = $Panel/Button2/top
+@onready var btn_label3 = $Panel/Button3/top
+@onready var btn_label4 = $Panel/Button4/top
+
+@onready var label_log_history = $PanelLog/ScrollContainer/VBoxContainer/Log
+@onready var label_log = $\"../Text\"      
+@onready var label_log_old = $\"../TextOld\" 
+@onready var chat_input = $\"../TextEdit\" 
+
+# Бінарні кнопки (Так/Ні)
+@onready var btn_yes = $\"../Yes\"
+@onready var btn_no = $\"../No\"
+
+# Кнопки вибору (1V-4V)
+@onready var btn_1v = $\"../1V\"
+@onready var btn_2v = $\"../2V\"
+@onready var btn_3v = $\"../3V\"
+@onready var btn_4v = $\"../4V\"
+var multi_btns = []
+var current_options_keys = [] 
+
+# --- НОВЕ: Словник НПС для логів ---
+var npc_suffixes = {
+	\"Діно\": \".vap\",
+	\"Ґіно\": \".vap\",
+	\"Вано\": \".var\",
+	\"Гроно\": \".var\",
+	\"Коно\": \".var\",
+	\"Діглюно\": \".var\" # Додавай сюди нових монстрів або НПС
+}
+
+# --- 2. СИГНАЛИ ТА ЗМІННІ СТАНУ ---
+signal choice_selected(value: bool)
+signal multi_choice_selected(index: int) 
+
+var id_header: String; var id_status: String
+var id_level: String; var id_log_hint: String
+var btn_ids = []
+
+var glitch_symbols = \"&$#%?!*@§ΔΣΩXYZV\"
+var anim_id: int = 0 
+var log_message_id: int = 0
+var active_tween: Tween
+var fade_tween: Tween 
+var is_in_logs: bool = false 
+var is_in_stone: bool = false 
+var was_dino_blocked: bool = false 
+
+# НОВЕ: Змінна для збереження чистого тексту
+var last_clean_chat_text: String = \"\"
+
+# --- 3. ІНІЦІАЛІЗАЦІЯ (Ready) ---
+
+func _ready():
+	if label_header: id_header = label_header.text
+	if label_status: id_status = label_status.text
+	if label_level: id_level = label_level.text
+	if label_log_hint: id_log_hint = label_log_hint.text
+	if btn_label1: btn_ids = [btn_label1.text, btn_label2.text, btn_label3.text, btn_label4.text]
+	
+	if lang.has_signal(\"language_changed\"):
+		lang.language_changed.connect(_update_ui_translation)
+	
+	if is_instance_valid(panel): panel.visible = false
+	if is_instance_valid(panel_log): panel_log.visible = false
+	
+	if is_instance_valid(btn_yes): 
+		btn_yes.visible = false
+		if not btn_yes.pressed.is_connected(_on_choice_pressed):
+			btn_yes.pressed.connect(_on_choice_pressed.bind(true))
+			
+	if is_instance_valid(btn_no): 
+		btn_no.visible = false
+		if not btn_no.pressed.is_connected(_on_choice_pressed):
+			btn_no.pressed.connect(_on_choice_pressed.bind(false))
+			
+	multi_btns = [btn_1v, btn_2v, btn_3v, btn_4v]
+	for i in range(multi_btns.size()):
+		if is_instance_valid(multi_btns[i]):
+			multi_btns[i].visible = false
+			if not multi_btns[i].pressed.is_connected(_on_multi_choice_pressed):
+				multi_btns[i].pressed.connect(_on_multi_choice_pressed.bind(i + 1))
+	
+	if chat_input: 
+		chat_input.visible = false
+		if not chat_input.gui_input.is_connected(_on_chat_gui_input):
+			chat_input.gui_input.connect(_on_chat_gui_input)
+			
+	self.visible = false
+
+# --- 4. СИСТЕМА ВИБОРУ ТА ВВОДУ ---
+
+func _on_choice_pressed(value: bool):
+	choice_selected.emit(value)
+	if is_instance_valid(btn_yes): btn_yes.visible = false
+	if is_instance_valid(btn_no): btn_no.visible = false
+
+func _on_multi_choice_pressed(index: int):
+	multi_choice_selected.emit(index)
+	for btn in multi_btns:
+		if is_instance_valid(btn): btn.visible = false
+	current_options_keys.clear()
+
+func _unhandled_input(event):
+	if not is_instance_valid(chat_input): return 
+	
+	var is_choosing = false
+	if is_instance_valid(btn_yes) and btn_yes.visible: is_choosing = true
+	for btn in multi_btns:
+		if is_instance_valid(btn) and btn.visible: is_choosing = true
+
+	if self.visible or chat_input.visible or is_choosing: 
+		return 
+	
+	if (event is InputEventKey and event.pressed and event.keycode == KEY_T) or event.is_action_pressed(\"enter\"):
+		_open_chat()
+		get_viewport().set_input_as_handled()
+
+func _on_chat_gui_input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
+			get_viewport().set_input_as_handled()
+			var msg = chat_input.text.strip_edges()
+			_close_chat()
+			if msg != \"\" and not _check_for_commands(msg):
+				add_new_dialogue(\"Діно\", msg, false)
+		elif event.keycode == KEY_ESCAPE:
+			get_viewport().set_input_as_handled()
+			_close_chat()
+
+# --- НОВЕ: ФУНКЦІЯ ОЧИЩЕННЯ ТЕГІВ ---
+# Ця функція вирізає всі [w0.5], [q], [q4] з тексту
+func clean_tags(text: String) -> String:
+	var result = \"\"
+	var i = 0
+	while i < text.length():
+		if text[i] == \"[\":
+			var close_idx = text.find(\"]\", i)
+			if close_idx != -1:
+				i = close_idx + 1
+				continue
+		result += text[i]
+		i += 1
+	return result
+
+# --- 5. ЛОГІКА ДІАЛОГІВ ---
+
+func add_new_dialogue(arg1: String, arg2: String = \"\", translate: bool = true, options: Array = []) -> Variant:
+	# --- ВИПРАВЛЕННЯ БАГУ ЗІ СКІПОМ ---
+	# Тепер ми переносимо в старий лог ТІЛЬКИ ідеально чистий текст, а не те що встигло надрукуватись
+	if last_clean_chat_text != \"\":
+		var old_prefix = \"\\n\" if label_log_old.text != \"\" else \"\"
+		label_log_old.text += old_prefix + last_clean_chat_text
+		
+		var lines = label_log_old.text.split(\"\\n\")
+		if lines.size() > 4:
+			lines = lines.slice(lines.size() - 4, lines.size())
+			label_log_old.text = \"\\n\".join(lines)
+		
+		label_log_old.modulate.a = 1.0 
+		last_clean_chat_text = \"\"
+	
+	var is_sep = (arg1 == \"-\" and arg2 == \"-\")
+	var raw_speaker = arg1 if arg2 != \"\" else \"\"
+	var raw_text = arg2 if arg2 != \"\" else arg1
+	
+	# --- ПЕРЕКЛАД ІМЕН ---
+	var translated_speaker = lang.text_sign(raw_speaker) if translate and raw_speaker != \"\" else raw_speaker
+	var translated_text = lang.text_sign(raw_text) if translate else raw_text
+	
+	var is_binary_q = translated_text.contains(\"[q]\")
+	var multi_q_count = 0
+	for i in range(1, 5):
+		if translated_text.contains(\"[q%d]\" % i):
+			multi_q_count = i
+			break
+	
+	# --- ФОРМУВАННЯ ПРЕФІКСІВ ДЛЯ ЧАТУ ТА ЛОГІВ ---
+	var chat_prefix = \"\"
+	var log_prefix = \"\"
+	
+	if not is_sep and raw_speaker != \"\":
+		# Витягуємо суфікс із нашого словника (якщо немає - залишаємо порожнім або даємо дефолт)
+		var suffix = npc_suffixes.get(raw_speaker, \"\") 
+		chat_prefix = \"- \" + translated_speaker + \": \"
+		log_prefix = \"- \" + translated_speaker + suffix + \": \"
+	
+	var cleaned_text = clean_tags(translated_text)
+	
+	if is_sep:
+		last_clean_chat_text = \"------------------------------------\"
+	else:
+		last_clean_chat_text = chat_prefix + cleaned_text
+	
+	log_message_id += 1
+	var current_msg_id = log_message_id
+	var v = anim_id 
+	if fade_tween: fade_tween.kill()
+	label_log.modulate.a = 1.0
+	label_log_old.modulate.a = 1.0 if label_log_old.text != \"\" else 0.0
+	
+	if is_sep:
+		label_log.text = last_clean_chat_text
+		label_log_history.text += \"\\n\" + last_clean_chat_text
+		_scroll_to_bottom()
+		await get_tree().process_frame
+	else:
+		# Передаємо префікси та чистий текст у функцію анімації
+		await animate_dual_log(translated_text, chat_prefix, log_prefix, \"\\n\", v)
+	
+	if is_binary_q:
+		if is_instance_valid(btn_yes): btn_yes.visible = true
+		if is_instance_valid(btn_no): btn_no.visible = true
+		return await choice_selected 
+		
+	if multi_q_count > 0:
+		current_options_keys = options 
+		var actual_count = min(multi_q_count, options.size())
+		
+		for i in range(actual_count):
+			if is_instance_valid(multi_btns[i]):
+				var btn_label = multi_btns[i].get_node_or_null(\"top\")
+				var translated_opt = lang.text_sign(options[i]) if translate else options[i]
+				
+				if btn_label: btn_label.text = translated_opt
+				else: multi_btns[i].text = translated_opt
+				
+				multi_btns[i].visible = true
+				
+		return await multi_choice_selected 
+	
+	await get_tree().create_timer(4).timeout
+	if current_msg_id == log_message_id: clear_hot_log()
+	return false
+
+# --- ОНОВЛЕНА ФУНКЦІЯ АНІМАЦІЇ ---
+func animate_dual_log(raw_text: String, chat_prefix: String, log_prefix: String, history_prefix: String, v: int):
+	# 1. Отримуємо ідеально чистий текст без тегів заздалегідь
+	var clean_full_text = clean_tags(raw_text) 
+	
+	# 2. ОДРАЗУ додаємо його в історію логів (Без жодних анімацій!)
+	label_log_history.text += history_prefix + log_prefix + clean_full_text
+	_scroll_to_bottom() # Відразу прокручуємо логи вниз
+	
+	var current_display = \"\"
+	var i = 0
+	
+	# 3. Анімація працює ТІЛЬКИ для активного чату (label_log)
+	while i < raw_text.length():
+		if v != anim_id: 
+			# Якщо був скіп, просто миттєво дописуємо чат і виходимо
+			label_log.text = chat_prefix + clean_full_text
+			return 
+		
+		# Обробка тегів [w...] та [q...]
+		if raw_text[i] == \"[\":
+			var close_idx = raw_text.find(\"]\", i)
+			if close_idx != -1:
+				var tag = raw_text.substr(i, close_idx - i + 1)
+				if tag.begins_with(\"[w\"):
+					var wait_str = tag.substr(2, tag.length() - 3)
+					if wait_str.is_valid_float():
+						await get_tree().create_timer(wait_str.to_float()).timeout
+				i = close_idx + 1
+				continue
+				
+		for frame in range(2):
+			# Глітч показується ТІЛЬКИ в основному чаті
+			label_log.text = chat_prefix + current_display + glitch_symbols[randi() % glitch_symbols.length()]
+			await get_tree().create_timer(0.01).timeout
+			
+			if v != anim_id: 
+				# Захист від скіпу під час мікро-затримки
+				label_log.text = chat_prefix + clean_full_text
+				return 
+			
+		current_display += raw_text[i]
+		label_log.text = chat_prefix + current_display
+		i += 1
+
+# --- 6. ДОПОМІЖНІ ФУНКЦІЇ ---
+
+func _scroll_to_bottom():
+	var scroll = $PanelLog/ScrollContainer
+	if scroll: await get_tree().process_frame; scroll.scroll_vertical = scroll.get_v_scroll_bar().max_value
+
+func _open_chat():
+	var dino = $\"../../../Dino\"
+	if dino: was_dino_blocked = not dino.controls_dino; dino.controls_dino = false 
+	chat_input.visible = true; chat_input.grab_focus(); chat_input.text = \"\"
+	if fade_tween: fade_tween.kill()
+	label_log.modulate.a = 1.0; if label_log_old.text != \"\": label_log_old.modulate.a = 1.0
+
+func _close_chat():
+	var dino = $\"../../../Dino\"
+	chat_input.text = \"\"; chat_input.release_focus(); chat_input.visible = false
+	if dino and not was_dino_blocked: dino.controls_dino = true
+
+func _check_for_commands(input_text: String) -> bool:
+	var raw = input_text.to_lower() # Переводимо все в нижній регістр, щоб не залежало від CapsLock
+	var parts = raw.split(\" \")
+	
+	# 1. Твоя стара команда для емоцій
+	if parts[0] == \"-emotion\" or parts[0] == \"-e\":
+		if parts.size() > 1: 
+			_execute_emotion_command(parts[1].to_int())
+		return true 
+		
+	# --- НОВІ КОМАНДИ ---
+	
+	# 2. Команда: -music off
+	if raw == \"-music off\":
+		var music_player = $\"../../../Music\" # ПЕРЕВІР ШЛЯХ ДО СВОГО МУЗИЧНОГО ВУЗЛА!
+		if is_instance_valid(music_player):
+			music_player.stop_track(1.0) # Плавно вимикаємо за 1 секунду
+			
+			# Додаємо системне повідомлення в історію логів
+			label_log_history.text += \"\\n[SYSTEM]: Music disabled\"
+			_scroll_to_bottom()
+		return true # Повертаємо true, щоб Діно не сказав це вголос
+
+	# 3. Додатковий приклад: -music play bg1
+	if parts[0] == \"-music\" and parts[1] == \"play\" and parts.size() > 2:
+		var music_player = $\"../../../Music\"
+		if is_instance_valid(music_player):
+			var track_name = parts[2] # Беремо назву треку (наприклад, bg1)
+			music_player.play_track(track_name, 1.0)
+			
+			label_log_history.text += \"\\n[SYSTEM]: Playing track '\" + track_name + \"'\"
+			_scroll_to_bottom()
+		return true
+
+	if raw == \"-help\":
+		label_log_history.text += \"\\n[HELP]:\\n-e {number}\\n-music off\\n-music play {bg}\"
+		_scroll_to_bottom()
+		return true
+	
+	# Якщо жодна команда не підійшла, повертаємо false (це просто звичайний текст гравця)
+	return false
+
+func _execute_emotion_command(id: int):
+	var node = $\"../../../Dino/Emotion\"
+	if node: node.emotion = id; label_log_history.text += \"\\n[SYSTEM]: Emotion \" + str(id)
+
+func clear_hot_log():
+	fade_tween = create_tween().set_parallel(true)
+	fade_tween.tween_property(label_log, \"modulate:a\", 0.0, 1.5)
+	fade_tween.tween_property(label_log_old, \"modulate:a\", 0.0, 1.5)
+
+func _update_ui_translation():
+	if not self.visible: return
+	label_header.text = lang.text_sign(id_header); label_status.text = lang.text_sign(id_status)
+	label_level.text = lang.text_sign(id_level); label_log_hint.text = lang.text_sign(id_log_hint)
+	btn_label1.text = lang.text_sign(btn_ids[0]); btn_label2.text = lang.text_sign(btn_ids[1])
+	btn_label3.text = lang.text_sign(btn_ids[2]); btn_label4.text = lang.text_sign(btn_ids[3])
+	
+	for i in range(multi_btns.size()):
+		if is_instance_valid(multi_btns[i]) and multi_btns[i].visible and i < current_options_keys.size():
+			var btn_label = multi_btns[i].get_node_or_null(\"top\")
+			var translated_opt = lang.text_sign(current_options_keys[i])
+			if btn_label: btn_label.text = translated_opt
+			else: multi_btns[i].text = translated_opt
+
+func show_title():
+	anim_id += 1
+	var current_v = anim_id
+	is_in_logs = false
+	if active_tween: active_tween.kill()
+	clear_all_text()
+	label_log.visible = false
+	label_log_old.visible = false
+	if chat_input and chat_input.has_focus(): _close_chat()
+	
+	panel.visible = true
+	panel_log.visible = false
+	panel.modulate.a = 0.0
+	panel.scale = Vector2(0.8, 0.8)
+	self.visible = true
+	
+	active_tween = create_tween().set_parallel(true)
+	active_tween.tween_property(panel, \"modulate:a\", 1.0, 0.2)
+	active_tween.tween_property(panel, \"scale\", Vector2(1.0, 1.0), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	if lang and lang.has_method(\"text_sign\"):
+		reveal_minecraft_text(label_header, lang.text_sign(id_header), current_v)
+		reveal_minecraft_text(label_level, lang.text_sign(id_level), current_v)
+		reveal_minecraft_text(label_status, lang.text_sign(id_status), current_v)
+		if btn_ids.size() >= 4:
+			reveal_minecraft_text(btn_label1, lang.text_sign(btn_ids[0]), current_v)
+			reveal_minecraft_text(btn_label2, lang.text_sign(btn_ids[1]), current_v)
+			reveal_minecraft_text(btn_label3, lang.text_sign(btn_ids[2]), current_v)
+			reveal_minecraft_text(btn_label4, lang.text_sign(btn_ids[3]), current_v)
+		reveal_minecraft_text(label_log_hint, lang.text_sign(id_log_hint), current_v)
+
+func close_console() -> bool:
+	if is_in_logs: 
+		switch_to_main()
+		return false
+	anim_id += 1 
+	if active_tween: active_tween.kill()
+	active_tween = create_tween().set_parallel(true)
+	active_tween.tween_property(panel, \"modulate:a\", 0.0, 0.2)
+	active_tween.tween_property(panel, \"scale\", Vector2(0.8, 0.8), 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	await active_tween.finished
+	self.visible = false
+	panel.visible = false 
+	label_log.visible = true
+	label_log_old.visible = true
+	return true
+
+func clear_all_text():
+	if label_header: label_header.text = \"\"
+	if label_status: label_status.text = \"\"
+	if label_level: label_level.text = \"\"
+	if label_log_hint: label_log_hint.text = \"\"
+	if btn_label1: btn_label1.text = \"\"
+	if btn_label2: btn_label2.text = \"\"
+	if btn_label3: btn_label3.text = \"\"
+	if btn_label4: btn_label4.text = \"\"
+
+func reveal_minecraft_text(label: Label, final_text: String, v: int) -> bool:
+	if not label or final_text == \"\": return true
+	var current_display = \"\"
+	for i in range(final_text.length()):
+		if v != anim_id or not self.visible: return false
+		for frame in range(2):
+			label.text = current_display + glitch_symbols[randi() % glitch_symbols.length()]
+			await get_tree().create_timer(0.01).timeout
+		current_display += final_text[i]
+		label.text = current_display
+	return true
+
+func switch_to_logs():
+	is_in_logs = true
+	if active_tween: active_tween.kill()
+	panel_log.visible = true
+	active_tween = create_tween().set_parallel(true)
+	active_tween.tween_property(panel, \"modulate:a\", 0.0, 0.2)
+	active_tween.tween_property(panel, \"scale\", Vector2(0.8, 0.8), 0.2)
+	active_tween.chain().set_parallel(true)
+	active_tween.tween_property(panel_log, \"modulate:a\", 1.0, 0.2)
+	active_tween.tween_property(panel_log, \"scale\", Vector2(1.0, 1.0), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	await active_tween.finished
+	if is_in_logs: panel.visible = false
+
+func switch_to_stone():
+	is_in_logs = true
+	if active_tween: active_tween.kill()
+	$PanelStone.visible = true
+	active_tween = create_tween().set_parallel(true)
+	active_tween.tween_property(panel, \"modulate:a\", 0.0, 0.2)
+	active_tween.tween_property(panel, \"scale\", Vector2(0.8, 0.8), 0.2)
+	active_tween.chain().set_parallel(true)
+	active_tween.tween_property($PanelStone, \"modulate:a\", 1.0, 0.2)
+	active_tween.tween_property($PanelStone, \"scale\", Vector2(1.0, 1.0), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	await active_tween.finished
+	if is_in_logs: panel.visible = false
+
+func switch_to_main():
+	is_in_logs = false
+	if active_tween: active_tween.kill()
+	panel.visible = true
+	active_tween = create_tween().set_parallel(true)
+	active_tween.tween_property(panel_log, \"modulate:a\", 0.0, 0.2)
+	active_tween.tween_property($PanelStone, \"modulate:a\", 0.0, 0.2)
+	active_tween.tween_property(panel_log, \"scale\", Vector2(0.8, 0.8), 0.2)
+	active_tween.tween_property($PanelStone, \"scale\", Vector2(0.8, 0.8), 0.2)
+	active_tween.chain().set_parallel(true)
+	active_tween.tween_property(panel, \"modulate:a\", 1.0, 0.2)
+	active_tween.tween_property(panel, \"scale\", Vector2(1.0, 1.0), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	await active_tween.finished
+	if not is_in_logs: panel_log.visible = false
+	if not is_in_logs: $PanelStone.visible = false
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_5aioy"]
+font = ExtResource("4_r0jag")
+font_size = 36
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="GDScript" id="GDScript_j6nr3"]
+script/source = "extends Button
+
+
+func _ready():
+	if save.load(\"Broshura\") == 1:
+		visible = true
+	else:
+		visible = false
+
+
+func _process(_delta):
+	pass
+
+
+func _on_pressed() -> void:
+	var console = $\"../..\"
+	var broshura = $\"../../../../List/Broshura/1V\"
+	var dino = $\"../../../../../Dino\"
+	var consoleS = $\"../../../../../Dino/Console\"
+	# 1. Ховаємо консоль
+	console.close_console()
+	
+	# 2. Відкриваємо брошуру
+	broshura.show_title()
+	
+	# 3. Чекаємо на сигнал закриття від брошури
+	await broshura.brochure_closed
+	
+	# 4. РОЗБЛОКОВУЄМО ДІНО ТА ЗНІМАЄМО ЗАТЕМНЕННЯ!
+	if is_instance_valid(dino):
+		dino.controls_dino = true
+		consoleS.visible = false
+		dino._apply_tint(Color(\"ffffff\"))
+"
+
+[sub_resource type="GDScript" id="GDScript_o6e8n"]
+script/source = "extends Button
+
+
+func _ready():
+	if save.load(\"Stone\") == 1:
+		visible = true
+	else:
+		visible = false
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_1iiqb"]
+font = ExtResource("4_r0jag")
+font_size = 65
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqsfo"]
+paragraph_spacing = -22.015
+font = ExtResource("4_r0jag")
+font_size = 51
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p122h"]
+font = ExtResource("4_r0jag")
+font_size = 46
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1wq5"]
+line_spacing = -19.44
+paragraph_spacing = 27.595
+font = ExtResource("4_r0jag")
+font_size = 40
+font_color = Color(0, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_61gwe"]
+line_spacing = -6.005
+font = ExtResource("4_r0jag")
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_638ml"]
+line_spacing = -6.005
+font = ExtResource("4_r0jag")
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fneik"]
+font = ExtResource("4_r0jag")
+font_size = 71
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovkwm"]
+size = Vector2(4323.2363, 5.9051514)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxdqj"]
+size = Vector2(54.942116, 5.9051285)
+
+[sub_resource type="GDScript" id="GDScript_1c1ty"]
+script/source = "extends CharacterBody2D
+
+# --- СИГНАЛИ ---
+signal game_started
+
+# --- НАЛАШТУВАННЯ ---
+@export_group(\"Movement Settings\")
+@export var walk_speed: float = 400.0
+@export var run_speed: float = 600.0
+@export var crawl_speed: float = 200.0
+@export var jump_velocity: float = -800.0
+@export var gravity: float = 2500.0
+
+@export_group(\"Surface Physics\")
+@export var ice_acceleration: float = 2.0
+@export var ice_friction: float = 1.0
+@export var wind_push_force: float = -60.0 
+
+# --- ПОСИЛАННЯ НА ВНУТРІШНІ ВУЗЛИ ---
+@onready var sprite = $AnimatedSprite2D
+@onready var col_stand = $CollisionShape2D_Stand
+@onready var col_crouch = $CollisionShape2D_Crouch
+@onready var ceiling_check = $CeilingCheck
+
+# Внутрішні звуки
+@onready var sound_jump = $Jump
+@onready var sound_walk = $Walk
+
+# --- СТАН ---
+var intro_played = false 
+var is_crouching = false
+@export var controls_dino = true
+
+# Режими поверхні (внутрішній стан)
+enum SurfaceMode { NORMAL, WIND_MILD, WIND_STRONG, ICE }
+var current_surface = SurfaceMode.NORMAL
+
+# Мобільний біг
+var is_mobile_running: bool = false
+
+func _ready():
+	sprite.play(\"norma\")
+	col_stand.disabled = false
+	col_crouch.disabled = true
+
+func _physics_process(delta):
+	# Гравітація
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# 1. ЛОГІКА ДО СТАРТУ ГРИ
+	if not intro_played:
+		velocity.x = 0
+		if Input.is_action_just_pressed(\"jump\") and is_on_floor() and controls_dino:
+			start_game_sequence()
+		move_and_slide()
+		return
+
+	# 2. ПЕРЕВІРКА ПРИСІДАННЯ
+	var trying_to_crouch = Input.is_action_pressed(\"down\")
+	var is_ceiling_above = ceiling_check.is_colliding()
+	
+	if (trying_to_crouch or is_ceiling_above) and controls_dino:
+		if not is_crouching: enter_crouch()
+	else:
+		if is_crouching: exit_crouch()
+
+	# 3. ВИЗНАЧЕННЯ БІГУ
+	var is_running = false
+	if OS.has_feature(\"mobile\") or OS.has_feature(\"android\"):
+		if Input.is_action_just_pressed(\"run_toggle\"):
+			is_mobile_running = !is_mobile_running
+		is_running = is_mobile_running
+	else:
+		is_running = Input.is_action_pressed(\"run\")
+
+	# 4. ШВИДКІСТЬ
+	var base_speed = walk_speed
+	if is_crouching: 
+		base_speed = crawl_speed
+		is_running = false
+	elif is_running: 
+		base_speed = run_speed
+
+	var direction = 0
+	if controls_dino:
+		direction = Input.get_axis(\"left\", \"right\")
+
+	# 5. ОБРОБКА ФІЗИКИ ПОВЕРХОНЬ
+	_apply_surface_physics(direction, base_speed, delta)
+
+	# 6. ПОВОРОТ СПРАЙТУ
+	if direction != 0: 
+		sprite.flip_h = (direction < 0)
+
+	# 7. СТРИБОК
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor() and not is_crouching and controls_dino:
+		velocity.y = jump_velocity
+		sound_jump.play()
+
+	# 8. ПЛАТФОРМИ (ПРОЛІТ УНИЗ)
+	if Input.is_action_just_pressed(\"down\") and is_on_floor() and controls_dino:
+		drop_through()
+
+	# 9. ЗВУК КРОКІВ
+	_handle_step_sounds(direction)
+
+	move_and_slide()
+	update_animations(direction, is_running)
+
+# --- ВНУТРІШНЯ ЛОГІКА ---
+
+func _apply_surface_physics(direction, base_speed, delta):
+	match current_surface:
+		SurfaceMode.NORMAL:
+			velocity.x = direction * base_speed
+			
+		SurfaceMode.WIND_MILD:
+			var wind_reduction = 0.6 if direction > 0 else 1.0
+			velocity.x = direction * base_speed * wind_reduction
+			
+		SurfaceMode.WIND_STRONG:
+			if direction > 0: 
+				velocity.x = direction * (base_speed * 0.4) 
+			elif direction < 0: 
+				velocity.x = direction * (base_speed * 1.6) 
+			else: 
+				velocity.x = wind_push_force 
+				
+		SurfaceMode.ICE:
+			if direction != 0:
+				velocity.x = lerp(velocity.x, direction * base_speed, ice_acceleration * delta)
+			else:
+				velocity.x = lerp(velocity.x, 0.0, ice_friction * delta)
+
+func _handle_step_sounds(direction):
+	if is_on_floor() and direction != 0 and controls_dino and not is_crouching:
+		if not sound_walk.playing:
+			sound_walk.play()
+		var real_speed = abs(velocity.x)
+		var dynamic_pitch = real_speed / walk_speed
+		sound_walk.pitch_scale = clamp(dynamic_pitch, 0.4, 2)
+	else:
+		if sound_walk.playing:
+			sound_walk.stop()
+
+func start_game_sequence():
+	velocity.y = jump_velocity
+	intro_played = true
+	game_started.emit() # Повідомляємо світ, що ми почали
+
+func enter_crouch():
+	is_crouching = true
+	col_stand.set_deferred(\"disabled\", true)
+	col_crouch.set_deferred(\"disabled\", false)
+
+func exit_crouch():
+	is_crouching = false
+	col_stand.set_deferred(\"disabled\", false)
+	col_crouch.set_deferred(\"disabled\", true)
+
+func drop_through():
+	set_collision_mask_value(1, false) 
+	await get_tree().create_timer(0.04).timeout
+	set_collision_mask_value(1, true)
+
+func update_animations(direction, is_running):
+	if is_crouching and controls_dino:
+		sprite.play(\"down_walk\" if direction != 0 else \"down_stand\")
+	elif not is_on_floor():
+		sprite.play(\"jump\")
+	elif direction != 0:
+		sprite.play(\"walk\")
+		var anim_speed = 1.6 if is_running else 1.0
+		
+		# Сповільнення анімації при русі проти вітру
+		if direction > 0: 
+			if current_surface == SurfaceMode.WIND_MILD: anim_speed *= 0.7
+			if current_surface == SurfaceMode.WIND_STRONG: anim_speed *= 0.5
+		elif direction < 0 and current_surface == SurfaceMode.WIND_STRONG:
+			anim_speed *= 1.4 
+			
+		sprite.speed_scale = anim_speed
+	else:
+		sprite.play(\"stand\")
+		sprite.speed_scale = 1.0
+
+# Зовнішні команди (API для рівня)
+func set_surface(mode: SurfaceMode): 
+	current_surface = mode
+"
+
+[sub_resource type="GDScript" id="GDScript_5aioy"]
+script/source = "extends Sprite2D
+
+var emotion = 0
+var lock = false
+
+func _ready():
+	visible = false
+# y-0.045 y0.01
+
+func _process(_delta):
+	if emotion != 0 and visible == false:
+		emotion_start()
+
+
+func emotion_start():
+	if lock == true:
+		return
+	lock = true
+	visible = true
+	var repeats = 4
+	var emotion_number = 3 * (emotion - 1)
+	var waity = 0.1
+	
+	if emotion == 2 or emotion == 5 or emotion == 7 or emotion == 8 or emotion == 9 or emotion == 13:
+		waity = 0.5
+		repeats = 1
+		if emotion == 13:
+			repeats = 2
+	
+	
+	frame = 0 + emotion_number
+	
+	
+	if emotion != 13:
+		await get_tree().create_timer(1).timeout
+	
+	
+	while repeats != 5:
+		if emotion == 13:
+			frame = 0 + emotion_number
+			await get_tree().create_timer(waity).timeout
+		frame = 1 + emotion_number
+		await get_tree().create_timer(waity).timeout
+		frame = 2 + emotion_number
+		await get_tree().create_timer(waity).timeout
+		if repeats == 0:
+			break
+		if repeats != 0:
+			repeats -= 1
+	if emotion != 2 or emotion != 7 or emotion != 8 or emotion != 9 or emotion != 13:
+		frame = 0 + emotion_number
+	visible = false
+	emotion = 0
+	lock = false
+	
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6nr3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3cqvd")
+}],
+"loop": true,
+"name": &"down_stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("7_mfntw")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_ds35o")
+}],
+"loop": true,
+"name": &"down_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w2rb4")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 15.0,
+"texture": ExtResource("10_4ev5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vb8kx")
+}],
+"loop": true,
+"name": &"norma",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("10_4ev5g")
+}, {
+"duration": 1.5,
+"texture": ExtResource("12_bvluo")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_7el77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fneik")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6e8n"]
+size = Vector2(0.101216555, 0.17036706)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiqb"]
+size = Vector2(0.101216555, 0.12505664)
+
+[sub_resource type="GDScript" id="GDScript_pqsfo"]
+script/source = "extends Camera2D
+
+# --- ПАМ'ЯТЬ ---
+var default_zoom: Vector2 = Vector2(1.0, 1.0)
+var default_speed: float = 5.0
+var default_offset: Vector2 = Vector2(0, 0)
+
+func _ready():
+	# Зберігаємо початкові налаштування
+	default_zoom = self.zoom
+	default_speed = self.position_smoothing_speed
+	default_offset = self.offset
+
+func change_camera(target_zoom: Vector2, target_speed: float, target_offset: Vector2 = Vector2(0,0), duration: float = 1.2):
+	var tween = create_tween().set_parallel(true)
+	
+	# 1. Плавний зум
+	tween.tween_property(self, \"zoom\", target_zoom, duration)\\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	# 2. Плавна швидкість
+	self.position_smoothing_enabled = true
+	tween.tween_property(self, \"position_smoothing_speed\", target_speed, duration)\\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		
+	# 3. Плавне зміщення (Offset)
+	tween.tween_property(self, \"offset\", target_offset, duration)\\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+# --- ФУНКЦІЯ ПОВЕРНЕННЯ ---
+func reset_camera(duration: float = 1.2):
+	change_camera(default_zoom, default_speed, default_offset, duration)
+"
+
+[sub_resource type="Gradient" id="Gradient_obgh7"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p122h"]
+gradient = SubResource("Gradient_obgh7")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t1wq5"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1000.0
+direction = Vector3(7.58, 0, 0)
+gravity = Vector3(-1000, 250, 0)
+scale_min = 0.19999999
+scale_max = 0.29999998
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 7.66
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = -42.1
+
+[sub_resource type="Curve" id="Curve_kaaeb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.28571427, 0.32584274), -0.86025304, -0.86025304, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rqsof"]
+curve = SubResource("Curve_kaaeb")
+
+[sub_resource type="Gradient" id="Gradient_61gwe"]
+colors = PackedColorArray(0.2, 0.2, 0.2, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6x2jb"]
+gradient = SubResource("Gradient_61gwe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_638ml"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.7, 2.02, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(-10000, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+scale_min = 0.0
+scale_max = 31.519999
+color_ramp = SubResource("GradientTexture1D_6x2jb")
+alpha_curve = SubResource("CurveTexture_rqsof")
+
+[sub_resource type="GDScript" id="GDScript_xxop1"]
+script/source = "extends AudioStreamPlayer
+
+var tracks = {
+	\"bg1\": preload(\"res://Аудіо/Музика/Оригінал/BGAlpha1.mp3\"),
+	\"bg2\": preload(\"res://Аудіо/Музика/Приглушені/LunaDesert.ogg\"),
+	\"bg3\": preload(\"res://Аудіо/Музика/Приглушені/Dereventi.ogg\"),
+	\"bg4\": preload(\"res://Аудіо/Музика/Оригінал/Location2.1.mp3\"),
+	\"dino_run\": preload(\"res://Аудіо/Музика/Оригінал/dino run.mp3\"),
+	\"drey\": preload(\"res://Аудіо/Музика/Оригінал/drey.mp3\")
+}
+
+var current_track_name: String = \"\"
+var fade_tween: Tween
+
+# --- ГОЛОВНІ ФУНКЦІЇ ---
+
+# Плавно вмикає вибраний трек
+# Плавно вмикає вибраний трек
+func play_track(track_name: String, fade_time: float = 2.0):
+	if current_track_name == track_name: return
+	if not tracks.has(track_name): return
+
+	if is_playing():
+		await stop_track(fade_time) # Чекаємо, поки стара музика згасне
+	
+	stream = tracks[track_name]
+	current_track_name = track_name
+	
+	# --- ВИПРАВЛЕННЯ ---
+	volume_db = -80.0 # Опускаємо гучність до нуля ПЕРЕД запуском
+	
+	play()
+	_fade(0.0, fade_time) # Плавно до нормальної гучності (0.0)
+
+# Плавно зупиняє будь-яку музику, що зараз грає
+func stop_track(fade_time: float = 2.0):
+	if not is_playing(): return
+	
+	current_track_name = \"\" # Очищаємо назву, щоб можна було знову ввімкнути той самий трек
+	await _fade(-80.0, fade_time) # Плавно в тишу
+	stop() # Повністю зупиняємо плеєр
+
+# --- ВНУТРІШНЯ МАГІЯ (Універсальний фейдер) ---
+
+func _fade(target_db: float, duration: float):
+	if fade_tween: fade_tween.kill()
+	fade_tween = create_tween()
+	
+	fade_tween.tween_property(self, \"volume_db\", target_db, duration)\\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	await fade_tween.finished
+"
+
+[node name="Подія" type="Node2D"]
+script = SubResource("GDScript_ovkwm")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Menu" type="CanvasLayer" parent="CanvasGroup"]
+layer = 13866
+
+[node name="Panel" type="Panel" parent="CanvasGroup/Menu"]
+process_mode = 3
+visible = false
+self_modulate = Color(0, 0, 0, 0.45882353)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fneik")
+script = SubResource("GDScript_t1wq5")
+
+[node name="Play" type="Button" parent="CanvasGroup/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -68.5
+offset_right = 155.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_t2up6")
+expand_icon = true
+
+[node name="Exit" type="Button" parent="CanvasGroup/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -68.5
+offset_right = -23.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_f2gy6")
+expand_icon = true
+
+[node name="MasterSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 175.47998
+offset_bottom = 52.0
+mouse_default_cursor_shape = 10
+theme = ExtResource("1_fneik")
+min_value = -60.0
+max_value = 6.0
+step = 0.05
+value = -20.0
+
+[node name="Label" type="Label" parent="CanvasGroup/Menu/Panel/MasterSlider"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = -13.0
+offset_right = 327.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Гучність"
+label_settings = SubResource("LabelSettings_kaaeb")
+vertical_alignment = 1
+script = ExtResource("5_ovkwm")
+
+[node name="MusicSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = 65.0
+offset_right = 175.47998
+offset_bottom = 91.0
+mouse_default_cursor_shape = 10
+theme = ExtResource("1_fneik")
+min_value = -60.0
+max_value = 6.0
+step = 0.05
+
+[node name="Label" type="Label" parent="CanvasGroup/Menu/Panel/MusicSlider"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = -13.0
+offset_right = 327.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Музика"
+label_settings = SubResource("LabelSettings_kaaeb")
+vertical_alignment = 1
+script = ExtResource("5_ovkwm")
+
+[node name="SoundSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0
+offset_top = 101.0
+offset_right = 175.47998
+offset_bottom = 127.0
+mouse_default_cursor_shape = 10
+theme = ExtResource("1_fneik")
+min_value = -60.0
+max_value = 6.0
+step = 0.05
+
+[node name="Label" type="Label" parent="CanvasGroup/Menu/Panel/SoundSlider"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = -13.0
+offset_right = 327.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "Звуки"
+label_settings = SubResource("LabelSettings_kaaeb")
+vertical_alignment = 1
+script = ExtResource("5_ovkwm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasGroup"]
+layer = 3
+
+[node name="Dark" type="TextureRect" parent="CanvasGroup/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_pxdqj")
+expand_mode = 1
+script = SubResource("GDScript_61gwe")
+
+[node name="Він\'єткаКубічна" type="TextureRect" parent="CanvasGroup/CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.63529414)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_638ml")
+expand_mode = 1
+script = SubResource("GDScript_omxjm")
+
+[node name="Він\'єтка" type="TextureRect" parent="CanvasGroup/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_5aioy")
+expand_mode = 1
+
+[node name="Dark2" type="ColorRect" parent="CanvasGroup/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Android" type="CanvasLayer" parent="CanvasGroup"]
+layer = 2
+visible = false
+script = SubResource("GDScript_6m6ds")
+
+[node name="Panel" type="Panel" parent="CanvasGroup/Android"]
+modulate = Color(1, 1, 1, 0.44313726)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="right" type="TouchScreenButton" parent="CanvasGroup/Android/Panel"]
+position = Vector2(236.88002, -184)
+scale = Vector2(0.30625, 0.30625)
+texture_normal = ExtResource("9_j6nr3")
+action = "right"
+
+[node name="left" type="TouchScreenButton" parent="CanvasGroup/Android/Panel"]
+position = Vector2(183.88002, -184)
+rotation = 3.1415927
+scale = Vector2(0.306, -0.306)
+texture_normal = ExtResource("9_j6nr3")
+action = "left"
+
+[node name="Panel2" type="Panel" parent="CanvasGroup/Android"]
+modulate = Color(1, 1, 1, 0.44313726)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="jump" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
+position = Vector2(-217, -77)
+rotation = -1.5707964
+scale = Vector2(0.306, 0.306)
+texture_normal = ExtResource("9_j6nr3")
+action = "jump"
+
+[node name="down" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
+position = Vector2(-325.00003, -119)
+rotation = -1.5707964
+scale = Vector2(-0.1978562, 0.1978562)
+texture_normal = ExtResource("9_j6nr3")
+action = "down"
+
+[node name="run" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
+position = Vector2(-438, -121)
+scale = Vector2(0.198, 0.198)
+texture_normal = ExtResource("10_o6e8n")
+action = "run_toggle"
+
+[node name="inject" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
+position = Vector2(-288, -285)
+scale = Vector2(0.17499979, 0.17499979)
+texture_normal = ExtResource("11_1iiqb")
+action = "inject"
+
+[node name="Panel3" type="Panel" parent="CanvasGroup/Android"]
+modulate = Color(1, 1, 1, 0.44313726)
+
+[node name="pause" type="TouchScreenButton" parent="CanvasGroup/Android/Panel3"]
+position = Vector2(6.0000005, 7.000001)
+scale = Vector2(0.110416666, 0.110416666)
+texture_normal = ExtResource("12_pqsfo")
+action = "pause"
+
+[node name="Panel4" type="Panel" parent="CanvasGroup/Android"]
+visible = false
+modulate = Color(1, 1, 1, 0.44313726)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="panel" type="TouchScreenButton" parent="CanvasGroup/Android/Panel4"]
+position = Vector2(-83, 4)
+scale = Vector2(0.16049996, 0.16049996)
+texture_normal = ExtResource("13_p122h")
+action = "tab"
+
+[node name="Console" type="CanvasLayer" parent="CanvasGroup"]
+layer = 4
+
+[node name="Black" type="ColorRect" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pxdqj")
+color = Color(0, 0, 0, 0.5137255)
+script = SubResource("GDScript_omvil")
+
+[node name="Panel" type="Panel" parent="CanvasGroup/Console/Black"]
+visible = false
+layout_mode = 1
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 474.0
+offset_bottom = 466.0
+
+[node name="Button" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 61.0
+grow_horizontal = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="Button1" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = 82.0
+offset_right = -11.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Лог"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Button2" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = 82.0
+offset_right = 213.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Сканування"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Button3" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = 150.0
+offset_right = -11.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Файл"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Button4" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = 150.0
+offset_right = 213.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+disabled = true
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "З'явлення"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Button5" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -437.0
+offset_top = 111.0
+offset_right = -274.0
+offset_bottom = 172.0
+grow_horizontal = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+script = SubResource("GDScript_j6nr3")
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button5"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Брошура"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Button6" type="Button" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -181.0
+offset_top = 111.0
+offset_right = -18.0
+offset_bottom = 172.0
+grow_horizontal = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+script = SubResource("GDScript_o6e8n")
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Button6"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Камінь"
+label_settings = SubResource("LabelSettings_5aioy")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasGroup/Console/Black/Panel/Button6"]
+modulate = Color(0, 0.93333316, 1, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 9.999992
+offset_right = 46.0
+offset_bottom = -10.741943
+grow_vertical = 2
+texture = ExtResource("14_f2gy6")
+expand_mode = 1
+
+[node name="Level" type="Panel" parent="CanvasGroup/Console/Black/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -212.0
+offset_right = -124.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel/Level"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_1iiqb")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_ovkwm")
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 116.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 111.0
+grow_horizontal = 2
+text = "Панель
+Керування"
+label_settings = SubResource("LabelSettings_pqsfo")
+vertical_alignment = 2
+script = ExtResource("5_ovkwm")
+
+[node name="Log" type="Label" parent="CanvasGroup/Console/Black/Panel"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ще немає ніяких записів"
+label_settings = SubResource("LabelSettings_p122h")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="PanelLog" type="Panel" parent="CanvasGroup/Console/Black"]
+visible = false
+layout_mode = 1
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 474.0
+offset_bottom = 466.0
+
+[node name="top" type="Label" parent="CanvasGroup/Console/Black/PanelLog"]
+visible = false
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "Лог"
+label_settings = SubResource("LabelSettings_pqsfo")
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("5_ovkwm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasGroup/Console/Black/PanelLog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = -24.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasGroup/Console/Black/PanelLog/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Log" type="Label" parent="CanvasGroup/Console/Black/PanelLog/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(3.34, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_t1wq5")
+vertical_alignment = 2
+autowrap_mode = 2
+script = ExtResource("5_ovkwm")
+
+[node name="PanelStone" type="Panel" parent="CanvasGroup/Console/Black"]
+visible = false
+layout_mode = 1
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 474.0
+offset_bottom = 466.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasGroup/Console/Black/PanelStone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_f2gy6")
+expand_mode = 1
+
+[node name="TextOld" type="Label" parent="CanvasGroup/Console"]
+self_modulate = Color(0.8047429, 0.8047425, 0.8047427, 1)
+texture_filter = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 337.0
+offset_bottom = -105.0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_61gwe")
+vertical_alignment = 2
+autowrap_mode = 2
+clip_text = true
+
+[node name="Text" type="Label" parent="CanvasGroup/Console"]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -104.0
+offset_right = 337.0
+offset_bottom = -7.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_638ml")
+autowrap_mode = 2
+clip_text = true
+
+[node name="TextEdit" type="LineEdit" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.5
+offset_top = -114.0
+offset_right = 161.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Yes" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = -237.0
+offset_right = 490.0
+offset_bottom = -191.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "так"
+script = ExtResource("15_r0jag")
+
+[node name="No" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = -183.0
+offset_right = 490.0
+offset_bottom = -137.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "ні"
+script = ExtResource("15_r0jag")
+
+[node name="1V" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = -237.0
+offset_right = 606.0
+offset_bottom = -191.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "Спитати про Дейноп"
+script = ExtResource("15_r0jag")
+
+[node name="2V" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = -184.0
+offset_right = 606.0
+offset_bottom = -138.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "Спитати про Дейноп"
+script = ExtResource("15_r0jag")
+
+[node name="3V" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = -132.0
+offset_right = 606.0
+offset_bottom = -86.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "Спитати про Дейноп"
+script = ExtResource("15_r0jag")
+
+[node name="4V" type="Button" parent="CanvasGroup/Console"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 350.0
+offset_top = -79.0
+offset_right = 606.0
+offset_bottom = -33.0
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_fneik")
+text = "Спитати про Дейноп"
+script = ExtResource("15_r0jag")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1878.9131
+offset_top = -604.0
+offset_right = 2154.0
+offset_bottom = -547.0
+text = "Тестова подія ЛОЛ"
+label_settings = SubResource("LabelSettings_fneik")
+
+[node name="СірийПісок" type="NinePatchRect" parent="."]
+z_index = 2
+offset_left = 45.0
+offset_top = -437.0
+offset_right = 4311.4956
+offset_bottom = -37.256744
+texture = ExtResource("1_1c1ty")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="СірийПісок"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СірийПісок/StaticBody2D"]
+visible = false
+position = Vector2(2161.6167, 5.0063477)
+shape = SubResource("RectangleShape2D_ovkwm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="СірийПісок/StaticBody2D"]
+visible = false
+position = Vector2(4350.962, 5.0063477)
+shape = SubResource("RectangleShape2D_pxdqj")
+one_way_collision = true
+
+[node name="Dino" type="CharacterBody2D" parent="."]
+position = Vector2(1886, -742)
+scale = Vector2(987.9862, 530.52625)
+collision_layer = 2
+collision_mask = 9
+floor_max_angle = 1.2095132
+script = SubResource("GDScript_1c1ty")
+
+[node name="Emotion" type="Sprite2D" parent="Dino"]
+visible = false
+z_index = 5
+texture_filter = 1
+position = Vector2(0, -0.1621032)
+scale = Vector2(0.006073958, 0.0112238135)
+texture = ExtResource("2_4cnbo")
+hframes = 3
+vframes = 33
+script = SubResource("GDScript_5aioy")
+
+[node name="Console" type="Sprite2D" parent="Dino"]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(0.0383761, 0.015079259)
+rotation = -0.30194196
+scale = Vector2(0.0033811058, 0.005654942)
+skew = 0.30194196
+hframes = 5
+vframes = 5
+
+[node name="Console" type="Sprite2D" parent="Dino/Console"]
+z_index = 1
+texture_filter = 1
+scale = Vector2(1, 0.9999999)
+texture = ExtResource("3_elqox")
+hframes = 5
+vframes = 5
+
+[node name="Dark" type="Sprite2D" parent="Dino"]
+visible = false
+z_index = 100
+texture_filter = 1
+position = Vector2(0.076838195, 0.33551598)
+scale = Vector2(0.009969775, 0.018566474)
+texture = ExtResource("4_nvylj")
+hframes = 5
+script = ExtResource("5_yxamb")
+max_frames = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dino"]
+texture_filter = 1
+scale = Vector2(0.0033556104, 0.0065454356)
+sprite_frames = SubResource("SpriteFrames_j6nr3")
+animation = &"norma"
+
+[node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="Dino"]
+visible = false
+position = Vector2(0, 0.01268696)
+scale = Vector2(0.99999994, 0.99999976)
+shape = SubResource("RectangleShape2D_o6e8n")
+
+[node name="CollisionShape2D_Crouch" type="CollisionShape2D" parent="Dino"]
+visible = false
+position = Vector2(0, 0.035342097)
+scale = Vector2(1, 0.99999976)
+shape = SubResource("RectangleShape2D_1iiqb")
+disabled = true
+
+[node name="CeilingCheck" type="RayCast2D" parent="Dino"]
+visible = false
+position = Vector2(0.000973236, 0.01631169)
+target_position = Vector2(0.00097323954, -0.10149521)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Camera2D" type="Camera2D" parent="Dino"]
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_vertical_enabled = true
+script = SubResource("GDScript_pqsfo")
+
+[node name="Погода Пустелі" type="GPUParticles2D" parent="Dino/Camera2D"]
+z_index = 3
+position = Vector2(0.6274532, -0.3185517)
+scale = Vector2(0.0010121599, 0.001884921)
+emitting = false
+amount = 30
+texture = SubResource("GradientTexture2D_p122h")
+lifetime = 12.66
+speed_scale = 19.79
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_t1wq5")
+
+[node name="Туман" type="GPUParticles2D" parent="Dino/Camera2D"]
+modulate = Color(1, 1, 1, 0.6313726)
+z_index = 5
+texture_filter = 1
+position = Vector2(-0.06385204, -0.21676612)
+emitting = false
+amount = 1400
+texture = ExtResource("15_t2up6")
+lifetime = 0.33
+process_material = SubResource("ParticleProcessMaterial_638ml")
+
+[node name="Туман2" type="GPUParticles2D" parent="Dino/Camera2D"]
+modulate = Color(1, 1, 1, 0.6313726)
+z_index = -1
+texture_filter = 1
+position = Vector2(-0.06385207, -0.21676612)
+emitting = false
+amount = 1400
+texture = ExtResource("15_t2up6")
+lifetime = 0.33
+process_material = SubResource("ParticleProcessMaterial_638ml")
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="Dino"]
+scale = Vector2(0.0010121599, 0.001884921)
+stream = ExtResource("16_f2gy6")
+volume_db = -8.49
+bus = &"Sound"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Dino"]
+scale = Vector2(0.0010121599, 0.001884921)
+stream = ExtResource("17_r0jag")
+bus = &"Sound"
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+
+[node name="SongAtmotphere" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+bus = &"Sound"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+script = SubResource("GDScript_xxop1")
+
+[connection signal="button_down" from="CanvasGroup/Menu/Panel/Play" to="CanvasGroup/Menu/Panel" method="_on_play_pressed"]
+[connection signal="button_down" from="CanvasGroup/Menu/Panel/Exit" to="CanvasGroup/Menu/Panel" method="_on_exit_pressed"]
+[connection signal="value_changed" from="CanvasGroup/Menu/Panel/MasterSlider" to="CanvasGroup/Menu/Panel" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="CanvasGroup/Menu/Panel/MusicSlider" to="CanvasGroup/Menu/Panel" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CanvasGroup/Menu/Panel/SoundSlider" to="CanvasGroup/Menu/Panel" method="_on_sound_slider_value_changed"]
+[connection signal="button_down" from="CanvasGroup/Console/Black/Panel/Button1" to="CanvasGroup/Console/Black" method="switch_to_logs"]
+[connection signal="pressed" from="CanvasGroup/Console/Black/Panel/Button5" to="CanvasGroup/Console/Black/Panel/Button5" method="_on_pressed"]
+[connection signal="pressed" from="CanvasGroup/Console/Black/Panel/Button6" to="CanvasGroup/Console/Black" method="switch_to_stone"]
