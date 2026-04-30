@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://wuffugntr3np"]
+[gd_scene load_steps=75 format=3 uid="uid://wuffugntr3np"]
 
 [ext_resource type="Texture2D" uid="uid://chemmmf3ryr6p" path="res://Світлина/Текстури/Сірий-пісок.png" id="1_1c1ty"]
 [ext_resource type="Theme" uid="uid://vbrnawvf3cuq" path="res://Теми/ДейнопЮІ.tres" id="1_fneik"]
@@ -31,7 +31,9 @@
 [ext_resource type="Script" uid="uid://15km82k7e5ox" path="res://Плагіни/button.gd" id="15_r0jag"]
 [ext_resource type="Texture2D" uid="uid://b258nssxurgco" path="res://Світлина/Об'єкти/ТуманБілий.png" id="15_t2up6"]
 [ext_resource type="AudioStream" uid="uid://c7emwihvue5qm" path="res://Аудіо/Звуки/walk trip dino.mp3" id="16_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://cekh1tyfwchvr" path="res://Світлина/Об'єкти/Cactus3Normal.png" id="17_ovkwm"]
 [ext_resource type="AudioStream" uid="uid://dj1dv5pipube4" path="res://Аудіо/Звуки/jump Dino.mp3" id="17_r0jag"]
+[ext_resource type="Texture2D" uid="uid://coys44djboa1f" path="res://Світлина/Об'єкти/Cactus4Normal.png" id="18_pxdqj"]
 
 [sub_resource type="GDScript" id="GDScript_ovkwm"]
 script/source = "extends Node2D
@@ -2102,15 +2104,15 @@ offset_left = 1878.9131
 offset_top = -604.0
 offset_right = 2154.0
 offset_bottom = -547.0
-text = "ШО ТУТ РОБЕ ВЛАД???"
+text = "ШО ТУТ"
 label_settings = SubResource("LabelSettings_fneik")
 
 [node name="СірийПісок" type="NinePatchRect" parent="."]
 z_index = 2
 texture_filter = 1
-offset_left = 45.0
+offset_left = -6287.0
 offset_top = -437.0
-offset_right = 4311.4956
+offset_right = -2020.5044
 offset_bottom = -37.256744
 scale = Vector2(4, 4)
 texture = ExtResource("1_1c1ty")
@@ -2130,8 +2132,109 @@ position = Vector2(4350.962, 5.0063477)
 shape = SubResource("RectangleShape2D_pxdqj")
 one_way_collision = true
 
+[node name="Cactus3Normal" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1595.2499, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal2" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1805.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal3" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1953.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
+
+[node name="Cactus3Normal4" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1717.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
+
+[node name="Cactus3Normal5" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1527, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal6" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1914.5, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal7" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(2083.125, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal8" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(2285.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal9" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(2448.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
+
+[node name="Cactus3Normal10" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(2197.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
+
+[node name="Cactus3Normal11" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(2012.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal12" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(2410.0938, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal13" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1306.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal14" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1469.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
+
+[node name="Cactus3Normal15" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1327.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
+
+[node name="Cactus3Normal16" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1033.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal17" type="Sprite2D" parent="СірийПісок"]
+z_index = -2
+position = Vector2(1431.0938, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(1886, -742)
+position = Vector2(783, -481.00003)
 scale = Vector2(987.9862, 530.52625)
 collision_layer = 2
 collision_mask = 9
