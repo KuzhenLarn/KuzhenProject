@@ -37,4 +37,12 @@ a{
 #text_input {justify-content: center;display: flex;}
 
 
+@media (max-width: 700px) {
+input{
+    width: 100%;
+}
+input#submitmsg{
+    width: 5%;
+}
 
+}
