@@ -1,54 +1,39 @@
-[gd_scene load_steps=90 format=3 uid="uid://c400586ylpofh"]
+[gd_scene load_steps=75 format=3 uid="uid://wuffugntr3np"]
 
-[ext_resource type="Theme" uid="uid://vbrnawvf3cuq" path="res://Теми/ДейнопЮІ.tres" id="1_ki411"]
-[ext_resource type="Texture2D" uid="uid://eunrsvo1n7c2" path="res://Світлина/GUI/Кнопки/безфону/play.png" id="2_8iqxc"]
-[ext_resource type="Texture2D" uid="uid://c54lvgukygqqb" path="res://Світлина/GUI/Кнопки/безфону/x.png" id="3_j0hdk"]
-[ext_resource type="FontFile" uid="uid://fa1u1ywcfjt1" path="res://Шрифт/BsbTextClassic.ttf" id="4_aeqff"]
-[ext_resource type="Script" uid="uid://qioy28g20qhc" path="res://Плагіни/label.gd" id="5_403b1"]
-[ext_resource type="Texture2D" uid="uid://cwelefyy0ic4b" path="res://Світлина/GUI/Dark.png" id="6_je7uq"]
-[ext_resource type="Texture2D" uid="uid://vqpx03y5ph43" path="res://Світлина/GUI/Анімаційне/CameraWinyetkaAnimKubic.png" id="7_o3w6o"]
-[ext_resource type="Texture2D" uid="uid://q7q6uoyogcd4" path="res://Світлина/GUI/DarkВін'єтка.png" id="8_e12vr"]
-[ext_resource type="Texture2D" uid="uid://j7pmsyh834xi" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow.png" id="9_x8gx1"]
-[ext_resource type="Texture2D" uid="uid://by8o70xyvfg1y" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow Run.png" id="10_amg6d"]
-[ext_resource type="Texture2D" uid="uid://dovxhb8osegg2" path="res://Світлина/GUI/Кнопки/InteractionE.png" id="11_tx0d3"]
-[ext_resource type="Texture2D" uid="uid://ij76y4pviiri" path="res://Світлина/GUI/Кнопки/Dino Poop Pause.png" id="12_y1eqe"]
-[ext_resource type="Texture2D" uid="uid://hffae3e80aop" path="res://Світлина/GUI/Кнопки/Dino Poop Panel.png" id="13_e18f0"]
-[ext_resource type="Texture2D" uid="uid://d4fkl274tycyi" path="res://Світлина/GUI/icoNoneText.png" id="14_giedg"]
-[ext_resource type="Script" uid="uid://15km82k7e5ox" path="res://Плагіни/button.gd" id="15_3ixpr"]
-[ext_resource type="Texture2D" uid="uid://g0al0v2vafgl" path="res://Світлина/Текстури/Пісок-Чорний.png" id="16_sq4er"]
-[ext_resource type="Texture2D" uid="uid://bah2dhcxal45e" path="res://Світлина/Текстури/Пісок-Чорний-Фон.png" id="16_st67j"]
-[ext_resource type="Texture2D" uid="uid://i7xharwopxuy" path="res://Світлина/ІншеАнімоване/helloween_pumpkin.png" id="17_n17wr"]
-[ext_resource type="Texture2D" uid="uid://c6ogshmitftc5" path="res://Світлина/Об'єкти/pumpkin.png" id="19_sq4er"]
-[ext_resource type="Texture2D" uid="uid://chulinn4vgbms" path="res://Світлина/GUI/Анімаційне/Емоції.png" id="19_tcdpu"]
-[ext_resource type="Texture2D" uid="uid://dcxrih8b7q6nv" path="res://Світлина/Об'єкти/Цвинтар1.png" id="20_3tlqj"]
-[ext_resource type="Texture2D" uid="uid://c07qcq7dst8gn" path="res://Світлина/ІншеАнімоване/панель.png" id="20_uq8dw"]
-[ext_resource type="Texture2D" uid="uid://chj78lnrw1pq8" path="res://Світлина/Об'єкти/Цвинтар2.png" id="21_bdux5"]
-[ext_resource type="Texture2D" uid="uid://dygo5ycl5g1yp" path="res://Світлина/Об'єкти/Ґрати.png" id="21_hncaj"]
-[ext_resource type="Texture2D" uid="uid://c4ns51xs810mp" path="res://Світлина/Об'єкти/Стовб.png" id="21_ohe14"]
-[ext_resource type="Texture2D" uid="uid://y28qc2soni50" path="res://Світлина/GUI/Анімаційне/Dark.png" id="21_w7txi"]
-[ext_resource type="Texture2D" uid="uid://bni2a4baeopql" path="res://Світлина/Об'єкти/Цвинтар3.png" id="22_pprlx"]
-[ext_resource type="Script" uid="uid://cutsv64d27soj" path="res://Плагіни/AnamationSprite.gd" id="22_v4575"]
-[ext_resource type="Texture2D" uid="uid://dm2igjekbkvo0" path="res://Світлина/Об'єкти/Цвинтар4.png" id="23_1p52d"]
-[ext_resource type="Texture2D" uid="uid://c82wyxg4cmvyq" path="res://Світлина/Персонажі/Dino/DownS1.png" id="23_qm0tv"]
-[ext_resource type="Texture2D" uid="uid://bop4oguooe0pw" path="res://Світлина/Персонажі/Dino/Down1.png" id="24_1e3m4"]
-[ext_resource type="Texture2D" uid="uid://cpbud832jg8xp" path="res://Світлина/ІншеАнімоване/Рука.png" id="24_bdux5"]
-[ext_resource type="Texture2D" uid="uid://d26u10vw0vob6" path="res://Світлина/ІншеАнімоване/ДкаміньСтатуя.png" id="25_1p52d"]
-[ext_resource type="Texture2D" uid="uid://ortgg0yeq1qo" path="res://Світлина/Об'єкти/Starikamniu.png" id="25_pprlx"]
-[ext_resource type="Texture2D" uid="uid://b1upfcb8vxwhi" path="res://Світлина/Персонажі/Dino/Down2.png" id="25_qqw0i"]
-[ext_resource type="Texture2D" uid="uid://8ytt3daioq71" path="res://Світлина/Персонажі/Dino/5.png" id="26_djyb6"]
-[ext_resource type="Texture2D" uid="uid://c0vkqecs88bl6" path="res://Світлина/Персонажі/Dino/1.png" id="27_ua2y1"]
-[ext_resource type="Texture2D" uid="uid://bwlj308kmbe2l" path="res://Світлина/Об'єкти/Hrest.png" id="28_3bcwk"]
-[ext_resource type="Texture2D" uid="uid://b3dpiafbfsqqj" path="res://Світлина/Персонажі/Dino/1_bez_oka.png" id="28_qwj2a"]
-[ext_resource type="Texture2D" uid="uid://c1c0u01pjmj47" path="res://Світлина/Персонажі/Dino/2.png" id="29_0qk42"]
-[ext_resource type="Texture2D" uid="uid://3xgmakeehtpf" path="res://Світлина/Персонажі/Dino/3.png" id="30_5qk1l"]
-[ext_resource type="Texture2D" uid="uid://oi1m5xx0oo2e" path="res://Світлина/Персонажі/Dino/4.png" id="31_6282d"]
-[ext_resource type="Texture2D" uid="uid://drg52jwy80tg1" path="res://Світлина/Об'єкти/Mertv!.png" id="31_m2rrr"]
-[ext_resource type="Texture2D" uid="uid://b258nssxurgco" path="res://Світлина/Об'єкти/ТуманБілий.png" id="32_l4vqt"]
-[ext_resource type="Texture2D" uid="uid://bq6fhtwvum7eb" path="res://Світлина/Об'єкти/Mertv.png" id="32_peju5"]
-[ext_resource type="AudioStream" uid="uid://c7emwihvue5qm" path="res://Аудіо/Звуки/walk trip dino.mp3" id="33_b5vml"]
-[ext_resource type="Texture2D" uid="uid://dtafs7vxwdky5" path="res://Світлина/Об'єкти/Церква.png" id="33_peju5"]
-[ext_resource type="AudioStream" uid="uid://dj1dv5pipube4" path="res://Аудіо/Звуки/jump Dino.mp3" id="34_hq7wt"]
-[ext_resource type="Texture2D" uid="uid://dexa75fy34q5v" path="res://Світлина/Персонажі/Dino/6.png" id="40_m2rrr"]
+[ext_resource type="Texture2D" uid="uid://chemmmf3ryr6p" path="res://Світлина/Текстури/Сірий-пісок.png" id="1_1c1ty"]
+[ext_resource type="Theme" uid="uid://vbrnawvf3cuq" path="res://Теми/ДейнопЮІ.tres" id="1_fneik"]
+[ext_resource type="Texture2D" uid="uid://chulinn4vgbms" path="res://Світлина/GUI/Анімаційне/Емоції.png" id="2_4cnbo"]
+[ext_resource type="Texture2D" uid="uid://eunrsvo1n7c2" path="res://Світлина/GUI/Кнопки/безфону/play.png" id="2_t2up6"]
+[ext_resource type="Texture2D" uid="uid://c07qcq7dst8gn" path="res://Світлина/ІншеАнімоване/панель.png" id="3_elqox"]
+[ext_resource type="Texture2D" uid="uid://c54lvgukygqqb" path="res://Світлина/GUI/Кнопки/безфону/x.png" id="3_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://y28qc2soni50" path="res://Світлина/GUI/Анімаційне/Dark.png" id="4_nvylj"]
+[ext_resource type="FontFile" uid="uid://fa1u1ywcfjt1" path="res://Шрифт/BsbTextClassic.ttf" id="4_r0jag"]
+[ext_resource type="Script" uid="uid://qioy28g20qhc" path="res://Плагіни/label.gd" id="5_ovkwm"]
+[ext_resource type="Script" uid="uid://cutsv64d27soj" path="res://Плагіни/AnamationSprite.gd" id="5_yxamb"]
+[ext_resource type="Texture2D" uid="uid://c82wyxg4cmvyq" path="res://Світлина/Персонажі/Dino/DownS1.png" id="6_3cqvd"]
+[ext_resource type="Texture2D" uid="uid://cwelefyy0ic4b" path="res://Світлина/GUI/Dark.png" id="6_pxdqj"]
+[ext_resource type="Texture2D" uid="uid://bop4oguooe0pw" path="res://Світлина/Персонажі/Dino/Down1.png" id="7_mfntw"]
+[ext_resource type="Texture2D" uid="uid://vqpx03y5ph43" path="res://Світлина/GUI/Анімаційне/CameraWinyetkaAnimKubic.png" id="7_omvil"]
+[ext_resource type="Texture2D" uid="uid://q7q6uoyogcd4" path="res://Світлина/GUI/DarkВін'єтка.png" id="8_5aioy"]
+[ext_resource type="Texture2D" uid="uid://b1upfcb8vxwhi" path="res://Світлина/Персонажі/Dino/Down2.png" id="8_ds35o"]
+[ext_resource type="Texture2D" uid="uid://j7pmsyh834xi" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow.png" id="9_j6nr3"]
+[ext_resource type="Texture2D" uid="uid://8ytt3daioq71" path="res://Світлина/Персонажі/Dino/5.png" id="9_w2rb4"]
+[ext_resource type="Texture2D" uid="uid://c0vkqecs88bl6" path="res://Світлина/Персонажі/Dino/1.png" id="10_4ev5g"]
+[ext_resource type="Texture2D" uid="uid://by8o70xyvfg1y" path="res://Світлина/GUI/Кнопки/Dino Poop Arrow Run.png" id="10_o6e8n"]
+[ext_resource type="Texture2D" uid="uid://dovxhb8osegg2" path="res://Світлина/GUI/Кнопки/InteractionE.png" id="11_1iiqb"]
+[ext_resource type="Texture2D" uid="uid://b3dpiafbfsqqj" path="res://Світлина/Персонажі/Dino/1_bez_oka.png" id="11_vb8kx"]
+[ext_resource type="Texture2D" uid="uid://c1c0u01pjmj47" path="res://Світлина/Персонажі/Dino/2.png" id="12_bvluo"]
+[ext_resource type="Texture2D" uid="uid://ij76y4pviiri" path="res://Світлина/GUI/Кнопки/Dino Poop Pause.png" id="12_pqsfo"]
+[ext_resource type="Texture2D" uid="uid://3xgmakeehtpf" path="res://Світлина/Персонажі/Dino/3.png" id="13_7el77"]
+[ext_resource type="Texture2D" uid="uid://hffae3e80aop" path="res://Світлина/GUI/Кнопки/Dino Poop Panel.png" id="13_p122h"]
+[ext_resource type="Texture2D" uid="uid://d4fkl274tycyi" path="res://Світлина/GUI/icoNoneText.png" id="14_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://oi1m5xx0oo2e" path="res://Світлина/Персонажі/Dino/4.png" id="14_fneik"]
+[ext_resource type="Script" uid="uid://15km82k7e5ox" path="res://Плагіни/button.gd" id="15_r0jag"]
+[ext_resource type="Texture2D" uid="uid://b258nssxurgco" path="res://Світлина/Об'єкти/ТуманБілий.png" id="15_t2up6"]
+[ext_resource type="AudioStream" uid="uid://c7emwihvue5qm" path="res://Аудіо/Звуки/walk trip dino.mp3" id="16_f2gy6"]
+[ext_resource type="Texture2D" uid="uid://cekh1tyfwchvr" path="res://Світлина/Об'єкти/Cactus3Normal.png" id="17_ovkwm"]
+[ext_resource type="AudioStream" uid="uid://dj1dv5pipube4" path="res://Аудіо/Звуки/jump Dino.mp3" id="17_r0jag"]
+[ext_resource type="Texture2D" uid="uid://coys44djboa1f" path="res://Світлина/Об'єкти/Cactus4Normal.png" id="18_pxdqj"]
 
 [sub_resource type="GDScript" id="GDScript_ovkwm"]
 script/source = "extends Node2D
@@ -159,7 +144,7 @@ func _on_sound_slider_value_changed(value: float):
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_kaaeb"]
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 21
 
 [sub_resource type="GDScript" id="GDScript_61gwe"]
@@ -173,7 +158,7 @@ func _ready() -> void:
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_638ml"]
-atlas = ExtResource("7_o3w6o")
+atlas = ExtResource("7_omvil")
 region = Rect2(1920, 0, 1920, 1080)
 
 [sub_resource type="GDScript" id="GDScript_omxjm"]
@@ -252,7 +237,7 @@ func _ready():
 "
 
 [sub_resource type="FontVariation" id="FontVariation_f8xot"]
-base_font = ExtResource("4_aeqff")
+base_font = ExtResource("4_r0jag")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obgh7"]
 bg_color = Color(0, 0.33811274, 0.33811274, 0.30980393)
@@ -772,7 +757,7 @@ func switch_to_main():
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_5aioy"]
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 36
 font_color = Color(0, 1, 1, 1)
 shadow_color = Color(0, 0, 0, 0.49019608)
@@ -825,20 +810,20 @@ func _ready():
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_1iiqb"]
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 65
 font_color = Color(0, 1, 1, 1)
 shadow_color = Color(0, 0, 0, 0.49019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pqsfo"]
 paragraph_spacing = -22.015
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 51
 font_color = Color(0, 1, 1, 1)
 shadow_color = Color(0, 0, 0, 0.49019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p122h"]
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 46
 font_color = Color(0, 1, 1, 1)
 shadow_color = Color(0, 0, 0, 0.49019608)
@@ -846,14 +831,14 @@ shadow_color = Color(0, 0, 0, 0.49019608)
 [sub_resource type="LabelSettings" id="LabelSettings_t1wq5"]
 line_spacing = -19.44
 paragraph_spacing = 27.595
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 40
 font_color = Color(0, 1, 1, 1)
 shadow_color = Color(0, 0, 0, 0.49019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_61gwe"]
 line_spacing = -6.005
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 25
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -863,7 +848,7 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_638ml"]
 line_spacing = -6.005
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 25
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -872,7 +857,7 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fneik"]
-font = ExtResource("4_aeqff")
+font = ExtResource("4_r0jag")
 font_size = 71
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovkwm"]
@@ -1136,7 +1121,7 @@ func emotion_start():
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_qm0tv")
+"texture": ExtResource("6_3cqvd")
 }],
 "loop": true,
 "name": &"down_stand",
@@ -1144,21 +1129,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 2.0,
-"texture": ExtResource("24_1e3m4")
+"texture": ExtResource("7_mfntw")
 }, {
 "duration": 2.0,
-"texture": ExtResource("25_qqw0i")
+"texture": ExtResource("8_ds35o")
 }],
 "loop": true,
 "name": &"down_walk",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 2.0,
-"texture": ExtResource("26_djyb6")
-}, {
-"duration": 2.0,
-"texture": ExtResource("40_m2rrr")
+"duration": 1.0,
+"texture": ExtResource("9_w2rb4")
 }],
 "loop": true,
 "name": &"jump",
@@ -1166,10 +1148,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 15.0,
-"texture": ExtResource("27_ua2y1")
+"texture": ExtResource("10_4ev5g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_qwj2a")
+"texture": ExtResource("11_vb8kx")
 }],
 "loop": true,
 "name": &"norma",
@@ -1177,10 +1159,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.5,
-"texture": ExtResource("27_ua2y1")
+"texture": ExtResource("10_4ev5g")
 }, {
 "duration": 1.5,
-"texture": ExtResource("29_0qk42")
+"texture": ExtResource("12_bvluo")
 }],
 "loop": true,
 "name": &"stand",
@@ -1188,10 +1170,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("30_5qk1l")
+"texture": ExtResource("13_7el77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_6282d")
+"texture": ExtResource("14_fneik")
 }],
 "loop": true,
 "name": &"walk",
@@ -1359,7 +1341,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 script = SubResource("GDScript_t1wq5")
 
 [node name="Play" type="Button" parent="CanvasGroup/Menu/Panel"]
@@ -1377,7 +1359,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-icon = ExtResource("2_8iqxc")
+icon = ExtResource("2_t2up6")
 expand_icon = true
 
 [node name="Exit" type="Button" parent="CanvasGroup/Menu/Panel"]
@@ -1395,7 +1377,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
-icon = ExtResource("3_j0hdk")
+icon = ExtResource("3_f2gy6")
 expand_icon = true
 
 [node name="MasterSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
@@ -1406,7 +1388,7 @@ offset_top = 26.0
 offset_right = 175.47998
 offset_bottom = 52.0
 mouse_default_cursor_shape = 10
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 min_value = -60.0
 max_value = 6.0
 step = 0.05
@@ -1426,7 +1408,7 @@ grow_vertical = 2
 text = "Гучність"
 label_settings = SubResource("LabelSettings_kaaeb")
 vertical_alignment = 1
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="MusicSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
 texture_filter = 1
@@ -1436,7 +1418,7 @@ offset_top = 65.0
 offset_right = 175.47998
 offset_bottom = 91.0
 mouse_default_cursor_shape = 10
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 min_value = -60.0
 max_value = 6.0
 step = 0.05
@@ -1455,7 +1437,7 @@ grow_vertical = 2
 text = "Музика"
 label_settings = SubResource("LabelSettings_kaaeb")
 vertical_alignment = 1
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="SoundSlider" type="HSlider" parent="CanvasGroup/Menu/Panel"]
 texture_filter = 1
@@ -1465,7 +1447,7 @@ offset_top = 101.0
 offset_right = 175.47998
 offset_bottom = 127.0
 mouse_default_cursor_shape = 10
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 min_value = -60.0
 max_value = 6.0
 step = 0.05
@@ -1484,7 +1466,7 @@ grow_vertical = 2
 text = "Звуки"
 label_settings = SubResource("LabelSettings_kaaeb")
 vertical_alignment = 1
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasGroup"]
 layer = 3
@@ -1496,7 +1478,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_je7uq")
+texture = ExtResource("6_pxdqj")
 expand_mode = 1
 script = SubResource("GDScript_61gwe")
 
@@ -1519,7 +1501,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_e12vr")
+texture = ExtResource("8_5aioy")
 expand_mode = 1
 
 [node name="Dark2" type="ColorRect" parent="CanvasGroup/CanvasLayer"]
@@ -1546,14 +1528,14 @@ grow_vertical = 0
 [node name="right" type="TouchScreenButton" parent="CanvasGroup/Android/Panel"]
 position = Vector2(236.88002, -184)
 scale = Vector2(0.30625, 0.30625)
-texture_normal = ExtResource("9_x8gx1")
+texture_normal = ExtResource("9_j6nr3")
 action = "right"
 
 [node name="left" type="TouchScreenButton" parent="CanvasGroup/Android/Panel"]
 position = Vector2(183.88002, -184)
 rotation = 3.1415927
 scale = Vector2(0.306, -0.306)
-texture_normal = ExtResource("9_x8gx1")
+texture_normal = ExtResource("9_j6nr3")
 action = "left"
 
 [node name="Panel2" type="Panel" parent="CanvasGroup/Android"]
@@ -1570,26 +1552,26 @@ grow_vertical = 0
 position = Vector2(-217, -77)
 rotation = -1.5707964
 scale = Vector2(0.306, 0.306)
-texture_normal = ExtResource("9_x8gx1")
+texture_normal = ExtResource("9_j6nr3")
 action = "jump"
 
 [node name="down" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
 position = Vector2(-325.00003, -119)
 rotation = -1.5707964
 scale = Vector2(-0.1978562, 0.1978562)
-texture_normal = ExtResource("9_x8gx1")
+texture_normal = ExtResource("9_j6nr3")
 action = "down"
 
 [node name="run" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
 position = Vector2(-438, -121)
 scale = Vector2(0.198, 0.198)
-texture_normal = ExtResource("10_amg6d")
+texture_normal = ExtResource("10_o6e8n")
 action = "run_toggle"
 
 [node name="inject" type="TouchScreenButton" parent="CanvasGroup/Android/Panel2"]
 position = Vector2(-288, -285)
 scale = Vector2(0.17499979, 0.17499979)
-texture_normal = ExtResource("11_tx0d3")
+texture_normal = ExtResource("11_1iiqb")
 action = "inject"
 
 [node name="Panel3" type="Panel" parent="CanvasGroup/Android"]
@@ -1598,7 +1580,7 @@ modulate = Color(1, 1, 1, 0.44313726)
 [node name="pause" type="TouchScreenButton" parent="CanvasGroup/Android/Panel3"]
 position = Vector2(6.0000005, 7.000001)
 scale = Vector2(0.110416666, 0.110416666)
-texture_normal = ExtResource("12_y1eqe")
+texture_normal = ExtResource("12_pqsfo")
 action = "pause"
 
 [node name="Panel4" type="Panel" parent="CanvasGroup/Android"]
@@ -1612,7 +1594,7 @@ grow_horizontal = 0
 [node name="panel" type="TouchScreenButton" parent="CanvasGroup/Android/Panel4"]
 position = Vector2(-83, 4)
 scale = Vector2(0.16049996, 0.16049996)
-texture_normal = ExtResource("13_e18f0")
+texture_normal = ExtResource("13_p122h")
 action = "tab"
 
 [node name="Console" type="CanvasLayer" parent="CanvasGroup"]
@@ -1678,7 +1660,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Button2" type="Button" parent="CanvasGroup/Console/Black/Panel"]
 layout_mode = 1
@@ -1710,7 +1692,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Button3" type="Button" parent="CanvasGroup/Console/Black/Panel"]
 layout_mode = 1
@@ -1742,7 +1724,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Button4" type="Button" parent="CanvasGroup/Console/Black/Panel"]
 layout_mode = 1
@@ -1774,7 +1756,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Button5" type="Button" parent="CanvasGroup/Console/Black/Panel"]
 layout_mode = 1
@@ -1803,7 +1785,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Button6" type="Button" parent="CanvasGroup/Console/Black/Panel"]
 layout_mode = 1
@@ -1833,7 +1815,7 @@ label_settings = SubResource("LabelSettings_5aioy")
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasGroup/Console/Black/Panel/Button6"]
 modulate = Color(0, 0.93333316, 1, 1)
@@ -1845,7 +1827,7 @@ offset_top = 9.999992
 offset_right = 46.0
 offset_bottom = -10.741943
 grow_vertical = 2
-texture = ExtResource("14_giedg")
+texture = ExtResource("14_f2gy6")
 expand_mode = 1
 
 [node name="Level" type="Panel" parent="CanvasGroup/Console/Black/Panel"]
@@ -1874,7 +1856,7 @@ text = "1"
 label_settings = SubResource("LabelSettings_1iiqb")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="top" type="Label" parent="CanvasGroup/Console/Black/Panel"]
 texture_filter = 1
@@ -1890,7 +1872,7 @@ text = "Панель
 Керування"
 label_settings = SubResource("LabelSettings_pqsfo")
 vertical_alignment = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="Log" type="Label" parent="CanvasGroup/Console/Black/Panel"]
 visible = false
@@ -1907,7 +1889,7 @@ label_settings = SubResource("LabelSettings_p122h")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="PanelLog" type="Panel" parent="CanvasGroup/Console/Black"]
 visible = false
@@ -1930,7 +1912,7 @@ text = "Лог"
 label_settings = SubResource("LabelSettings_pqsfo")
 horizontal_alignment = 1
 vertical_alignment = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasGroup/Console/Black/PanelLog"]
 layout_mode = 1
@@ -1957,7 +1939,7 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_t1wq5")
 vertical_alignment = 2
 autowrap_mode = 2
-script = ExtResource("5_403b1")
+script = ExtResource("5_ovkwm")
 
 [node name="PanelStone" type="Panel" parent="CanvasGroup/Console/Black"]
 visible = false
@@ -1974,7 +1956,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_giedg")
+texture = ExtResource("14_f2gy6")
 expand_mode = 1
 
 [node name="TextOld" type="Label" parent="CanvasGroup/Console"]
@@ -2033,9 +2015,9 @@ offset_bottom = -191.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "так"
-script = ExtResource("15_3ixpr")
+script = ExtResource("15_r0jag")
 
 [node name="No" type="Button" parent="CanvasGroup/Console"]
 visible = false
@@ -2049,9 +2031,9 @@ offset_bottom = -137.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "ні"
-script = ExtResource("15_3ixpr")
+script = ExtResource("15_r0jag")
 
 [node name="1V" type="Button" parent="CanvasGroup/Console"]
 visible = false
@@ -2065,9 +2047,9 @@ offset_bottom = -191.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "Спитати про Дейноп"
-script = ExtResource("15_3ixpr")
+script = ExtResource("15_r0jag")
 
 [node name="2V" type="Button" parent="CanvasGroup/Console"]
 visible = false
@@ -2081,9 +2063,9 @@ offset_bottom = -138.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "Спитати про Дейноп"
-script = ExtResource("15_3ixpr")
+script = ExtResource("15_r0jag")
 
 [node name="3V" type="Button" parent="CanvasGroup/Console"]
 visible = false
@@ -2097,9 +2079,9 @@ offset_bottom = -86.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "Спитати про Дейноп"
-script = ExtResource("15_3ixpr")
+script = ExtResource("15_r0jag")
 
 [node name="4V" type="Button" parent="CanvasGroup/Console"]
 visible = false
@@ -2113,98 +2095,16 @@ offset_bottom = -33.0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_ki411")
+theme = ExtResource("1_fneik")
 text = "Спитати про Дейноп"
-script = ExtResource("15_3ixpr")
-
-[node name="Пуста-Пустеля" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Пуста-Пустеля"]
-position = Vector2(3555, -362)
-motion_scale = Vector2(0.55, 0.55)
-
-[node name="Церква" type="Sprite2D" parent="Пуста-Пустеля/ParallaxLayer"]
-modulate = Color(0.69965345, 0.6996535, 0.6996533, 1)
-z_index = -20
-texture_filter = 1
-position = Vector2(-3392.0002, 171)
-scale = Vector2(2.0550005, 2.0550005)
-texture = ExtResource("33_peju5")
-
-[node name="Parallax2D" type="Parallax2D" parent="Пуста-Пустеля/ParallaxLayer"]
-scroll_offset = Vector2(-1212, -86)
-repeat_size = Vector2(1300.31, 0)
-repeat_times = 100
-
-[node name="Sprite2D" type="Sprite2D" parent="Пуста-Пустеля/ParallaxLayer/Parallax2D"]
-self_modulate = Color(0.6862745, 0.6862745, 0.6862745, 1)
-z_index = -20
-texture_filter = 1
-position = Vector2(-10929.887, 591.74994)
-scale = Vector2(2.01875, 2.0187497)
-texture = ExtResource("16_st67j")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Пуста-Пустеля"]
-z_index = -1
-position = Vector2(3857, -258)
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="Parallax2D" type="Parallax2D" parent="Пуста-Пустеля/ParallaxLayer2"]
-scroll_offset = Vector2(-1212, -86)
-repeat_size = Vector2(1300.31, 0)
-repeat_times = 100
-
-[node name="Sprite2D2" type="Sprite2D" parent="Пуста-Пустеля/ParallaxLayer2/Parallax2D"]
-self_modulate = Color(0.6862745, 0.6862745, 0.6862745, 1)
-z_index = -20
-texture_filter = 1
-position = Vector2(-10889, 504)
-scale = Vector2(2.01875, 2.0187497)
-texture = ExtResource("16_st67j")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Пуста-Пустеля"]
-z_index = -2
-position = Vector2(3050, -160)
-motion_scale = Vector2(0.45, 0.45)
-
-[node name="Parallax2D" type="Parallax2D" parent="Пуста-Пустеля/ParallaxLayer3"]
-scroll_offset = Vector2(-1212, -86)
-repeat_size = Vector2(1300.31, 0)
-repeat_times = 100
-
-[node name="Sprite2D3" type="Sprite2D" parent="Пуста-Пустеля/ParallaxLayer3/Parallax2D"]
-self_modulate = Color(0.6862745, 0.6862745, 0.6862745, 1)
-z_index = -20
-texture_filter = 1
-position = Vector2(-10705, 432.00003)
-scale = Vector2(2.01875, 2.0187497)
-texture = ExtResource("16_st67j")
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="Пуста-Пустеля"]
-z_index = -3
-position = Vector2(3050, -160)
-motion_scale = Vector2(0.4, 0.4)
-
-[node name="Parallax2D" type="Parallax2D" parent="Пуста-Пустеля/ParallaxLayer4"]
-scroll_offset = Vector2(-1212, -86)
-repeat_size = Vector2(1300.31, 0)
-repeat_times = 100
-
-[node name="Sprite2D4" type="Sprite2D" parent="Пуста-Пустеля/ParallaxLayer4/Parallax2D"]
-self_modulate = Color(0.6862745, 0.6862745, 0.6862745, 1)
-z_index = -20
-texture_filter = 1
-position = Vector2(-10333, 467)
-scale = Vector2(2.01875, 2.0187497)
-texture = ExtResource("16_st67j")
+script = ExtResource("15_r0jag")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 653.0
-offset_top = -685.0
-offset_right = 939.0
-offset_bottom = -598.0
-text = "Хелловін"
+offset_left = 1878.9131
+offset_top = -604.0
+offset_right = 2154.0
+offset_bottom = -547.0
+text = "ШО ТУТ"
 label_settings = SubResource("LabelSettings_fneik")
 
 [node name="СірийПісок" type="NinePatchRect" parent="."]
@@ -2215,7 +2115,7 @@ offset_top = -437.0
 offset_right = -2020.5044
 offset_bottom = -37.256744
 scale = Vector2(4, 4)
-texture = ExtResource("16_sq4er")
+texture = ExtResource("1_1c1ty")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
@@ -2232,452 +2132,106 @@ position = Vector2(4350.962, 5.0063477)
 shape = SubResource("RectangleShape2D_pxdqj")
 one_way_collision = true
 
-[node name="Decor" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1896.75, -5.25)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
+[node name="Cactus3Normal" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1595.2499, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
 
-[node name="Цвинтар" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal2" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1805.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal3" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1953.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
+
+[node name="Cactus3Normal4" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1717.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
+
+[node name="Cactus3Normal5" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1527, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal6" type="Sprite2D" parent="СірийПісок"]
+z_index = -1
+position = Vector2(1914.5, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal7" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(1903.0001, -6.2500024)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("20_3tlqj")
+position = Vector2(2083.125, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
 
-[node name="Цвинтар2" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal8" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(1876.5, -6.5000024)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("21_bdux5")
+position = Vector2(2285.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
 
-[node name="Цвинтар3" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal9" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(1930.5, -6.5000024)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("22_pprlx")
+position = Vector2(2448.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
 
-[node name="Цвинтар4" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal10" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(1955.75, -6.5000024)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("23_1p52d")
+position = Vector2(2197.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
 
-[node name="Рука" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal11" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(1440.5, -12.999969)
-rotation = 0.2617994
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("24_bdux5")
-hframes = 3
-script = ExtResource("22_v4575")
-max_frames = 3
-anim_speed = 2.0
+position = Vector2(2012.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
 
-[node name="Рука2" type="Sprite2D" parent="СірийПісок"]
+[node name="Cactus3Normal12" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(2410.0938, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal13" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1306.3438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+
+[node name="Cactus3Normal14" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1469.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("17_ovkwm")
+flip_h = true
+
+[node name="Cactus3Normal15" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1327.25, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+flip_h = true
+
+[node name="Cactus3Normal16" type="Sprite2D" parent="СірийПісок"]
+position = Vector2(1033.8438, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
+
+[node name="Cactus3Normal17" type="Sprite2D" parent="СірийПісок"]
 z_index = -2
-position = Vector2(2117, -12.999969)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("24_bdux5")
-hframes = 3
-script = ExtResource("22_v4575")
-max_frames = 3
-anim_speed = 2.0
-
-[node name="Рука3" type="Sprite2D" parent="СірийПісок"]
-z_index = -2
-position = Vector2(2005.2501, -36.5)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("25_1p52d")
-hframes = 10
-script = ExtResource("22_v4575")
-anim_speed = 0.2
-
-[node name="Каміння" type="Sprite2D" parent="СірийПісок"]
-z_index = -2
-position = Vector2(1852.75, -9.75)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("25_pprlx")
-
-[node name="Каміння2" type="Sprite2D" parent="СірийПісок"]
-z_index = -2
-position = Vector2(1461.5, -9.75)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("25_pprlx")
-
-[node name="Каміння3" type="Sprite2D" parent="СірийПісок"]
-z_index = -2
-position = Vector2(1118.5, -9.75)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("25_pprlx")
-flip_h = true
-
-[node name="Каміння4" type="Sprite2D" parent="СірийПісок"]
-z_index = -2
-position = Vector2(2216.25, -9.75)
-scale = Vector2(0.78026783, 0.78026783)
-texture = ExtResource("25_pprlx")
-flip_h = true
-
-[node name="Pumpkin2" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1603.7501, -14.8048935)
-rotation = 0.12732372
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-
-[node name="Pumpkin_H" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1611, -7.054901)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
-
-[node name="Pumpkin_H2" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1256.75, -6)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
-
-[node name="Pumpkin_H3" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1114, -6)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
-
-[node name="Pumpkin_H4" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2095, -6)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
-
-[node name="Pumpkin_H5" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2150.25, -6)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("17_n17wr")
-hframes = 2
-script = ExtResource("22_v4575")
-max_frames = 2
-anim_speed = 0.01
-
-[node name="Pumpkin" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1596, -7.054901)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin3" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1480.5, -7.054901)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin4" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1320.5, -5.75)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin5" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1212.75, -5.75)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin6" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1069.25, -5.75)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin8" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1941.25, -5.75)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin9" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2106.25, -5.75)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin10" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2237.25, -7)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Pumpkin7" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1079.25, -4)
-scale = Vector2(0.74011666, 0.74011666)
-texture = ExtResource("19_sq4er")
-flip_h = true
-
-[node name="Hrest" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1827.5, -7.2500005)
-scale = Vector2(0.6666667, 0.6666667)
-texture = ExtResource("28_3bcwk")
-
-[node name="Hrest2" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2172.5, -7.2500005)
-scale = Vector2(0.6666667, 0.6666667)
-texture = ExtResource("28_3bcwk")
-
-[node name="Hrest3" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1271.0001, -7.2500005)
-scale = Vector2(0.6666667, 0.6666667)
-texture = ExtResource("28_3bcwk")
-
-[node name="Hrest4" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1089.75, -7.2500005)
-scale = Vector2(0.6666667, 0.6666667)
-texture = ExtResource("28_3bcwk")
-
-[node name="Стовб" type="Sprite2D" parent="СірийПісок"]
-z_index = -10
-position = Vector2(1978.25, -41)
-texture = ExtResource("21_ohe14")
-
-[node name="Ґрати" type="NinePatchRect" parent="СірийПісок/Стовб"]
-z_index = -10
-texture_filter = 1
-offset_left = 5.5
-offset_top = -55.5
-offset_right = 182.25
-offset_bottom = 44.5
-texture = ExtResource("21_hncaj")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="Стовб2" type="Sprite2D" parent="СірийПісок/Стовб"]
-z_index = -10
-position = Vector2(184.75, 0)
-texture = ExtResource("21_ohe14")
-
-[node name="Стовб2" type="Sprite2D" parent="СірийПісок"]
-z_index = -10
-position = Vector2(1334.5, -4.75)
-texture = ExtResource("21_ohe14")
-
-[node name="Ґрати" type="NinePatchRect" parent="СірийПісок/Стовб2"]
-z_index = -10
-texture_filter = 1
-offset_left = 6.25
-offset_top = -50.25
-offset_right = 183.0
-offset_bottom = 49.75
-texture = ExtResource("21_hncaj")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="Ґрати2" type="NinePatchRect" parent="СірийПісок/Стовб2"]
-z_index = -10
-texture_filter = 1
-offset_left = 191.0
-offset_top = -50.25
-offset_right = 367.75
-offset_bottom = 49.75
-rotation = 0.0111971665
-texture = ExtResource("21_hncaj")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="Стовб2" type="Sprite2D" parent="СірийПісок/Стовб2"]
-z_index = -10
-position = Vector2(183.5, 1.5)
-rotation = 0.050362546
-texture = ExtResource("21_ohe14")
-
-[node name="Стовб3" type="Sprite2D" parent="СірийПісок/Стовб2"]
-z_index = -10
-position = Vector2(369.75, 0)
-texture = ExtResource("21_ohe14")
-
-[node name="Стовб3" type="Sprite2D" parent="СірийПісок"]
-z_index = -10
-position = Vector2(2560.25, -41)
-texture = ExtResource("21_ohe14")
-
-[node name="Ґрати" type="NinePatchRect" parent="СірийПісок/Стовб3"]
-z_index = -10
-texture_filter = 1
-offset_left = 6.25
-offset_top = -50.25
-offset_right = 183.0
-offset_bottom = 49.75
-texture = ExtResource("21_hncaj")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[node name="Стовб2" type="Sprite2D" parent="СірийПісок/Стовб3"]
-z_index = -10
-position = Vector2(184.75, 0)
-texture = ExtResource("21_ohe14")
-
-[node name="Mertv!" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1842.25, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("31_m2rrr")
-
-[node name="Mertv!5" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1481, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("31_m2rrr")
-
-[node name="Mertv!6" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1273.5, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("31_m2rrr")
-
-[node name="Mertv!7" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2166.5, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("31_m2rrr")
-
-[node name="Цвнтар" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1676.75, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("20_3tlqj")
-
-[node name="Цвнтар2" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1470.0001, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("21_bdux5")
-
-[node name="Цвнтар3" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1240.5, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("21_bdux5")
-
-[node name="Цвнтар4" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1804, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("21_bdux5")
-
-[node name="Цвнтар5" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2137.25, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("21_bdux5")
-
-[node name="Цвнтар6" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2204, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("20_3tlqj")
-
-[node name="Цвнтар7" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1423.25, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("20_3tlqj")
-
-[node name="Цвнтар8" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1339.5001, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("23_1p52d")
-
-[node name="Цвнтар9" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1126.25, -6.75)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("23_1p52d")
-
-[node name="Mertv!2" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1926.75, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("31_m2rrr")
-
-[node name="Mertv!3" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1973.7499, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-
-[node name="Mertv!4" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1881.4999, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
-
-[node name="Mertv!8" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1666.5, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
-
-[node name="Mertv!9" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1434.25, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
-
-[node name="Mertv!10" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(1230.75, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
-
-[node name="Mertv!11" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2118.0002, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
-
-[node name="Mertv!12" type="Sprite2D" parent="СірийПісок"]
-z_index = -1
-position = Vector2(2213.2502, -0.5)
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("32_peju5")
-flip_h = true
+position = Vector2(1431.0938, -16.312492)
+scale = Vector2(0.02398438, 0.02398438)
+texture = ExtResource("18_pxdqj")
 
 [node name="Dino" type="CharacterBody2D" parent="."]
 position = Vector2(783, -481.00003)
@@ -2693,7 +2247,7 @@ z_index = 5
 texture_filter = 1
 position = Vector2(0, -0.1621032)
 scale = Vector2(0.006073958, 0.0112238135)
-texture = ExtResource("19_tcdpu")
+texture = ExtResource("2_4cnbo")
 hframes = 3
 vframes = 33
 script = SubResource("GDScript_5aioy")
@@ -2713,7 +2267,7 @@ vframes = 5
 z_index = 1
 texture_filter = 1
 scale = Vector2(1, 0.9999999)
-texture = ExtResource("20_uq8dw")
+texture = ExtResource("3_elqox")
 hframes = 5
 vframes = 5
 
@@ -2723,9 +2277,9 @@ z_index = 100
 texture_filter = 1
 position = Vector2(0.076838195, 0.33551598)
 scale = Vector2(0.009969775, 0.018566474)
-texture = ExtResource("21_w7txi")
+texture = ExtResource("4_nvylj")
 hframes = 5
-script = ExtResource("22_v4575")
+script = ExtResource("5_yxamb")
 max_frames = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dino"]
@@ -2733,7 +2287,6 @@ texture_filter = 1
 scale = Vector2(0.0033556104, 0.0065454356)
 sprite_frames = SubResource("SpriteFrames_j6nr3")
 animation = &"norma"
-frame_progress = 0.7994596
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="Dino"]
 visible = false
@@ -2782,7 +2335,7 @@ texture_filter = 1
 position = Vector2(-0.06385204, -0.21676612)
 emitting = false
 amount = 1400
-texture = ExtResource("32_l4vqt")
+texture = ExtResource("15_t2up6")
 lifetime = 0.33
 process_material = SubResource("ParticleProcessMaterial_638ml")
 
@@ -2793,19 +2346,19 @@ texture_filter = 1
 position = Vector2(-0.06385207, -0.21676612)
 emitting = false
 amount = 1400
-texture = ExtResource("32_l4vqt")
+texture = ExtResource("15_t2up6")
 lifetime = 0.33
 process_material = SubResource("ParticleProcessMaterial_638ml")
 
 [node name="Walk" type="AudioStreamPlayer2D" parent="Dino"]
 scale = Vector2(0.0010121599, 0.001884921)
-stream = ExtResource("33_b5vml")
+stream = ExtResource("16_f2gy6")
 volume_db = -8.49
 bus = &"Sound"
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Dino"]
 scale = Vector2(0.0010121599, 0.001884921)
-stream = ExtResource("34_hq7wt")
+stream = ExtResource("17_r0jag")
 bus = &"Sound"
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
