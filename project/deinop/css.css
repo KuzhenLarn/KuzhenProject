@@ -598,12 +598,6 @@ button {
         justify-content: left;
     }
 
-    #download:hover,
-    #downloadKL:hover,
-    #downloadN:hover {
-        background-position: top left;
-    }
-
     #div1,
     #div2,
     #div3 {
@@ -661,14 +655,23 @@ button {
     #downloadKL,
     #downloadN {
         height: 270px;
-        background-position: top center;
+        width: 200px;
+        background-position: center center;
+        transform: scale(1.1, 1.1);
+        position: relative;
+        display: block;
+        margin: 0 auto;
     }
-
     #download:hover,
     #downloadKL:hover,
     #downloadN:hover {
         height: 270px;
-        background-position: top center;
+        width: 200px;
+        background-position: center center;
+        transform: scale(1.1, 1.1);
+        position: relative;
+        display: block;
+        margin: 0 auto;
     }
 
     .PC {

@@ -141,6 +141,8 @@ function downloadPC() {
         } else if (arch === 'x86_64') {
             location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop.x86_64";
         }
+    } else if (os === 'Mac OS') {
+        alert('Mac OS is not supported yet!');
     } else {
         alert('Download not available for your OS: ' + os + ' (' + arch + ')');
     }
@@ -165,7 +167,11 @@ $(document).ready(function () {
     var os = getOS();
     var arch = getArch();
     var pcButton = document.querySelector('.PC p');
+    var pcContainer = document.querySelector('.PC');
+    var androidButton = document.querySelector('.Android p');
+    var androidContainer = document.querySelector('.Android');
 
+    // Перевірка ПК платформ
     if (pcButton) {
         if (os === 'Linux') {
             if (arch === 'arm64') {
@@ -177,6 +183,23 @@ $(document).ready(function () {
             }
         } else if (os === 'Windows') {
             pcButton.innerHTML = 'Download<br>Windows';
+        } else if (os === 'Mac OS') {
+            pcButton.innerHTML = 'Mac OS<br>Not Supported';
+            if (pcContainer) {
+                pcContainer.style.pointerEvents = 'none';
+                pcContainer.style.opacity = '0.5';
+            }
+        }
+    }
+
+    // Перевірка iOS (Айфони/Айпади)
+    if (os === 'iOS') {
+        if (androidButton) {
+            androidButton.innerHTML = 'iOS<br>Not Supported';
+        }
+        if (androidContainer) {
+            androidContainer.style.pointerEvents = 'none';
+            androidContainer.style.opacity = '0.5';
         }
     }
 
