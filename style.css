@@ -226,6 +226,10 @@ hr {
     src: url(font/DoubleFeature.ttf);
 }
 
+.container-button {
+    display: flex;
+    justify-content: center;
+}
 
 
 
@@ -242,7 +246,6 @@ hr {
 
 @media (max-width: 1148px) {
 
-    /*прибирання анімаційног текста*/
     .verhna_text_box {
         display: none;
     }
@@ -254,16 +257,13 @@ hr {
 
 
 
-
 @media (max-width: 900px) {
 
-    /*для мобільних пристроїв*/
     body {
         margin: 0px 0px 0px 0px;
     }
 
     .title_div {
-        /*верхня панелька*/
         position: fixed;
         top: 0px;
         left: 0px;
@@ -273,13 +273,11 @@ hr {
     }
 
     .title_flash_button {
-        /*верхня панелька*/
         margin: 15px 0 15px 0;
         display: block;
     }
 
     .title_content {
-        /*верхня панелька*/
         position: fixed;
         top: 50px;
         left: 15px;
@@ -297,5 +295,20 @@ hr {
 @media (max-width: 500px) {
     #ico_kuzhen_project {
         padding-top: 60%;
+    }
+
+    .container-button {
+        display: block;
+    }
+
+    #button_start_1 {
+        transform: scale(0.9, 0.9);
+    }
+}
+
+@media (max-width: 300px) {
+
+    #button_start_1 {
+        transform: scale(0.6, 0.6);
     }
 }

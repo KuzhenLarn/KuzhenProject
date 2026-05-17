@@ -1,15 +1,13 @@
-const WelcomeText = "Kuzhen Project - це Українська команда яка займається розробкою ігор.";
 let isTyping = false;
 let currentText = "";
 let gondo = 0;
 let textIndex = 0;
 const texts = [
   "Kuzhen Project - це Українська команда яка займається розробкою ігор.",
-  "Ця сторінка надає доступ до всих проєктів Кужен Проєкт.",
-  "Є можливість додати свій запит на приєднання в команду Кужен Проєкт.",
-  "Моніторьте який прогрес в розробці гри та хто саме це робить."
+  "Ця сторінка надає доступ до всих проєктів Kuzhen Project.",
+  "Весь продукт від Kuzhen Project є безкоштовним для дослідження."
 ];
-document.addEventListener('DOMContentLoaded', function() { // Виконується, коли весь HTML завантажений і розібраний
+document.addEventListener('DOMContentLoaded', function() {
     startTypingCycle();
     document.getElementById("start_p").style.fontSize = "25px";
     document.getElementById("ico_kuzhen_project").style.transitionDuration = "0.4s";
