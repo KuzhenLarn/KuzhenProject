@@ -5,6 +5,10 @@ body {
     color: #ffffff;
     text-align: center;
     font-family: 'Standart';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 button {
@@ -16,6 +20,7 @@ button {
     text-align: center;
     font-family: 'Standart';
 }
+
 button:hover {
     filter: brightness(0.7);
 }
@@ -37,24 +42,29 @@ button:hover {
     box-shadow: 0px 0px 10px #ffd900;
     transition-duration: 0.4s;
 }
+
 #button_info_1 {
     transition-duration: 0.4s;
     color: #756400;
     display: none;
 }
+
 #button_start_text_1 {
     transition-duration: 0.4s;
 }
+
 #button_start_1:hover {
     box-shadow: 0px 0px 10px #ff0000;
     background: #ffd900;
     transform: rotate(20deg);
 }
-#button_start_1:hover #button_start_text_1{
+
+#button_start_1:hover #button_start_text_1 {
     color: #756400;
     transform: rotate(-20deg);
     display: none;
 }
+
 #button_start_1:hover #button_info_1 {
     display: block;
     transform: rotate(-20deg);
@@ -230,10 +240,13 @@ hr {
 
 
 
-@media (max-width: 1148px) { /*прибирання анімаційног текста*/
+@media (max-width: 1148px) {
+
+    /*прибирання анімаційног текста*/
     .verhna_text_box {
         display: none;
     }
+
     #ico_kuzhen_project {
         padding-top: 30%;
     }
@@ -242,7 +255,9 @@ hr {
 
 
 
-@media (max-width: 900px) { /*для мобільних пристроїв*/
+@media (max-width: 900px) {
+
+    /*для мобільних пристроїв*/
     body {
         margin: 0px 0px 0px 0px;
     }
