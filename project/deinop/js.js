@@ -114,33 +114,26 @@ function Open3() {
     } else {
         document.getElementById("div3").style.right = "5%";
         document.getElementById("div3").style.width = "90%";
-        document.getElementById("div3").style.border = "5px solid rgb(0,0,0,1)"; 
+        document.getElementById("div3").style.border = "5px solid rgb(0,0,0,1)";
     }
 }
 
 
 
 function downloadAndroind() {
+
     var x = new XMLHttpRequest();
-    x.open("GET", "https://kuzhenlarn.github.io/KuzhenProject/project/deinop/settings/version.txt", true);
-    
+
+    x.open("GET", "../../deinop/settings/version.txt", true);
+
     x.onload = function () {
-        if (x.status === 200) {
-            var version = x.responseText.trim();
-            
-            var url = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v" + version + "/Deinop.apk";
-            
-            location.href = url;
-        } else {
-            console.error("Не вдалося завантажити версію, статус: " + x.status);
-        }
-    };
-    
-    x.onerror = function() {
-        console.error("Помилка мережі при отриманні version.txt");
-    };
-    
+
+        location.href = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v0.5.4.031/Deinop.apk";
+
+    }
+
     x.send(null);
+
 }
 
 function downloadPC() {
