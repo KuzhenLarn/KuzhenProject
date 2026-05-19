@@ -123,9 +123,23 @@ function Open3() {
 function downloadAndroind() {
     var x = new XMLHttpRequest();
     x.open("GET", "../../deinop/settings/version.txt", true);
+    
     x.onload = function () {
-        location.href = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v0.5.4.03/Deinop.apk";
-    }
+        if (x.status === 200) {
+            var version = x.responseText.trim();
+            
+            var url = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v" + version + "/Deinop.apk";
+            
+            location.href = url;
+        } else {
+            console.error("Не вдалося завантажити версію, статус: " + x.status);
+        }
+    };
+    
+    x.onerror = function() {
+        console.error("Помилка мережі при отриманні version.txt");
+    };
+    
     x.send(null);
 }
 
