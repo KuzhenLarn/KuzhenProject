@@ -122,7 +122,7 @@ function Open3() {
 
 function downloadAndroind() {
     var x = new XMLHttpRequest();
-    x.open("GET", "../../deinop/settings/version.txt", true);
+    x.open("GET", "https://kuzhenlarn.github.io/KuzhenProject/project/deinop/settings/version.txt", true);
     
     x.onload = function () {
         if (x.status === 200) {
