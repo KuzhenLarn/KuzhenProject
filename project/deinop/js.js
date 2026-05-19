@@ -119,7 +119,7 @@ function Open3() {
 }
 
 
-/* 
+
 function downloadAndroind() {
     var x = new XMLHttpRequest();
     x.open("GET", "https://kuzhenlarn.github.io/KuzhenProject/project/deinop/settings/version.txt", true);
@@ -142,23 +142,8 @@ function downloadAndroind() {
     
     x.send(null);
 }
-ПОТІМ ЗМІНИ НА ЦЕЙ СКРІПТ ДАУН З 0.5.4.031 НА v0.5.4.04*/ 
 
-function downloadAndroind() {
 
-    var x = new XMLHttpRequest();
-
-    x.open("GET", "../../deinop/settings/version.txt", true);
-
-    x.onload = function () {
-
-        location.href = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/0.5.4.031/Deinop.apk";
-
-    }
-
-    x.send(null);
-
-}
 
 function downloadPC() {
     var os = getOS();
