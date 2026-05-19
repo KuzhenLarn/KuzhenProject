@@ -119,6 +119,30 @@ function Open3() {
 }
 
 
+/* 
+function downloadAndroind() {
+    var x = new XMLHttpRequest();
+    x.open("GET", "https://kuzhenlarn.github.io/KuzhenProject/project/deinop/settings/version.txt", true);
+    
+    x.onload = function () {
+        if (x.status === 200) {
+            var version = x.responseText.trim();
+            
+            var url = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v" + version + "/Deinop.apk";
+            
+            location.href = url;
+        } else {
+            console.error("Не вдалося завантажити версію, статус: " + x.status);
+        }
+    };
+    
+    x.onerror = function() {
+        console.error("Помилка мережі при отриманні version.txt");
+    };
+    
+    x.send(null);
+}
+ПОТІМ ЗМІНИ НА ЦЕЙ СКРІПТ ДАУН З 0.5.4.031 НА v0.5.4.04*/ 
 
 function downloadAndroind() {
 
