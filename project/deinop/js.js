@@ -128,7 +128,7 @@ function downloadAndroind() {
 
     x.onload = function () {
 
-        location.href = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/v0.5.4.031/Deinop.apk";
+        location.href = "https://github.com/KuzhenLarn/KuzhenProject/releases/download/0.5.4.031/Deinop.apk";
 
     }
 
