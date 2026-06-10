@@ -176,7 +176,7 @@ function downloadPC() {
     if (os === 'Windows') {
         location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop.exe";
     } else if (os === 'Linux') {
-        downloadFile("https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop-Linux.sh", "Deinop-Linux.sh");
+        downloadFile("https://kuzhenproject.netlify.app/project/deinop/settings/Deinop-Linux.sh", "Deinop-Linux.sh");
         alert('Файл Deinop-Linux.sh завантажується. Якщо потрібно, дайте йому права на виконання: chmod +x Deinop-Linux.sh.');
     } else if (os === 'Mac OS') {
         alert('Mac OS is not supported yet!');
