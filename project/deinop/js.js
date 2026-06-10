@@ -145,6 +145,30 @@ function downloadAndroind() {
 
 
 
+function downloadFile(url, filename) {
+    fetch(url)
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.status);
+            }
+            return response.blob();
+        })
+        .then(function(blob) {
+            var blobUrl = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+        })
+        .catch(function(error) {
+            console.error('Download failed:', error);
+            alert('Не вдалося завантажити файл. Спробуйте ще раз або скачайте вручну: ' + url);
+        });
+}
+
 function downloadPC() {
     var os = getOS();
     var arch = getArch();
@@ -152,7 +176,7 @@ function downloadPC() {
     if (os === 'Windows') {
         location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop.exe";
     } else if (os === 'Linux') {
-        location.href = "https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop-Linux.sh";
+        downloadFile("https://github.com/KuzhenLarn/KuzhenProject/raw/refs/heads/main/project/deinop/settings/Deinop-Linux.sh", "Deinop-Linux.sh");
         alert('Файл Deinop-Linux.sh завантажується. Якщо потрібно, дайте йому права на виконання: chmod +x Deinop-Linux.sh.');
     } else if (os === 'Mac OS') {
         alert('Mac OS is not supported yet!');
