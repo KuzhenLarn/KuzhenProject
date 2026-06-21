@@ -233,7 +233,10 @@ hr {
 
 
 
-
+    #timer-klabc{
+        top: 60px;
+        left: 0;
+    }
 
 
 
@@ -303,6 +306,10 @@ hr {
 
     #button_start_1 {
         transform: scale(0.9, 0.9);
+    }
+    #timer-klabc{
+        top: 0;
+        left: 100px;
     }
 }
 
