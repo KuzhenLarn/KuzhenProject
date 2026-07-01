@@ -1,0 +1,11 @@
+[
+null,
+{"id":1,"battlerName":"Sprite-0001","characterIndex":0,"characterName":"Actor1 - Copy","classId":1,"equips":[0,0],"faceIndex":4,"faceName":"SF_Monster1","traits":[{"code":51,"dataId":2,"value":1},{"code":52,"dataId":1,"value":1}],"initialLevel":1,"maxLevel":99,"name":"Школьник","nickname":"","note":"","profile":""},
+{"id":2,"battlerName":"игорь1_1","characterIndex":0,"characterName":"$MONSTER","classId":1,"equips":[50],"faceIndex":6,"faceName":"Untitled","traits":[{"code":41,"dataId":2,"value":1}],"initialLevel":1,"maxLevel":99,"name":"Игорь","nickname":"","note":"","profile":""},
+{"id":3,"battlerName":"FOG","characterIndex":0,"characterName":"$FOG","classId":2,"equips":[7],"faceIndex":7,"faceName":"Untitled","traits":[{"code":43,"dataId":229,"value":1},{"code":43,"dataId":43,"value":1}],"initialLevel":1,"maxLevel":99,"name":"Фог","nickname":"","note":"","profile":""},
+{"id":4,"battlerName":"Actor1_4","characterIndex":3,"characterName":"Actor1","classId":5,"equips":[31],"faceIndex":3,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Мишель","nickname":"","note":"","profile":""},
+{"id":5,"battlerName":"Actor1_5","characterIndex":4,"characterName":"Actor1","classId":2,"equips":[7],"faceIndex":4,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Альберт","nickname":"","note":"","profile":""},
+{"id":6,"battlerName":"Actor1_6","characterIndex":5,"characterName":"Actor1","classId":2,"equips":[7],"faceIndex":5,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Кейси","nickname":"","note":"","profile":""},
+{"id":7,"battlerName":"Actor1_7","characterIndex":6,"characterName":"Actor1","classId":3,"equips":[7],"faceIndex":6,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Элиот","nickname":"","note":"","profile":""},
+{"id":8,"battlerName":"Actor1_8","characterIndex":7,"characterName":"Actor1","classId":3,"equips":[7],"faceIndex":7,"faceName":"Actor1","traits":[],"initialLevel":1,"maxLevel":99,"name":"Роза","nickname":"","note":"","profile":""}
+]
