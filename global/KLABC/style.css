@@ -1,0 +1,454 @@
+body {
+    background: black;
+}
+
+html {
+    scrollbar-color: rgb(255, 223, 202) rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#login-img {
+    top: -200px;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+#login-div {
+    top: 60%;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+#login-form{
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+#login-name{
+    border: none;
+    padding: 10px;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Fira Code', monospace;
+    background-color: rgb(255, 223, 202);
+}
+
+#login-name:focus{
+    background-color: black;
+    color: rgb(255, 223, 202);
+}
+
+#login-enter{
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    background-color: rgb(255, 223, 202);
+}
+
+#login-enter:hover{
+    color: rgb(255, 223, 202);
+    background-color: black;
+}
+
+#chat-top-div{
+    top: 1%;
+    width: 99.5%;
+    height: 90px;
+    position: fixed;
+    border-radius: 20px;
+    background-color: rgb(255, 223, 202);
+    z-index: 10;
+}
+
+#chat-top-welcome{
+    font-size: 50px;
+    border-radius: 20px;
+    position: fixed;
+    color: rgb(255, 223, 202);
+    padding: 10px;
+    top: -35px;
+    left: 15px;
+    background-color: rgb(0, 0, 0);
+}
+
+#chat-exit{
+    cursor: pointer;
+    width: 8%;
+    height: 90px;
+    border: 0px;
+    padding: 0px;
+    position: fixed;
+    top: 1%;
+    right: 1px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background-color: rgb(255, 223, 202);
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/logout_200dp_000000_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+    background-position: center center;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+}
+
+#chat-exit:hover{
+    background-color: rgb(0, 0, 0);
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/logout_200dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+}
+
+#chat-input-div{
+    width: 98.3%;
+    height: 90px;
+    border: 0px;
+    padding: 0px;
+    position: fixed;
+    bottom: 1%;
+    border-radius: 20px;
+    background-color: rgb(255, 223, 202);
+    z-index: 10;
+}
+
+#chat-input{
+    width: 90%;
+    height: 90px;
+    border: 0px;
+    padding: 0px 10px 0px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 50px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-family: 'Fira Code', monospace;
+    background-color: transparent;
+}
+
+#chat-input:focus{
+    color: rgb(255, 223, 202);
+    background-color: black;
+}
+
+#chat-enter{
+    cursor: pointer;
+    width: 8%;
+    height: 90px;
+    border: 0px;
+    padding: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background-color: transparent;
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/arrow_forward_ios_200dp_000000_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+    background-position: center center;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+}
+
+#chat-enter:hover{
+    background-color: black;
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/arrow_forward_ios_200dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+}
+
+#chat-center-div{
+    position: fixed;
+    bottom: 100px;
+    left: 2.5%;
+    margin: auto center;
+    padding: 30px 0px 10px 0px;
+    height: 86%;
+    width: 95%;
+    background-color: rgb(83, 73, 65);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.blockms {
+    position: relative;
+    margin: 10px;
+    width: fit-content;
+    max-width: 60%;
+    background-color: rgb(255, 223, 202);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.blockms-name {
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: rgb(255, 223, 202);
+    display: block;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.blockms-text {
+    font-size: 30px;
+    line-height: 1.4;
+    display: block;
+}
+
+.blockms-time {
+    display: block;
+    margin-top: 5px;
+    color: #444;
+}
+
+.msg-right {
+    align-self: flex-end;
+}
+
+.msg-right .blockms {
+    background-color: #d1f5d3;
+}
+
+.msg-left {
+    align-self: flex-start;
+}
+
+#login-error {
+    color: red;
+    font-size: 20px;
+    background: rgb(255, 223, 202);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.msg-right .blockms-name {
+    display: none;
+}
+
+.msgln i {
+    display: block;
+    text-align: center;
+    background: rgb(255, 223, 202);
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: fit-content;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.msgln.system-msg i {
+    background: transparent;
+    color: #bdbdbd;
+    font-size: 22px;
+    padding: 4px 12px;
+    margin: 6px auto;
+    opacity: 0.76;
+}
+
+.msgln.system-msg {
+    border: 1px solid rgba(255, 223, 202, 0.35);
+    background: rgba(255, 223, 202, 0.08);
+}
+
+.blockms-text a,
+.chat-file-link,
+.chat-image + a {
+    word-break: break-word;
+}
+
+.blockms-text a {
+    color: #1e5a75;
+    text-decoration: underline;
+}
+
+.blockms-text a:hover {
+    color: #163f52;
+}
+
+#chat-img-btn {
+    cursor: pointer;
+    width: 8%;
+    height: 90px;
+    border: 0px;
+    padding: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    border-radius: 20px;
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/add_circle_200dp_000000_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+    background-color: transparent;
+    background-position: center center;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    transition-duration: 0.4s;
+}
+
+#chat-img-btn:hover {
+    background-image: url('https://github.com/KuzhenLarn/KuzhenProject/blob/main/img/add_circle_200dp_F3F3F3_FILL0_wght400_GRAD0_opsz48.png?raw=true');
+    background-color: black;
+}
+
+#chat-input {
+    width: 82%;
+    left: 8%; 
+}
+
+.chat-image {
+    max-width: 250px;
+    max-height: 250px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: block;
+}
+
+#chat-top-chat-name {
+    font-size: 50px;
+    border-radius: 20px;
+    position: fixed;
+    color: rgb(255, 223, 202);
+    padding: 10px;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+#scroll-bottom-btn {
+    position: fixed;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(255, 223, 202);
+    color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+#scroll-bottom-btn:hover {
+    background-color: black;
+    color: rgb(255, 223, 202);
+    border-color: rgb(255, 223, 202);
+}
+
+.chat-file-link {
+    color: #1e5a75;
+    text-decoration: none;
+    font-size: 26px;
+    display: inline-block;
+    word-break: break-all;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px dashed #1e5a75;
+    margin-top: 5px;
+}
+
+.chat-file-link:hover {
+    text-decoration: underline;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.msg-right .chat-file-link {
+    color: #1b5e20;
+    border-color: #1b5e20;
+}
+
+@media (max-width: 1500px) {
+    #chat-top-chat-name {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    #chat-top-welcome {
+        font-size: 30px;
+        top: -20px;
+        left: 12px;
+    }
+    #chat-top-div {
+        height: 60px;
+    }
+    #chat-center-div {
+        bottom: 60px;
+    }
+    #chat-exit {
+        height: 60px;
+        width: 15%;
+        right: 0px;
+        background-size: 50px 50px;
+        border-radius: 20px 0px 0px 20px;
+    }
+    #chat-enter{
+        height: 60px;
+        width: 15%;
+        right: 0px;
+        border-radius: 0px 20px 0px 0px;
+        background-size: 50px 50px;
+    }
+    #chat-input{
+        height: 60px;
+        font-size: 30px;
+        width: 80%;
+        border-radius: 20px 0px 0px 0px;
+    }
+    #chat-input:focus{
+        background-color: rgb(255, 223, 202);
+        color: black;
+    }
+    #chat-input-div{
+        height: 60px;
+        width: 96%;
+        border-radius: 20px 20px 0px 0px;
+        bottom: 0px;
+    }
+    #login-name{
+        font-size: 30px;
+    }
+    #login-enter{
+        font-size: 30px;
+    }
+    #chat-img-btn {
+        height: 60px;
+        width: 15%;
+        border-radius: 20px 0px 0px 0px;
+        background-size: 50px 50px;
+    }
+    #chat-input {
+        width: 70%;
+        left: 15%;
+        border-radius: 0;
+    }
+    #scroll-bottom-btn {
+        bottom: 80px;
+        font-size: 18px;
+        padding: 8px 15px;
+    }
+}
