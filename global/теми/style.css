@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Shafarik&display=swap');
+
+body{
+    background-color: #725c5c;
+    font-family: "Caveat", cursive;
+}
+
+button{
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #6b3e3e;
+
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    background-color: #6b3e3e;
+}
+
+header{
+    background-color: #b1d795;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    margin: -10px -10px 100px ;
+}
+
+img{
+    width: 500px;
+    transition-duration: 0.4s;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 2px solid #6b3e3e;
+    cursor: pointer;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
